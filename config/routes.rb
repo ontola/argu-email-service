@@ -1,4 +1,5 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/:id', to: 'batches#show', defaults: {format: :json}
+  post '/events', to: 'events#create', defaults: {format: :json}
 end

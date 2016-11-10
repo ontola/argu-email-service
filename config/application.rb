@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require_relative 'boot'
 
-require 'rails'
+# require 'rails'
 # Pick the frameworks you want:
 require 'active_model/railtie'
 require 'active_job/railtie'
@@ -17,7 +17,7 @@ require 'rails/test_unit/railtie'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module BearerTokenService
+module EmailService
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -27,5 +27,19 @@ module BearerTokenService
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.host_name = ENV['HOSTNAME']
+    config.oauth_url = ENV['OAUTH_URL']
+
+    config.templates = HashWithIndifferentAccess.new(
+      YAML.load(File.read(File.expand_path('../templates.yml', __FILE__)))
+    )
+
+    config.active_job.queue_adapter = :sidekiq
+
+    I18n.available_locales = [:nl, :en]
+    config.i18n.available_locales = [:nl, :en]
+    config.i18n.load_path += Dir["#{Rails.root}/config/locales/**/*.{rb,yml}"]
+
+    require 'argu/message_delivery'
   end
 end

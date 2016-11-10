@@ -3,4 +3,4 @@
 
 require_relative 'config/environment'
 
-run Rails.application
+run Rack::URLMap.new('/email' => Rails.application)

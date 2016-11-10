@@ -26,3 +26,15 @@ Metrics/ModuleLength:
   Max: 300
 Style/Documentation:
   Enabled: false
+Metrics/MethodLength:
+  Exclude:
+    - 'lib/argu/test_helpers/test_mocks.rb'
+Lint/Eval:
+  Exclude:
+    - 'lib/argu/test_helpers.rb'
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/development.rb'
+Style/MethodMissing:
+  Exclude:
+    - 'app/mailers/application_mailer.rb'
