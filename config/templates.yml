@@ -1,0 +1,3 @@
+passwordChanged:
+  mailer: 'UserMailer'
+  method: 'password_changed'
