@@ -1,0 +1,284 @@
+/* line 5, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 10, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+img {
+  border: 0 none;
+  height: auto;
+  line-height: 100%;
+  outline: none;
+  text-decoration: none;
+}
+
+/* line 18, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+a img {
+  border: 0 none;
+}
+
+/* line 22, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.imageFix {
+  display: block;
+}
+
+/* line 26, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+table, td {
+  border-collapse: collapse;
+}
+
+/* line 30, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-body {
+  height: 100% !important;
+  margin: 0;
+  padding: 0;
+  width: 100% !important;
+}
+
+/* line 39, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-body {
+  background-color: #e8e8e8;
+}
+
+/* line 43, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-h3 {
+  font-family: Open sans, Helvetica, Segoe UI, sans-serif;
+  color: #5a5a5a;
+  font-weight: bold;
+  font-weight: 700;
+  word-break: break-word;
+  line-height: 20px;
+  font-size: 20px;
+  padding: 0 0 5px 0;
+}
+
+/* line 54, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-p {
+  font-family: Open sans, Helvetica, Segoe UI, sans-serif;
+  word-break: break-word;
+  line-height: 20px;
+  color: #5a5a5a;
+  padding: 0 0 15px 0;
+}
+/* line 60, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-p.small {
+  font-size: 12px;
+}
+
+/* line 65, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+a {
+  color: #3D6CA5;
+  text-decoration: underline;
+}
+/* line 68, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+a:hover {
+  color: #475668 !important;
+}
+
+/* line 73, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-box {
+  background-color: white;
+  padding: 14px 14px 0px 14px;
+}
+
+/* line 79, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-grey-link a {
+  color: #5a5a5a;
+}
+
+/* line 85, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-button--alt table {
+  width: 100%;
+  text-align: center;
+  height: 120px;
+}
+/* line 92, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-button--alt td {
+  height: 35px;
+  line-height: 35px;
+  color: white;
+}
+/* line 99, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-button--alt a {
+  font-family: Open sans, Helvetica, Segoe UI, sans-serif;
+  display: inline-block;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #547f4b;
+  border: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+  width: auto;
+  outline: none;
+  display: inline-block;
+  cursor: pointer;
+  border-bottom: solid 3px #3f5f38;
+  -webkit-transition: .15s;
+  transition: .15s;
+  border-top: solid 3px #547f4b;
+  border-radius: 6px;
+  height: 35px;
+  line-height: 35px;
+}
+/* line 125, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-button--alt a:hover {
+  background-color: #496f42 !important;
+  border-top-color: #496f42 !important;
+  border-bottom-color: #344f2f !important;
+  color: white !important;
+}
+/* line 131, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-button--alt a:active {
+  background-color: #344f2f !important;
+  border-bottom-color: #344f2f !important;
+  border-top-color: #2a3f25 !important;
+  transition: none;
+  color: white !important;
+}
+
+/* line 141, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-center {
+  text-align: center;
+}
+
+/* line 145, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-wrapper {
+  width: 100%;
+  background-color: #e8e8e8;
+}
+
+/* line 150, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-header {
+  background-color: #475668;
+  text-align: center;
+}
+
+/* line 155, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-header-logo {
+  height: 41px;
+  width: 96px;
+  padding-top: 3px;
+}
+
+/* line 161, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-hidden {
+  display: none;
+}
+
+/* line 165, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-center-column {
+  width: 550px;
+  padding: 12px;
+}
+
+/* line 170, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+table {
+  width: 100%;
+}
+
+/* line 174, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-footer {
+  background-color: #5a5a5a;
+  text-align: center;
+}
+/* line 177, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-footer * {
+  color: #aaaaaa;
+}
+/* line 180, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-footer a {
+  text-decoration: underline;
+}
+/* line 182, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-footer a:hover {
+  color: #e8e8e8 !important;
+}
+/* line 185, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-footer a:hover span {
+  color: #e8e8e8 !important;
+}
+/* line 189, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-footer .mail-hidden {
+  color: #5a5a5a;
+  font-size: 0;
+}
+
+/* line 195, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-footer-padding {
+  background-color: #5a5a5a;
+  height: 15px;
+}
+
+/* line 200, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-margin-top {
+  height: 20px;
+}
+
+/* line 203, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.mail-margin-bottom {
+  height: 20px;
+}
+
+/* line 207, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.pro-t {
+  color: #547f4b;
+}
+/* line 209, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.pro-t * {
+  color: #547f4b !important;
+}
+
+/* line 214, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.con-t {
+  color: #863d3d;
+}
+/* line 216, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.con-t * {
+  color: #863d3d !important;
+}
+
+/* line 221, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.motion-t {
+  color: #475668;
+}
+/* line 223, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.motion-t * {
+  color: #475668 !important;
+}
+
+/* line 228, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.neutral-t {
+  color: #737373;
+}
+/* line 230, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.neutral-t * {
+  color: #737373 !important;
+}
+
+/* line 235, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.question-t {
+  color: #684747;
+}
+/* line 237, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.question-t * {
+  color: #684747 !important;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+*/
+

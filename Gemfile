@@ -34,7 +34,6 @@ gem 'activeresource',
     git: 'https://github.com/rails/activeresource',
     branch: 'master'
 gem 'roadie-rails', '~> 1.0'
-gem 'aws-sdk'
 gem 'bunny'
 
 group :development, :test do

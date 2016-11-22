@@ -64,12 +64,6 @@ GEM
     assert_difference (1.0.0)
       activesupport (>= 3.0.0)
     ast (2.3.0)
-    aws-sdk (2.3.9)
-      aws-sdk-resources (= 2.3.9)
-    aws-sdk-core (2.3.9)
-      jmespath (~> 1.0)
-    aws-sdk-resources (2.3.9)
-      aws-sdk-core (= 2.3.9)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -133,10 +127,7 @@ GEM
       domain_name (~> 0.5)
     i18n (0.7.0)
     ice_cube (0.14.0)
-    jmespath (1.2.4)
-      json_pure (>= 1.8.1)
     json (1.8.3)
-    json_pure (1.8.3)
     jsonapi (0.1.1.beta2)
       json (~> 1.8)
     jwt (1.5.4)
@@ -302,7 +293,6 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   activeresource!
   assert_difference
-  aws-sdk
   better_errors
   binding_of_caller
   brakeman (~> 3.4.0)
