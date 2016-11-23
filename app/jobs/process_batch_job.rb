@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 class ProcessBatchJob < ApplicationJob
+  sidekiq_options retry: false
+
   def perform(batch_id)
     @batch = Batch.find(batch_id)
     @batch.with_lock do

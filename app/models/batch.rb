@@ -8,7 +8,7 @@ class Batch < ApplicationRecord
 
   def enqueue_job
     return if job_is_active?
-    ProcessBatchJob.perform_later(id)
+    ProcessBatchJob.perform_async(id)
   end
 
   def mailer
