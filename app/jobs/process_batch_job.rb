@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class ProcessBatchJob < ApplicationJob
-  sidekiq_options retry: false
+  sidekiq_options retry: false, queue: 'email_service'
 
   def perform(batch_id)
     @batch = Batch.find(batch_id)

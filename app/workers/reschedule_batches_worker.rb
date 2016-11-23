@@ -2,6 +2,8 @@
 class RescheduleBatchesWorker
   include Sidekiq::Worker
   include Sidetiq::Schedulable
+  sidekiq_options queue: 'email_service'
+
   recurrence { minutely }
 
   def perform
