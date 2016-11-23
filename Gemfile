@@ -35,6 +35,7 @@ gem 'activeresource',
     branch: 'master'
 gem 'roadie-rails', '~> 1.0'
 gem 'bunny'
+gem 'bugsnag', '~> 4.2.1'
 
 group :development, :test do
   gem 'rubocop', '~> 0.45.0'
