@@ -1,8 +1,7 @@
-FROM fletcher91/ruby-vips-qt-unicorn:latest
+FROM ruby:2.3.3-alpine
 ARG C66=true
 
-RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
-RUN apt-get update && apt-get install -y nodejs
+RUN apk update && apk upgrade && apk add git
 
 # throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
