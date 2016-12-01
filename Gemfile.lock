@@ -1,4 +1,15 @@
 GIT
+  remote: git@bitbucket.org:arguweb/service_base.git
+  revision: 70bc2517f88b833c427c429cb3acea71fc1e5751
+  specs:
+    service_base (0.0.1)
+      activesupport (~> 5.0.0.1)
+      jsonapi (~> 0.1.1.beta2)
+      oauth2 (~> 1.2.0)
+      rails (~> 5.0.0.1)
+      uri_template (~> 0.7.0)
+
+GIT
   remote: https://github.com/rails/activeresource
   revision: f4bec7f8f389a203c51bdeaac02addc0bca7ce43
   branch: master
@@ -60,7 +71,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     amq-protocol (2.0.1)
-    arel (7.1.1)
+    arel (7.1.4)
     assert_difference (1.0.0)
       activesupport (>= 3.0.0)
     ast (2.3.0)
@@ -128,10 +139,13 @@ GEM
       domain_name (~> 0.5)
     i18n (0.7.0)
     ice_cube (0.14.0)
-    json (1.8.3)
-    jsonapi (0.1.1.beta2)
-      json (~> 1.8)
-    jwt (1.5.4)
+    json (2.0.2)
+    jsonapi (0.1.1.beta6)
+      jsonapi-parser (= 0.1.1.beta3)
+      jsonapi-renderer (= 0.1.1.beta1)
+    jsonapi-parser (0.1.1.beta3)
+    jsonapi-renderer (0.1.1.beta1)
+    jwt (1.5.6)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -154,9 +168,8 @@ GEM
     multipart-post (2.0.0)
     netrc (0.11.0)
     nio4r (1.2.1)
-    nokogiri (1.6.8)
+    nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
-      pkg-config (~> 1.1.7)
     oauth2 (1.2.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -166,7 +179,6 @@ GEM
     parser (2.3.1.4)
       ast (~> 2.2)
     pg (0.18.2)
-    pkg-config (1.1.7)
     powerpack (0.1.1)
     puma (3.6.0)
     rack (2.0.1)
@@ -198,7 +210,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rainbow (2.1.0)
-    rake (11.2.2)
+    rake (11.3.0)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
@@ -262,7 +274,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     temple (0.7.7)
-    thor (0.19.1)
+    thor (0.19.4)
     thread_safe (0.3.5)
     tilt (2.0.5)
     timers (4.1.1)
@@ -304,24 +316,22 @@ DEPENDENCIES
   dotenv-rails
   factory_girl
   factory_girl_rails
-  jsonapi
   jwt
   listen (~> 3.0.5)
   mailgun_rails
-  oauth2
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   roadie-rails (~> 1.0)
   rspec-rails
   rubocop (~> 0.45.0)
+  service_base!
   sidekiq
   sidetiq
   slim
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
-  uri_template
   web-console
   webmock
 

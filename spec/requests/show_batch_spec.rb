@@ -21,8 +21,8 @@ describe 'Show batch' do
 
     get "/#{batch.caller_id}"
     expect(response.code).to eq('200')
-    expect(parsed_body['included'].count).to eq(3)
-    expect(parsed_body['included'].first['attributes'].keys).to eq(['sent-to', 'sent-at', 'mailgun-id'])
-    expect(parsed_body['included'].last['attributes'].keys).to eq(['created-at', 'event'])
+    expect_included_size(3)
+    expect_included_attributes_keys(['sent-to', 'sent-at', 'mailgun-id'])
+    expect_included_attributes_keys(['created-at', 'event'], 2)
   end
 end

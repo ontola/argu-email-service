@@ -28,10 +28,7 @@ Style/Documentation:
   Enabled: false
 Metrics/MethodLength:
   Exclude:
-    - 'lib/argu/test_helpers/test_mocks.rb'
-Lint/Eval:
-  Exclude:
-    - 'lib/argu/test_helpers.rb'
+    - 'lib/argu/test_mocks.rb'
 Metrics/BlockLength:
   Exclude:
     - 'config/environments/development.rb'

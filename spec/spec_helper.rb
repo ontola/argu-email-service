@@ -21,8 +21,9 @@ require 'factory_girl_rails'
 require 'assert_difference'
 require 'sidekiq/testing'
 require 'webmock/rspec'
-require 'argu/test_helpers'
-include RequestHelpers, TestMocks
+require 'service_base/test_helpers'
+require 'argu/test_mocks'
+include ServiceBase::TestHelpers::RequestHelpers, TestMocks
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods

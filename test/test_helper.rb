@@ -7,7 +7,8 @@ require 'minitest/spec'
 require 'assert_difference'
 require 'sidekiq/testing'
 require 'webmock/minitest'
-require 'argu/test_helpers'
+require 'service_base/test_helpers'
+require 'argu/test_mocks'
 
 module ActiveSupport
   class TestCase
