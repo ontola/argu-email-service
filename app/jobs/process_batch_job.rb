@@ -3,17 +3,21 @@ class ProcessBatchJob < ApplicationJob
   sidekiq_options retry: false, queue: 'email_service'
 
   def perform(batch_id)
-    @batch = Batch.find(batch_id)
-    @batch.with_lock do
-      return if @batch.processed_at
+    @batch = Batch.find_by(id: batch_id)
+    return if @batch.nil? || @batch.processed_at
 
-      (@batch.options.is_a?(Array) ? @batch.options : [@batch.options]).each { |options| send_mail(options) }
+    @batch.with_lock do
+      send_mails(@batch)
 
       @batch.update(processed_at: DateTime.current) unless @batch.emails.where(sent_at: nil).present?
     end
   end
 
   private
+
+  def send_mails(batch)
+    (batch.options.is_a?(Array) ? batch.options : [batch.options]).each { |options| send_mail(options) }
+  end
 
   def send_mail(options)
     email = find_or_create_email(options)
