@@ -1,6 +1,6 @@
 GIT
   remote: git@bitbucket.org:arguweb/service_base.git
-  revision: 70bc2517f88b833c427c429cb3acea71fc1e5751
+  revision: bc9a87376b2a52bc0b7c41cc54f6ca8c68e58da6
   specs:
     service_base (0.0.1)
       activesupport (~> 5.0.0.1)

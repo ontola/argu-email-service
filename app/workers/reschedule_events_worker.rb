@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class RescheduleBatchesWorker
+class RescheduleEventsWorker
   include Sidekiq::Worker
   include Sidetiq::Schedulable
   sidekiq_options queue: 'email_service'
@@ -7,6 +7,6 @@ class RescheduleBatchesWorker
   recurrence { minutely }
 
   def perform
-    Batch.where(processed_at: nil).each(&:enqueue_job)
+    Event.where(processed_at: nil).each(&:enqueue_job)
   end
 end

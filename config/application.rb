@@ -36,6 +36,7 @@ module EmailService
     config.templates = HashWithIndifferentAccess.new(
       YAML.load(File.read(File.expand_path('../templates.yml', __FILE__)))
     )
+    config.autoload_paths += %W(#{config.root}/app/models/events)
 
     config.active_job.queue_adapter = :sidekiq
 

@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 FactoryGirl.define do
-  factory :batch do
+  factory :event do
   end
 end

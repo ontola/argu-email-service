@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
-  get '/:id', to: 'batches#show', defaults: {format: :json}
-  post '/events', to: 'events#create', defaults: {format: :json}
+  get '/events', to: 'events#show', defaults: {format: :json}
+  post '/email_events', to: 'email_events#create', defaults: {format: :json}
 end
