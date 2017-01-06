@@ -34,8 +34,7 @@ class Event < ApplicationRecord
     }
   end
 
-  def initialize_desired_emails
-  end
+  def initialize_desired_emails; end
 
   def job_is_active?
     return if job_id.nil?
