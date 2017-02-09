@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 20161109150955) do
 
   create_table "events", force: :cascade do |t|
     t.string   "event",         null: false
-    t.string   "resource",      null: false
+    t.string   "resource_id",   null: false
     t.string   "resource_type", null: false
-    t.string   "type", null: false
+    t.string   "type",          null: false
     t.json     "options",       null: false
     t.string   "job_id"
     t.datetime "processed_at"

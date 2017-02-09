@@ -6,7 +6,7 @@ class UserEvent < Event
     case event
     when 'update'
       if options.include? 'encrypted_password'
-        add_desired_email(:password_changed, User.find(:one, from: URI(resource).path))
+        add_desired_email(:password_changed, User.find(:one, from: URI(resource_id).path))
       end
     end
   end

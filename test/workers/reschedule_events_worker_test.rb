@@ -5,7 +5,7 @@ class RescheduleEventsWorkerTest < ActiveSupport::TestCase
   let(:event) do
     create(:event,
            event: 'update',
-           resource: 'http://argu.local/u/user1.json',
+           resource_id: 'http://argu.local/u/user1.json',
            resource_type: 'User',
            type: 'UserEvent',
            options: {
@@ -17,7 +17,7 @@ class RescheduleEventsWorkerTest < ActiveSupport::TestCase
   let(:processed_event) do
     create(:event,
            event: 'update',
-           resource: 'http://argu.local/u/user1.json',
+           resource_id: 'http://argu.local/u/user1.json',
            resource_type: 'User',
            type: 'UserEvent',
            options: {

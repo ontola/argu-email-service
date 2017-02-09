@@ -22,7 +22,7 @@ describe 'Show event' do
   def create_event
     create(:event,
            event: 'update',
-           resource: 'http://argu.local/u/user1.json',
+           resource_id: 'http://argu.local/u/user1.json',
            resource_type: 'User',
            type: 'UserEvent',
            options: {
