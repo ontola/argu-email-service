@@ -11,7 +11,7 @@ module TestMocks
             type: 'users',
             attributes: {
               display_name: "User#{id}",
-              shortname: "user#{id}",
+              url: "user#{id}",
               email: "user#{id}@example.com",
               language: language
             }
