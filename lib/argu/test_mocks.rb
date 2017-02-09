@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module TestMocks
   def valid_user_mock(id, language = 'nl')
-    stub_request(:get, "#{host_name}/u/user#{id}.json")
+    stub_request(:get, "#{host_name}/u/user#{id}")
       .to_return(
         status: 200,
         headers: {'Content-Type' => 'application/json'},

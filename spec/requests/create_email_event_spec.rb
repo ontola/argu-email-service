@@ -1,11 +1,11 @@
 # frozen_string_literal: true
-require 'rails_helper'
+require 'spec_helper'
 
 describe 'Create email event' do
   let!(:event) do
     create(:event,
            event: 'update',
-           resource_id: 'http://argu.local/u/user1.json',
+           resource_id: 'https://argu.local/u/user1',
            resource_type: 'User',
            type: 'UserEvent',
            options: {

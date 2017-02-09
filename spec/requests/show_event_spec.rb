@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require 'rails_helper'
+require 'spec_helper'
 
 describe 'Show event' do
   it 'should get event with send emails' do
@@ -9,7 +9,7 @@ describe 'Show event' do
     Sidekiq::Worker.drain_all
     Email.last.email_events.create(event: 'delivered')
 
-    get '/events?resource=http://argu.local/u/user1.json&event=update'
+    get '/events?resource=https://argu.local/u/user1&event=update'
     expect(response.code).to eq('200')
     expect_included_size(3)
     expect_included_attributes_keys(['sent-to', 'sent-at', 'mailgun-id'])
@@ -22,7 +22,7 @@ describe 'Show event' do
   def create_event
     create(:event,
            event: 'update',
-           resource_id: 'http://argu.local/u/user1.json',
+           resource_id: 'https://argu.local/u/user1',
            resource_type: 'User',
            type: 'UserEvent',
            options: {

@@ -7,7 +7,7 @@ class UserUpdateTest < ActiveSupport::TestCase
 
     Event.create(
       event: 'update',
-      resource_id: 'http://argu.local/u/user1.json',
+      resource_id: 'https://argu.local/u/user1',
       resource_type: 'User',
       type: 'UserEvent',
       options: {
@@ -32,7 +32,7 @@ class UserUpdateTest < ActiveSupport::TestCase
 
     Event.create(
       event: 'update',
-      resource_id: 'http://argu.local/u/user1.json',
+      resource_id: 'https://argu.local/u/user1',
       resource_type: 'User',
       type: 'UserEvent',
       options: {
