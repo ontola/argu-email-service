@@ -11,10 +11,10 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.mailgun_settings = {
-    api_key: Rails.application.secrets.mailgun_api_token,
-    domain: Rails.application.secrets.mailgun_domain
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: ENV['MAIL_ADDRESS'],
+    port: ENV['MAIL_PORT']
   }
 
   config.i18n.fallbacks = true
