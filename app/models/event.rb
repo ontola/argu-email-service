@@ -5,6 +5,10 @@ class Event < ApplicationRecord
   has_many :emails
   after_create :enqueue_job
 
+  def changes(resource_id = self.resource_id, resource_type = self.resource_type)
+    body['changes'].find { |h| h['id'] == resource_id && h['type'] == resource_type }['attributes']
+  end
+
   def enqueue_job
     if mailer.nil?
       update(processed_at: DateTime.current)
@@ -15,7 +19,7 @@ class Event < ApplicationRecord
   end
 
   def mailer
-    "#{resource_type}Mailer".safe_constantize
+    "#{resource_type.singularize.capitalize}Mailer".safe_constantize
   end
 
   def desired_emails

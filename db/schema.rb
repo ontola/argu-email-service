@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161109150955) do
+ActiveRecord::Schema.define(version: 20170221091443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20161109150955) do
     t.string   "resource_id",   null: false
     t.string   "resource_type", null: false
     t.string   "type",          null: false
-    t.json     "options",       null: false
+    t.json     "body",          null: false
     t.string   "job_id"
     t.datetime "processed_at"
     t.datetime "created_at",    null: false

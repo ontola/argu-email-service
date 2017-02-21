@@ -1,37 +1,14 @@
-AllCops:
-  TargetRubyVersion: 2.3
-  Exclude:
-    - 'vendor/**/*'
-    - 'tmp/**/*'
-    - 'db/schema.rb'
-    - 'db/migrate/*'
-    - 'bin/*'
-Rails:
-  Enabled: true
-Metrics/LineLength:
-  Max: 120
-Style/IfUnlessModifier:
-  MaxLineLength: 100
-Style/WhileUntilModifier:
-  MaxLineLength: 100
-Style/SpaceInsideHashLiteralBraces:
-  EnforcedStyle: no_space
-Style/MultilineOperationIndentation:
-  EnforcedStyle: indented
-Style/MultilineMethodCallIndentation:
-  EnforcedStyle: indented_relative_to_receiver
-Style/RaiseArgs:
-  EnforcedStyle: compact
-Metrics/ModuleLength:
-  Max: 300
-Style/Documentation:
-  Enabled: false
+inherit_from: service_module/.rubocop.yml
 Metrics/MethodLength:
   Exclude:
     - 'lib/argu/test_mocks.rb'
+    - 'spec/requests/show_event_spec.rb'
 Metrics/BlockLength:
   Exclude:
     - 'config/environments/development.rb'
+    - 'spec/requests/create_email_event_spec.rb'
+    - 'spec/requests/show_event_spec.rb'
+    - 'test/events/user_update_test.rb'
 Style/MethodMissing:
   Exclude:
     - 'app/mailers/application_mailer.rb'

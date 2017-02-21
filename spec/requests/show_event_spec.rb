@@ -23,11 +23,17 @@ describe 'Show event' do
     create(:event,
            event: 'update',
            resource_id: 'https://argu.local/u/user1',
-           resource_type: 'User',
+           resource_type: 'users',
            type: 'UserEvent',
-           options: {
-             encrypted_password: '[FILTERED]',
-             updated_at: [1.day.ago, DateTime.current]
+           body: {
+             changes: [{
+               id: 'https://argu.local/u/user1',
+               type: 'users',
+               attributes: {
+                 encryptedPassword: '[FILTERED]',
+                 updatedAt: [1.day.ago, DateTime.current]
+               }
+             }]
            })
   end
 end

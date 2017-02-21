@@ -187,6 +187,8 @@ GEM
       activemodel
       activesupport
     puma (3.6.2)
+    pundit (1.0.1)
+      activesupport (>= 3.0.0)
     rack (2.0.1)
     rack-protection (1.5.3)
       rack
@@ -332,6 +334,7 @@ DEPENDENCIES
   pg (~> 0.19.0)
   pragmatic_context
   puma (~> 3.6.2)
+  pundit (~> 1.0.0)
   rails (~> 5.0.1)
   roadie-rails (~> 1.0)
   rspec-rails

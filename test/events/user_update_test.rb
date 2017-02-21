@@ -8,11 +8,17 @@ class UserUpdateTest < ActiveSupport::TestCase
     Event.create(
       event: 'update',
       resource_id: 'https://argu.local/u/user1',
-      resource_type: 'User',
+      resource_type: 'users',
       type: 'UserEvent',
-      options: {
-        encrypted_password: '[FILTERED]',
-        updated_at: [1.day.ago, DateTime.current]
+      body: {
+        changes: [{
+          id: 'https://argu.local/u/user1',
+          type: 'users',
+          attributes: {
+            encryptedPassword: '[FILTERED]',
+            updatedAt: [1.day.ago, DateTime.current]
+          }
+        }]
       }
     )
 
@@ -33,13 +39,19 @@ class UserUpdateTest < ActiveSupport::TestCase
     Event.create(
       event: 'update',
       resource_id: 'https://argu.local/u/user1',
-      resource_type: 'User',
+      resource_type: 'users',
       type: 'UserEvent',
-      options: {
-        current_sign_in_at: [1.day.ago, DateTime.current],
-        last_sign_in_at: [2.days.ago, 1.day.ago],
-        sign_in_count: [10, 11],
-        updated_at: [1.day.ago, DateTime.current]
+      body: {
+        changes: [{
+          id: 'https://argu.local/u/user1',
+          type: 'users',
+          attributes: {
+            currentSignInAt: [1.day.ago, DateTime.current],
+            lastSignInAt: [2.days.ago, 1.day.ago],
+            signInCount: [10, 11],
+            updatedAt: [1.day.ago, DateTime.current]
+          }
+        }]
       }
     )
 
