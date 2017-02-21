@@ -8,11 +8,12 @@ gem 'active_model_serializers', '~> 0.10.4'
 gem 'activeresource',
     git: 'https://github.com/rails/activeresource',
     branch: 'master'
-gem 'argu_broadcast', git: 'git@bitbucket.org:arguweb/argu_broadcast.git', tag: 'v0.0.1'
 gem 'bugsnag', '~> 4.2.1'
+gem 'bunny', '~> 2.6.1'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'jwt'
 gem 'mailgun_rails'
+gem 'pragmatic_context'
 gem 'roadie-rails', '~> 1.0'
 gem 'service_base', git: 'git@bitbucket.org:arguweb/service_base.git', tag: 'v0.0.5'
 gem 'sidekiq'

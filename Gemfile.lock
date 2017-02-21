@@ -1,13 +1,4 @@
 GIT
-  remote: git@bitbucket.org:arguweb/argu_broadcast.git
-  revision: c2335442fd3b2f811639bf6bddda2f53d3389959
-  tag: v0.0.1
-  specs:
-    argu_broadcast (0.0.1)
-      bunny (~> 2.6.1)
-      bunny-mock (~> 1.5.0)
-
-GIT
   remote: git@bitbucket.org:arguweb/service_base.git
   revision: 16f5407f974a2bd8c43071e5de90dbcde7c760c4
   tag: v0.0.5
@@ -98,8 +89,6 @@ GEM
       thor (~> 0.18)
     bunny (2.6.3)
       amq-protocol (>= 2.0.1)
-    bunny-mock (1.5.0)
-      bunny (>= 1.7)
     byebug (9.0.5)
     case_transform (0.2)
       activesupport
@@ -194,6 +183,9 @@ GEM
       ast (~> 2.2)
     pg (0.19.0)
     powerpack (0.1.1)
+    pragmatic_context (0.2.1)
+      activemodel
+      activesupport
     puma (3.6.2)
     rack (2.0.1)
     rack-protection (1.5.3)
@@ -323,13 +315,13 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.10.4)
   activeresource!
-  argu_broadcast!
   assert_difference
   better_errors
   binding_of_caller
   brakeman (~> 3.4.1)
   bugsnag (~> 4.2.1)
   bundler-audit (~> 0.5.0)
+  bunny (~> 2.6.1)
   byebug
   dotenv-rails
   factory_girl
@@ -338,6 +330,7 @@ DEPENDENCIES
   listen (~> 3.1.5)
   mailgun_rails
   pg (~> 0.19.0)
+  pragmatic_context
   puma (~> 3.6.2)
   rails (~> 5.0.1)
   roadie-rails (~> 1.0)
