@@ -1,15 +1,4 @@
 GIT
-  remote: git@bitbucket.org:arguweb/service_base.git
-  revision: 16f5407f974a2bd8c43071e5de90dbcde7c760c4
-  tag: v0.0.5
-  specs:
-    service_base (0.0.4)
-      activesupport (~> 5.0.1)
-      oauth2 (~> 1.3.0)
-      rails (~> 5.0.1)
-      uri_template (~> 0.7.0)
-
-GIT
   remote: https://github.com/rails/activeresource
   revision: f4bec7f8f389a203c51bdeaac02addc0bca7ce43
   branch: master
@@ -331,6 +320,7 @@ DEPENDENCIES
   jwt
   listen (~> 3.1.5)
   mailgun_rails
+  oauth2
   pg (~> 0.19.0)
   pragmatic_context
   puma (~> 3.6.2)
@@ -339,7 +329,6 @@ DEPENDENCIES
   roadie-rails (~> 1.0)
   rspec-rails
   rubocop (~> 0.46.0)
-  service_base!
   sidekiq
   sidetiq
   slim
@@ -347,8 +336,9 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.1)
   sqlite3 (~> 1.3.13)
   tzinfo-data
+  uri_template
   web-console
   webmock
 
 BUNDLED WITH
-   1.13.1
+   1.14.5

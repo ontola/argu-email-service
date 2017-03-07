@@ -11,10 +11,8 @@ describe 'Show event' do
 
     get '/events?resource=https://argu.local/u/user1&event=update'
     expect(response.code).to eq('200')
-    expect_included_size(3)
-    expect_included_attributes_keys(['sent-to', 'sent-at', 'mailgun-id'])
-    expect_included_attributes_keys(['sent-to', 'sent-at', 'mailgun-id'], 1)
-    expect_included_attributes_keys(['created-at', 'event'], 2)
+    expect_included(Email.pluck(:id))
+    expect_included(EmailEvent.pluck(:id))
   end
 
   private

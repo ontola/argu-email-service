@@ -1,0 +1,1 @@
+../../../service_module/lib/argu/errors/forbidden_error.rb

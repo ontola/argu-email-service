@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 module TestMocks
+  include UrlHelper
+
   def valid_user_mock(id, language = 'nl')
-    stub_request(:get, "#{host_name}/u/user#{id}")
+    stub_request(:get, argu_url("/u/user#{id}"))
       .to_return(
         status: 200,
         headers: {'Content-Type' => 'application/json'},
