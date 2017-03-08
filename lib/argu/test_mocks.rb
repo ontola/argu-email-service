@@ -22,9 +22,63 @@ module TestMocks
       )
   end
 
-  private
-
-  def host_name
-    Rails.application.config.host_name
+  def group_mock(id)
+    stub_request(:get, argu_url("/g/#{id}"))
+      .to_return(
+        status: 200,
+        headers: {'Content-Type' => 'application/json'},
+        body: {
+          data: {
+            id: id,
+            type: 'groups',
+            attributes: {
+              display_name: "Group#{id}"
+            },
+            relationships: {
+              organization: {
+                data: {
+                  id: 'https://argu.dev/o/2',
+                  type: 'pages'
+                },
+                links: {
+                  self: {
+                    meta: {
+                      '@type': 'schema:organization'
+                    }
+                  },
+                  related: {
+                    href: 'https://argu.dev/o/1',
+                    meta: {
+                      attributes: {
+                        '@id': 'https://argu.dev/o/1',
+                        '@type': 'schema:Organization',
+                        '@context': {
+                          schema: 'http://schema.org/',
+                          title: 'schema:name'
+                        },
+                        title: 'Argu'
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          included: [
+            {
+              id: 'https://argu.dev/o/2',
+              type: 'pages',
+              attributes: {
+                '@type': 'schema:Organization',
+                potentialAction: nil,
+                displayName: 'Argu'
+              },
+              links: {
+                self: 'https://argu.dev/o/2'
+              }
+            }
+          ]
+        }.to_json
+      )
   end
 end

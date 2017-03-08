@@ -18,15 +18,22 @@ class Event < ApplicationRecord
     ProcessEventJob.perform_async(id)
   end
 
-  def mailer
-    "#{resource_type.singularize.capitalize}Mailer".safe_constantize
-  end
-
   def desired_emails
     return @desired_emails unless @desired_emails.nil?
     @desired_emails = []
     initialize_desired_emails
     @desired_emails
+  end
+
+  def mailer
+    "#{resource_type.singularize.capitalize}Mailer".safe_constantize
+  end
+
+  def resource
+    body['resource']
+      .except('attributes')
+      .merge(body['resource']['attributes'])
+      .with_indifferent_access
   end
 
   private

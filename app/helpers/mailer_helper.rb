@@ -4,7 +4,7 @@ module MailerHelper
     @record.recipient
   end
 
-  def options(_key)
-    @record.options[:key]
+  def resource
+    @record.event.resource
   end
 end

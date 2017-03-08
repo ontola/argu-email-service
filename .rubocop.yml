@@ -3,12 +3,17 @@ Metrics/MethodLength:
   Exclude:
     - 'lib/argu/test_mocks.rb'
     - 'spec/requests/show_event_spec.rb'
+Metrics/ClassLength:
+  Exclude:
+    - 'app/models/collection.rb'
+    - 'test/events/token_create_test.rb'
 Metrics/BlockLength:
   Exclude:
     - 'config/environments/development.rb'
     - 'spec/requests/create_email_event_spec.rb'
     - 'spec/requests/show_event_spec.rb'
     - 'test/events/user_update_test.rb'
+    - 'test/events/token_create_test.rb'
 Style/MethodMissing:
   Exclude:
     - 'app/mailers/application_mailer.rb'

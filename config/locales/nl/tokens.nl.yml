@@ -1,0 +1,6 @@
+nl:
+  tokens:
+    email_token_created:
+      subject: "Uitnodiging voor Argu"
+      header: "Je bent uitgenodigd om lid te worden van de groep '%{group}' van %{organization}"
+      link: "Klik hier om deze uitnodiging te accepteren"

@@ -1,0 +1,5 @@
+table
+  tr
+    td.mail-p= t('tokens.email_token_created.header', group: @record.event.group.display_name, organization: @record.event.group.organization.display_name)
+  tr
+    td.mail-p= link_to(t('tokens.email_token_created.link'), resource['links']['self'])

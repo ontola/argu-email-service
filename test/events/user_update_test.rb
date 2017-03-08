@@ -3,6 +3,7 @@ require 'test_helper'
 
 class UserUpdateTest < ActiveSupport::TestCase
   test 'should mail when password changed' do
+    ActionMailer::Base.deliveries.clear
     valid_user_mock(1)
 
     Event.create(
