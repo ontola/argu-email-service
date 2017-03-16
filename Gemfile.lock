@@ -125,6 +125,8 @@ GEM
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hashdiff (0.3.0)
+    health_check (2.6.0)
+      rails (>= 4.0)
     hitimes (1.2.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -317,6 +319,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl
   factory_girl_rails
+  health_check
   jwt
   listen (~> 3.1.5)
   mailgun_rails

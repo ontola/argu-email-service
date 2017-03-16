@@ -11,6 +11,7 @@ gem 'activeresource',
 gem 'bugsnag', '~> 4.2.1'
 gem 'bunny', '~> 2.6.1'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
+gem 'health_check'
 gem 'jwt'
 gem 'mailgun_rails'
 gem 'oauth2'
