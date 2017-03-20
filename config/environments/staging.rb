@@ -6,6 +6,11 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+  config.force_ssl = true
+  config.ssl_options = {
+    hsts: {expires: 0, subdomains: true}, redirect: {exclude: ->(request) { request.path =~ %r{\/d\/health$} }}
+  }
+
   config.log_level = :debug
   config.log_tags = [:request_id]
 
