@@ -3,7 +3,7 @@ require 'argu/whitelist_constraint'
 
 Rails.application.routes.draw do
   constraints(Argu::WhitelistConstraint) do
-    get '/events', to: 'events#show', defaults: {format: :json}
+    get '/emails', to: 'emails#index', defaults: {format: :json}
   end
   post '/email_events', to: 'email_events#create', defaults: {format: :json}
 

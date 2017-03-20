@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe 'Show event' do
-  it 'should get event with send emails' do
+describe 'Index emails' do
+  it 'should get index emails' do
     2.times { create_event }
     valid_user_mock(1)
     valid_user_mock(2)
     Sidekiq::Worker.drain_all
     Email.last.email_events.create(event: 'delivered')
 
-    get '/events?resource=https://argu.local/u/user1&event=update'
+    get '/emails?resource=https://argu.local/u/user1&event=update'
     expect(response.code).to eq('200')
-    expect_included(Email.pluck(:id))
+    expect_data_size(2)
     expect_included(EmailEvent.pluck(:id))
   end
 

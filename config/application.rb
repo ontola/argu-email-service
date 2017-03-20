@@ -32,6 +32,7 @@ module EmailService
     config.api_only = true
     config.host_name = ENV['HOSTNAME']
     config.oauth_url = ENV['OAUTH_URL']
+    ActiveModelSerializers.config.key_transform = :camel_lower
 
     config.templates = HashWithIndifferentAccess.new(
       YAML.load(File.read(File.expand_path('../templates.yml', __FILE__)))
