@@ -20,7 +20,7 @@ describe 'Create email event' do
            })
   end
 
-  it 'should get event with send emails' do
+  it 'should post event with send emails' do
     valid_user_mock(1)
     valid_user_mock(2)
     Sidekiq::Worker.drain_all
@@ -28,8 +28,23 @@ describe 'Create email event' do
     post '/email_events', params: {
       'argu-mail-id': Email.last.id,
       recipient: Email.last.sent_to,
-      event: 'clicked'
+      event: 'clicked',
+      format: :json
     }
     expect(response.code).to eq('200')
+  end
+
+  it 'should post event for non-existing mail' do
+    valid_user_mock(1)
+    valid_user_mock(2)
+    Sidekiq::Worker.drain_all
+
+    post '/email_events', params: {
+      'argu-mail-id': 'not-existing',
+      recipient: Email.last.sent_to,
+      event: 'clicked',
+      format: :json
+    }
+    expect(response.code).to eq('406')
   end
 end

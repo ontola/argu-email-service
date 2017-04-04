@@ -5,7 +5,7 @@ class EmailEventsController < ApplicationController
   before_action :verify
 
   def create
-    email = Email.find(params['argu-mail-id'])
+    email = Email.find_by(id: params['argu-mail-id'])
     if email.present?
       email.email_events.create(event: params['event'])
       head 200
