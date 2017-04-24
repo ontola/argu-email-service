@@ -5,13 +5,10 @@ class EmailEventsController < ApplicationController
   before_action :verify
 
   def create
-    email = Email.find_by(id: params['argu-mail-id'])
-    if email.present?
-      email.email_events.create(event: params['event'])
-      head 200
-    else
-      head 406
-    end
+    Email.find(params['argu-mail-id'])&.email_events&.create(event: params['event']) if params['argu-mail-id'].present?
+    head 200
+  rescue ActiveRecord::RecordNotFound
+    head 406
   end
 
   private

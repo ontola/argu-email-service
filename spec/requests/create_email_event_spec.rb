@@ -25,26 +25,45 @@ describe 'Create email event' do
     valid_user_mock(2)
     Sidekiq::Worker.drain_all
 
-    post '/email_events', params: {
-      'argu-mail-id': Email.last.id,
-      recipient: Email.last.sent_to,
-      event: 'clicked',
-      format: :json
-    }
-    expect(response.code).to eq('200')
+    assert_difference('EmailEvent.count', 1) do
+      post '/email_events', params: {
+        'argu-mail-id': Email.last.id,
+        recipient: Email.last.sent_to,
+        event: 'clicked',
+        format: :json
+      }
+      expect(response.code).to eq('200')
+    end
   end
 
-  it 'should post event for non-existing mail' do
+  it 'should post event for non-existing mail-id' do
     valid_user_mock(1)
     valid_user_mock(2)
     Sidekiq::Worker.drain_all
 
-    post '/email_events', params: {
-      'argu-mail-id': 'not-existing',
-      recipient: Email.last.sent_to,
-      event: 'clicked',
-      format: :json
-    }
-    expect(response.code).to eq('406')
+    assert_difference('EmailEvent.count', 0) do
+      post '/email_events', params: {
+        'argu-mail-id': 'not-existing',
+        recipient: Email.last.sent_to,
+        event: 'clicked',
+        format: :json
+      }
+      expect(response.code).to eq('406')
+    end
+  end
+
+  it 'should post event without mail-id' do
+    valid_user_mock(1)
+    valid_user_mock(2)
+    Sidekiq::Worker.drain_all
+
+    assert_difference('EmailEvent.count', 0) do
+      post '/email_events', params: {
+        recipient: Email.last.sent_to,
+        event: 'clicked',
+        format: :json
+      }
+      expect(response.code).to eq('200')
+    end
   end
 end
