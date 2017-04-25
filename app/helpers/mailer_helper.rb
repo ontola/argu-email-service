@@ -7,4 +7,8 @@ module MailerHelper
   def resource
     @record.event.resource
   end
+
+  def show_footer?
+    @record.event.mailer.show_footer?
+  end
 end

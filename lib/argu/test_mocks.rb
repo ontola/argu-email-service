@@ -9,15 +9,32 @@ module TestMocks
         headers: {'Content-Type' => 'application/json'},
         body: {
           data: {
-            id: id,
+            id: argu_url("/u/user#{id}"),
             type: 'users',
             attributes: {
               display_name: "User#{id}",
               url: "user#{id}",
               email: "user#{id}@example.com",
               language: language
+            },
+            relationships: {
+              profilePhoto: {
+                data: {
+                  id: 'https://argu.dev/media_objects/1',
+                  type: 'schema:ImageObject'
+                }
+              }
             }
-          }
+          },
+          included: [
+            {
+              id: 'https://argu.dev/media_objects/1',
+              type: 'schema:ImageObject',
+              attributes: {
+                thumbnail: 'https://argu.dev/photo.png'
+              }
+            }
+          ]
         }.to_json
       )
   end

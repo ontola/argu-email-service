@@ -25,15 +25,16 @@ html
         td
         td.mail-center
         td
-      tr.mail-footer
-        td
-        td.mail-center
-          table
-            tr
-              td.mail-p.small
-                =t('layout.too_many_notifications') + ' '
-                =link_to t('layout.adjust_settings'), "#{Rails.configuration.host_name}/settings?tab=notifications"
-            tr
-              td.mail-hidden
-                =t('layout.sent_at_date', date: Time.current.utc.strftime('%Y-%m-%d %H:%M:%S'))
-        td
+      - if show_footer?
+        tr.mail-footer
+          td
+          td.mail-center
+            table
+              tr
+                td.mail-p.small
+                  =t('layout.too_many_notifications') + ' '
+                  =link_to t('layout.adjust_settings'), "#{Rails.configuration.host_name}/settings?tab=notifications"
+              tr
+                td.mail-hidden
+                  =t('layout.sent_at_date', date: Time.current.utc.strftime('%Y-%m-%d %H:%M:%S'))
+          td

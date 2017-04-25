@@ -177,6 +177,21 @@ a:hover {
   padding: 12px;
 }
 
+.mail-profile {
+  text-align: right;
+  padding: 10px;
+}
+.mail-profile a {
+  color: #737373;
+  text-decoration: none;
+}
+.mail-profile-logo {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  border-radius: 999px;
+  vertical-align: middle;
+}
 /* line 170, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
 table {
   width: 100%;

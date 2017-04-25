@@ -22,6 +22,10 @@ class ApplicationMailer < ActionMailer::Base
     m
   end
 
+  def self.show_footer?
+    true
+  end
+
   def self.method_missing(method_name, *args) # :nodoc:
     if action_methods.include?(method_name.to_s)
       Argu::MessageDelivery.new(self, method_name, *args)
