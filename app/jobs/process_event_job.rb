@@ -18,9 +18,7 @@ class ProcessEventJob < ApplicationJob
   def send_email(opts)
     email = find_or_create_email(opts)
     return if email.nil? || email.sent_at.present?
-
-    r = @event.mailer.send(email.template, email).deliver_now
-    email.update(sent_at: DateTime.current, sent_to: email.recipient.email, mailgun_id: r.try(:message_id))
+    email.deliver_now
   end
 
   def find_or_create_email(opts)
