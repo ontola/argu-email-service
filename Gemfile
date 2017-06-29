@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 source 'https://rubygems.org'
 
-gem 'puma', '~> 3.6.2'
+gem 'puma', '~> 3.9.1'
 gem 'rails', '~> 5.0.1'
 
 gem 'active_model_serializers', '~> 0.10.4'
