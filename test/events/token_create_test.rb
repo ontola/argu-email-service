@@ -46,7 +46,7 @@ class TokenCreateTest < ActiveSupport::TestCase
     assert_equal ActionMailer::Base.deliveries.first.header['From'].value, 'Argu <noreply@argu.co>'
     assert_equal ActionMailer::Base.deliveries.first.subject, 'Uitnodiging voor Argu op Argu'
     assert_match 'Je bent uitgenodigd om lid te worden van de groep \'Group1\' van Argu',
-                 ActionMailer::Base.deliveries.first.body.encoded
+                 ActionMailer::Base.deliveries.first.body.to_s
   end
 
   test 'should mail when email token created with message and profile_iri' do

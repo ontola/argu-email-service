@@ -31,7 +31,7 @@ class UserUpdateTest < ActiveSupport::TestCase
     assert_equal Email.last.sent_to, 'user1@example.com'
     assert_equal ActionMailer::Base.deliveries.first.subject, 'Je wachtwoord is gewijzigd'
     assert_match 'We laten je weten dat je wachtwoord voor je Argu account "user1" gewijzigd is',
-                 ActionMailer::Base.deliveries.first.body.encoded
+                 ActionMailer::Base.deliveries.first.body.to_s
   end
 
   test 'should not mail when logged in' do
