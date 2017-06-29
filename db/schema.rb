@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221091443) do
+ActiveRecord::Schema.define(version: 20170628142314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "email_events", force: :cascade do |t|
+  create_table "email_tracking_events", force: :cascade do |t|
     t.integer  "email_id"
     t.string   "event"
     t.datetime "created_at", null: false

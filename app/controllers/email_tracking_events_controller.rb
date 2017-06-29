@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 require 'openssl'
 
-class EmailEventsController < ApplicationController
+class EmailTrackingEventsController < ApplicationController
   before_action :verify
 
   def create
-    Email.find(params['argu-mail-id'])&.email_events&.create(event: params['event']) if params['argu-mail-id'].present?
+    if params['argu-mail-id'].present?
+      Email.find(params['argu-mail-id'])&.email_tracking_events&.create(event: params['event'])
+    end
     head 200
   rescue ActiveRecord::RecordNotFound
     head 406

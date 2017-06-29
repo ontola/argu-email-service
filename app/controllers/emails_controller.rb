@@ -2,7 +2,7 @@
 class EmailsController < ApplicationController
   def index
     render json: Email.joins(:event).where(events: events_filter),
-           include: :email_events
+           include: :email_tracking_events
   end
 
   private

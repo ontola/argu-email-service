@@ -10,7 +10,7 @@ Metrics/ClassLength:
 Metrics/BlockLength:
   Exclude:
     - 'config/environments/development.rb'
-    - 'spec/requests/create_email_event_spec.rb'
+    - 'spec/requests/create_email_tracking_event_spec.rb'
     - 'spec/requests/index_emails_spec.rb'
     - 'test/events/user_update_test.rb'
     - 'test/events/token_create_test.rb'

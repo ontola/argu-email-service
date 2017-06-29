@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe 'Create email event' do
+describe 'Create email tracking event' do
   let!(:event) do
     create(:event,
            event: 'update',
@@ -25,7 +25,7 @@ describe 'Create email event' do
     valid_user_mock(2)
     Sidekiq::Worker.drain_all
 
-    assert_difference('EmailEvent.count', 1) do
+    assert_difference('EmailTrackingEvent.count', 1) do
       post '/email_events', params: {
         'argu-mail-id': Email.last.id,
         recipient: Email.last.sent_to,
@@ -41,7 +41,7 @@ describe 'Create email event' do
     valid_user_mock(2)
     Sidekiq::Worker.drain_all
 
-    assert_difference('EmailEvent.count', 0) do
+    assert_difference('EmailTrackingEvent.count', 0) do
       post '/email_events', params: {
         'argu-mail-id': 'not-existing',
         recipient: Email.last.sent_to,
@@ -57,7 +57,7 @@ describe 'Create email event' do
     valid_user_mock(2)
     Sidekiq::Worker.drain_all
 
-    assert_difference('EmailEvent.count', 0) do
+    assert_difference('EmailTrackingEvent.count', 0) do
       post '/email_events', params: {
         recipient: Email.last.sent_to,
         event: 'clicked',

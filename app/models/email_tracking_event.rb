@@ -1,4 +1,4 @@
 # frozen_string_literal: true
-class EmailEvent < ApplicationRecord
+class EmailTrackingEvent < ApplicationRecord
   belongs_to :email
 end
