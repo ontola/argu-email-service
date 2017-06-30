@@ -6,3 +6,5 @@ en:
       confirm_link: 'Confirm your e-mail'
     confirm_secondary:
       subject: "Add your e-mail address"
+    requested_confirmation:
+      subject: "Confirm your e-mail address"

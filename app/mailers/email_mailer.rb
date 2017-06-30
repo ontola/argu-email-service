@@ -8,6 +8,10 @@ class EmailMailer < ApplicationMailer
     roadie_mail(to: event.resource['email'], subject: t('email.confirm_secondary.subject'))
   end
 
+  def requested_confirmation
+    roadie_mail(to: recipient.email, subject: t('email.requested_confirmation.subject'))
+  end
+
   def self.show_footer?
     false
   end
