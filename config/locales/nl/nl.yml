@@ -1,4 +1,5 @@
 nl:
+  greeting: "Beste %{name},"
   layout:
     too_many_notifications: "Te veel meldingen?"
     adjust_settings: "Wijzig jouw instellingen."
