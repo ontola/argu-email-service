@@ -1,0 +1,6 @@
+en:
+  email:
+    confirmation:
+      subject: "Confirm your e-mail address"
+      body: "You can confirm this e-mail address by pressing the link below."
+      confirm_link: 'Confirm your e-mail'

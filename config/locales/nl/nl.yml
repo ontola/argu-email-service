@@ -4,3 +4,4 @@ nl:
     too_many_notifications: "Te veel meldingen?"
     adjust_settings: "Wijzig jouw instellingen."
     sent_at_date: "Verzonden op %{date}"
+  copy_paste_link: "Of kopieer en plak deze link:"

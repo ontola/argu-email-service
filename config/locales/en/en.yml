@@ -4,3 +4,4 @@ en:
     too_many_notifications: "Too many notifications?"
     adjust_settings: "Adjust your settings."
     sent_at_date: "Sent at %{date}"
+  copy_paste_link: "Or copy and paste this link:"

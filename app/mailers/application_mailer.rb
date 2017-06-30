@@ -7,6 +7,7 @@ class ApplicationMailer < ActionMailer::Base
           content_type: 'text/html'
   layout 'mailer'
   add_template_helper(MailerHelper)
+  add_template_helper(UriTemplateHelper)
 
   def initialize(record)
     @record = record
