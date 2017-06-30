@@ -4,3 +4,5 @@ nl:
       subject: "Bevestig jouw e-mailadres"
       body: "Klik op onderstaande link om je e-mailadres te bevestigen."
       confirm_link: 'Bevestig jouw e-mailadres'
+    confirm_secondary:
+      subject: "Voeg jouw e-mailadres toe"

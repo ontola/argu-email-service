@@ -5,13 +5,20 @@ class EmailEvent < Event
   def initialize_desired_emails
     case event
     when 'create'
-      add_confirmation_mail if resource['primary']
+      resource['primary'] ? add_confirmation_mail : add_confirm_secondary_mail
     end
   end
 
   def add_confirmation_mail
     add_desired_email(
       :confirmation,
+      User.find(:one, from: URI(resource[:relationships][:user][:data][:id]).path)
+    )
+  end
+
+  def add_confirm_secondary_mail
+    add_desired_email(
+      :confirm_secondary,
       User.find(:one, from: URI(resource[:relationships][:user][:data][:id]).path)
     )
   end
