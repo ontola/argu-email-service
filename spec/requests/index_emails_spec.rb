@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe 'Index emails' do
   it 'should get index emails' do
-    2.times { create_event }
+    2.times { create_email_event }
     valid_user_mock(1)
     valid_user_mock(2)
     Sidekiq::Worker.drain_all
@@ -17,21 +17,15 @@ describe 'Index emails' do
 
   private
 
-  def create_event
-    create(:event,
-           event: 'update',
-           resource_id: 'https://argu.local/u/user1',
-           resource_type: 'users',
-           type: 'UserEvent',
-           body: {
-             changes: [{
-               id: 'https://argu.local/u/user1',
-               type: 'users',
-               attributes: {
-                 encryptedPassword: '[FILTERED]',
-                 updatedAt: [1.day.ago, DateTime.current]
-               }
-             }]
-           })
+  def create_email_event
+    create_event(
+      'update',
+      'https://argu.local/u/user1',
+      'users',
+      changes: {
+        encryptedPassword: '[FILTERED]',
+        updatedAt: [1.day.ago, DateTime.current]
+      }
+    )
   end
 end

@@ -6,22 +6,7 @@ class UserUpdateTest < ActiveSupport::TestCase
     ActionMailer::Base.deliveries.clear
     valid_user_mock(1)
 
-    Event.create(
-      event: 'update',
-      resource_id: 'https://argu.local/u/user1',
-      resource_type: 'users',
-      type: 'UserEvent',
-      body: {
-        changes: [{
-          id: 'https://argu.local/u/user1',
-          type: 'users',
-          attributes: {
-            encryptedPassword: '[FILTERED]',
-            updatedAt: [1.day.ago, DateTime.current]
-          }
-        }]
-      }
-    )
+    update_user_event(changes: {encryptedPassword: '[FILTERED]', updatedAt: [1.day.ago, DateTime.current]})
 
     assert_difference('ActionMailer::Base.deliveries.size', 1) do
       Sidekiq::Worker.drain_all
@@ -37,27 +22,29 @@ class UserUpdateTest < ActiveSupport::TestCase
   test 'should not mail when logged in' do
     valid_user_mock(1)
 
-    Event.create(
-      event: 'update',
-      resource_id: 'https://argu.local/u/user1',
-      resource_type: 'users',
-      type: 'UserEvent',
-      body: {
-        changes: [{
-          id: 'https://argu.local/u/user1',
-          type: 'users',
-          attributes: {
-            currentSignInAt: [1.day.ago, DateTime.current],
-            lastSignInAt: [2.days.ago, 1.day.ago],
-            signInCount: [10, 11],
-            updatedAt: [1.day.ago, DateTime.current]
-          }
-        }]
+    update_user_event(
+      changes: {
+        currentSignInAt: [1.day.ago, DateTime.current],
+        lastSignInAt: [2.days.ago, 1.day.ago],
+        signInCount: [10, 11],
+        updatedAt: [1.day.ago, DateTime.current]
       }
     )
 
     assert_difference('ActionMailer::Base.deliveries.size', 0) do
       Sidekiq::Worker.drain_all
     end
+  end
+
+  private
+
+  def update_user_event(attrs)
+    create_event(
+      'update',
+      'https://argu.local/u/user1',
+      'users',
+      attributes: attrs[:attributes],
+      changes: attrs[:changes]
+    )
   end
 end

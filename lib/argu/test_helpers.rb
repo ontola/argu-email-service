@@ -22,3 +22,34 @@ def assert_differences(expression_array, message = nil, &block)
     assert_equal(before[i] + difference, eval(e, b), error)
   end
 end
+
+def create_event(event, id, type, opts = {})
+  Event.create(
+    event: event,
+    resource_id: id,
+    resource_type: type,
+    type: "#{type.classify}Event",
+    body: create_event_body(event, id, type, opts)
+  )
+end
+
+def create_event_body(event, id, type, opts)
+  {
+    resource_id: id,
+    resource_type: type,
+    affected_resources: opts[:affected_resources],
+    changes: [{id: id, type: type, attributes: opts[:changes]}],
+    event: event,
+    resource: create_event_resource(id, type, opts)
+  }
+end
+
+def create_event_resource(id, type, opts)
+  {
+    id: id,
+    type: type,
+    attributes: opts[:attributes],
+    relationships: opts[:relationships],
+    links: {self: id}
+  }
+end
