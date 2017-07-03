@@ -6,11 +6,8 @@ class ProcessEventJob < ApplicationJob
     @event = Event.find_by(id: event_id)
     return if @event.nil? || @event.processed_at
 
-    @event.with_lock do
-      @event.desired_emails.each { |email| send_email(email) }
-
-      @event.update(processed_at: DateTime.current) unless @event.emails.where(sent_at: nil).present?
-    end
+    @event.desired_emails.each { |email| send_email(email) }
+    @event.update_attribute(:processed_at, DateTime.current) if @event.emails.where(sent_at: nil).empty?
   end
 
   private
