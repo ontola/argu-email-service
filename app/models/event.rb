@@ -11,11 +11,11 @@ class Event < ApplicationRecord
 
   def enqueue_job
     if mailer.nil?
-      update(processed_at: DateTime.current)
+      update!(processed_at: DateTime.current)
       return
     end
     return if job_is_active?
-    update(job_id: ProcessEventJob.perform_async(id))
+    update!(job_id: ProcessEventJob.perform_async(id))
   end
 
   def desired_emails
