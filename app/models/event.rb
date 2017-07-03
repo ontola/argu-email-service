@@ -15,7 +15,7 @@ class Event < ApplicationRecord
       return
     end
     return if job_is_active?
-    ProcessEventJob.perform_async(id)
+    update(job_id: ProcessEventJob.perform_async(id))
   end
 
   def desired_emails
