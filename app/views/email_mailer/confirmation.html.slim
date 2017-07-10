@@ -17,3 +17,6 @@ table
             =I18n.t('copy_paste_link')
             br
             =expand_uri_template(:user_confirmation, confirmation_token: resource['confirmationToken'])
+        tr
+          td.mail-p.small.mail-center
+            =I18n.t('email.confirmation.not_requested')

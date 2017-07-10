@@ -4,6 +4,7 @@ nl:
       subject: "Bevestig jouw e-mailadres"
       body: "Klik op onderstaande link om je e-mailadres te bevestigen."
       confirm_link: 'Bevestig jouw e-mailadres'
+      not_requested: "Heb je geen account aangevraagd? Laat het ons weten door te mailen naar info@argu.co."
     confirm_secondary:
       subject: "Voeg jouw e-mailadres toe"
     requested_confirmation:
