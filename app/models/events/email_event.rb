@@ -7,6 +7,7 @@ class EmailEvent < Event
     when 'update'
       add_confirmation_request_mail if changes.include? 'confirmationSentAt'
     when 'create'
+      return if resource['confirmationToken'].nil?
       resource['primary'] ? add_confirmation_mail : add_confirm_secondary_mail
     end
   end

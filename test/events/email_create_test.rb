@@ -19,6 +19,19 @@ class EmailCreateTest < ActiveSupport::TestCase
     assert_equal ActionMailer::Base.deliveries.first.subject, 'Bevestig jouw e-mailadres'
   end
 
+  test 'should not mail when no confirmation_token present' do
+    ActionMailer::Base.deliveries.clear
+    valid_user_mock(1)
+
+    create_email_event(
+      attributes: {email: 'secondary_email@example.com', confirmationToken: nil, primary: true}
+    )
+
+    assert_difference('ActionMailer::Base.deliveries.size', 0) do
+      Sidekiq::Worker.drain_all
+    end
+  end
+
   test 'should mail when adding secondary email' do
     ActionMailer::Base.deliveries.clear
     valid_user_mock(1)
