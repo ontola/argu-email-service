@@ -2,7 +2,7 @@
 require 'test_helper'
 
 class TokenCreateTest < ActiveSupport::TestCase
-  test 'should mail when email token created without message and profile_iri' do
+  test 'should mail when email token created without message and actor_iri' do
     ActionMailer::Base.deliveries.clear
     group_mock(1)
     valid_user_mock(1)
@@ -11,7 +11,7 @@ class TokenCreateTest < ActiveSupport::TestCase
       attributes: {
         email: 'test@example.com',
         message: '',
-        profileIRI: nil,
+        actorIRI: nil,
         sendMail: true
       }
     )
@@ -27,7 +27,7 @@ class TokenCreateTest < ActiveSupport::TestCase
                  ActionMailer::Base.deliveries.first.body.to_s
   end
 
-  test 'should mail when email token created with message and profile_iri' do
+  test 'should mail when email token created with message and actor_iri' do
     ActionMailer::Base.deliveries.clear
     group_mock(1)
     valid_user_mock(1)
@@ -36,7 +36,7 @@ class TokenCreateTest < ActiveSupport::TestCase
       attributes: {
         email: 'test@example.com',
         message: 'Hello world!',
-        profileIRI: argu_url('/u/user1'),
+        actorIRI: argu_url('/u/user1'),
         sendMail: true
       }
     )

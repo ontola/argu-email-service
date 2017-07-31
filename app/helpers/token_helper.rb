@@ -9,6 +9,6 @@ module TokenHelper
   end
 
   def profile
-    ActiveResourceModel.find(:one, from: @record.event.resource['profileIRI'])
+    ActiveResourceModel.find(:one, from: @record.event.resource['actorIRI'])
   end
 end
