@@ -5,7 +5,7 @@ class UserEvent < Event
   def initialize_desired_emails
     case event
     when 'update'
-      if changes.include? 'encryptedPassword'
+      if changes.include?('encryptedPassword') && changes['hasPass']&.first != false
         add_desired_email(:password_changed, User.find(:one, from: URI(resource_id).path))
       end
     end
