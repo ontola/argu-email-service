@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class EmailEvent < Event
+class EmailAddressEvent < Event
   private
 
   def initialize_desired_emails

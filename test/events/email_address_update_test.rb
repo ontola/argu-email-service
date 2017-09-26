@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class EmailUpdateTest < ActiveSupport::TestCase
+class EmailAddressUpdateTest < ActiveSupport::TestCase
   test 'should mail when confirmationSentAt changed' do
     ActionMailer::Base.deliveries.clear
     valid_user_mock(1)
@@ -31,7 +31,7 @@ class EmailUpdateTest < ActiveSupport::TestCase
     create_event(
       'update',
       'https://argu.local/u/user1/email/1',
-      'emails',
+      'emailAddresses',
       attributes: attrs[:attributes],
       changes: attrs[:changes],
       relationships: {user: {data: {id: 'https://argu.dev/u/user1', type: 'users'}}}

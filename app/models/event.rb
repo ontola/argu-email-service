@@ -27,7 +27,7 @@ class Event < ApplicationRecord
   end
 
   def mailer
-    "#{resource_type.singularize.capitalize}Mailer".safe_constantize
+    "#{resource_type.classify}Mailer".safe_constantize
   end
 
   def resource
