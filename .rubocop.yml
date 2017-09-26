@@ -9,3 +9,10 @@ Metrics/BlockLength:
 Style/MethodMissing:
   Exclude:
     - 'app/mailers/application_mailer.rb'
+RSpec/LetSetup:
+  Exclude:
+    - 'spec/requests/create_email_tracking_event_spec.rb'
+RSpec/ExampleLength:
+  Enabled: false
+Rails/SkipsModelValidations:
+  Enabled: false
