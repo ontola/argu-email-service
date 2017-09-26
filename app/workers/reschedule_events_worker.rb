@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class RescheduleEventsWorker
   include Sidekiq::Worker
   include Sidetiq::Schedulable

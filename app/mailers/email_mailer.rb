@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class EmailMailer < ApplicationMailer
   def confirmation
     roadie_mail(to: recipient.email, subject: t('email.confirmation.subject'))

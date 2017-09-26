@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 if Rails.env.development? || Rails.env.staging?
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module TokenHelper
   def group
     @record.event.group

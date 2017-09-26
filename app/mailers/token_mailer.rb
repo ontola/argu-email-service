@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class TokenMailer < ApplicationMailer
   include TokenHelper
   add_template_helper(TokenHelper)

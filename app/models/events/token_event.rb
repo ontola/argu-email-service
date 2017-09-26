@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class TokenEvent < Event
   def group
     Group.find(resource['groupId'])

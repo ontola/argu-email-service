@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 namespace :broadcast do
   desc 'Subscribe to rabbitmq'
   task subscribe: :environment do

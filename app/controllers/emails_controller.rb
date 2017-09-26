@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class EmailsController < ApplicationController
   def index
     render json: Email.joins(:event).where(events: events_filter),

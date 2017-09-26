@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ProcessEventJob < ApplicationJob
   sidekiq_options retry: false, queue: 'email_service'
 
