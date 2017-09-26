@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'Create email tracking event' do
+describe 'Create email tracking event', type: :request do
   let!(:event) do
     create_event(
       'update',
@@ -15,7 +15,7 @@ describe 'Create email tracking event' do
     )
   end
 
-  it 'should post event with send emails' do
+  it 'posts event with send emails' do
     valid_user_mock(1)
     valid_user_mock(2)
     Sidekiq::Worker.drain_all
@@ -31,7 +31,7 @@ describe 'Create email tracking event' do
     end
   end
 
-  it 'should post event for non-existing mail-id' do
+  it 'posts event for non-existing mail-id' do
     valid_user_mock(1)
     valid_user_mock(2)
     Sidekiq::Worker.drain_all
@@ -47,7 +47,7 @@ describe 'Create email tracking event' do
     end
   end
 
-  it 'should post event without mail-id' do
+  it 'posts event without mail-id' do
     valid_user_mock(1)
     valid_user_mock(2)
     Sidekiq::Worker.drain_all

@@ -36,15 +36,15 @@ module EmailService
     ActiveModelSerializers.config.key_transform = :camel_lower
 
     config.templates = HashWithIndifferentAccess.new(
-      YAML.load(File.read(File.expand_path('../templates.yml', __FILE__)))
+      YAML.safe_load(File.read(File.expand_path('../templates.yml', __FILE__)))
     )
-    config.autoload_paths += %W(#{config.root}/app/models/events)
+    config.autoload_paths += %W[#{config.root}/app/models/events]
 
     config.active_job.queue_adapter = :sidekiq
 
-    I18n.available_locales = [:nl, :en]
-    config.i18n.available_locales = [:nl, :en]
-    config.i18n.load_path += Dir["#{Rails.root}/config/locales/**/*.{rb,yml}"]
+    I18n.available_locales = %i[nl en]
+    config.i18n.available_locales = %i[nl en]
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
     require 'argu/message_delivery'
   end

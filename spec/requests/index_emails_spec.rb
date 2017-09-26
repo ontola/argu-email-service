@@ -2,8 +2,8 @@
 
 require 'spec_helper'
 
-describe 'Index emails' do
-  it 'should get index emails' do
+describe 'Index emails', type: :request do
+  it 'gets index emails' do
     2.times { create_email_event }
     valid_user_mock(1)
     valid_user_mock(2)
