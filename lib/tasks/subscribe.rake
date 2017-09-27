@@ -4,7 +4,7 @@ namespace :broadcast do
   desc 'Subscribe to rabbitmq'
   task subscribe: :environment do
     Connection.subscribe('email_service') do |data_event|
-      type = "#{data_event.resource_type.singularize.capitalize}Event"
+      type = "#{data_event.resource_type.classify}Event"
       if type.safe_constantize.present?
         Event.create!(
           type: type,
