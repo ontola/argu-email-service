@@ -15,6 +15,7 @@ class UserUpdateTest < ActiveSupport::TestCase
     assert(Event.first.processed_at)
     assert(Email.last.sent_at)
     assert_equal Email.last.sent_to, 'user1@example.com'
+    assert_equal Email.last.mailer, 'UserMailer'
     assert_equal ActionMailer::Base.deliveries.first.subject, 'Je wachtwoord is gewijzigd'
     assert_match 'We laten je weten dat je wachtwoord voor je Argu account "user1" gewijzigd is',
                  ActionMailer::Base.deliveries.first.body.to_s

@@ -22,6 +22,7 @@ class EmailAddressUpdateTest < ActiveSupport::TestCase
     assert(Event.first.processed_at)
     assert(Email.last.sent_at)
     assert_equal Email.last.sent_to, 'user1@example.com'
+    assert_equal Email.last.mailer, 'EmailAddressMailer'
     assert_equal ActionMailer::Base.deliveries.first.subject, 'Bevestig jouw e-mailadres'
   end
 

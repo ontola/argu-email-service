@@ -42,6 +42,7 @@ class Event < ApplicationRecord
   def add_desired_email(template, recipient)
     @desired_emails << {
       template: template,
+      mailer: mailer,
       recipient: recipient
     }
   end

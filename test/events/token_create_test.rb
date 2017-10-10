@@ -22,6 +22,7 @@ class TokenCreateTest < ActiveSupport::TestCase
     assert(Event.first.processed_at)
     assert(Email.last.sent_at)
     assert_equal Email.last.sent_to, 'test@example.com'
+    assert_equal Email.last.mailer, 'TokenMailer'
     assert_equal ActionMailer::Base.deliveries.first.header['From'].value, 'Argu <noreply@argu.co>'
     assert_equal ActionMailer::Base.deliveries.first.subject, 'Uitnodiging voor Argu op Argu'
     assert_match 'Je bent uitgenodigd om lid te worden van de groep \'Group1\' van Argu',
@@ -47,6 +48,7 @@ class TokenCreateTest < ActiveSupport::TestCase
     assert(Event.first.processed_at)
     assert(Email.last.sent_at)
     assert_equal Email.last.sent_to, 'test@example.com'
+    assert_equal Email.last.mailer, 'TokenMailer'
     assert_equal ActionMailer::Base.deliveries.first.header['From'].value, 'User1 <noreply@argu.co>'
     assert_equal ActionMailer::Base.deliveries.first.subject, 'Uitnodiging voor Argu op Argu'
     assert_match 'Hello world!', ActionMailer::Base.deliveries.first.body.encoded
