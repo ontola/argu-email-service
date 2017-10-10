@@ -19,6 +19,7 @@ class EmailAddressCreateTest < ActiveSupport::TestCase
     assert_equal Email.last.sent_to, 'user1@example.com'
     assert_equal Email.last.mailer, 'EmailAddressMailer'
     assert_equal ActionMailer::Base.deliveries.first.subject, 'Bevestig jouw e-mailadres'
+    assert_match 'confirmationToken', ActionMailer::Base.deliveries.first.body.encoded
   end
 
   test 'should not mail when no confirmation_token present' do

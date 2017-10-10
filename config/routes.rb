@@ -10,5 +10,9 @@ Rails.application.routes.draw do
 
   constraints(Argu::WhitelistConstraint) do
     health_check_routes
+
+    namespace :spi do
+      post 'emails', to: 'emails#create', defaults: {format: :json}
+    end
   end
 end

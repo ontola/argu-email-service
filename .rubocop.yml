@@ -6,6 +6,7 @@ Metrics/BlockLength:
   Exclude:
     - 'config/environments/development.rb'
     - 'spec/requests/create_email_tracking_event_spec.rb'
+    - 'spec/requests/create_emails_spec.rb'
 Style/MethodMissing:
   Exclude:
     - 'app/mailers/application_mailer.rb'
