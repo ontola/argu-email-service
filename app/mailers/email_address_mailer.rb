@@ -6,7 +6,7 @@ class EmailAddressMailer < ApplicationMailer
   end
 
   def confirm_secondary
-    roadie_mail(to: event.resource['email'], subject: t('email.confirm_secondary.subject'))
+    roadie_mail(to: opts[:email], subject: t('email.confirm_secondary.subject'))
   end
 
   def requested_confirmation

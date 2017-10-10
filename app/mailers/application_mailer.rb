@@ -17,7 +17,6 @@ class ApplicationMailer < ActionMailer::Base
   end
   attr_accessor :record
   delegate :recipient, to: :record
-  delegate :event, to: :record
 
   def roadie_mail(_opts = {})
     m = super
@@ -35,5 +34,11 @@ class ApplicationMailer < ActionMailer::Base
     else
       super
     end
+  end
+
+  private
+
+  def opts
+    record.options
   end
 end

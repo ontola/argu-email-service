@@ -8,7 +8,7 @@ class ProcessEventJob < ApplicationJob
     return if @event.nil? || @event.processed_at
 
     @event.desired_emails.each { |email| send_email(email) }
-    @event.update_attribute(:processed_at, DateTime.current) if @event.emails.where(sent_at: nil).empty?
+    @event.update_columns(processed_at: DateTime.current, body: {}) if @event.emails.where(sent_at: nil).empty?
   end
 
   private

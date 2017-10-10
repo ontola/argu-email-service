@@ -10,6 +10,10 @@ class Email < ApplicationRecord
     update!(sent_at: DateTime.current, sent_to: r.to.first, mailgun_id: r.try(:message_id))
   end
 
+  def options
+    super.with_indifferent_access
+  end
+
   def recipient
     @recipient ||= User.new(attributes['recipient'])
   end

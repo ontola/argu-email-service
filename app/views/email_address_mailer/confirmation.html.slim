@@ -8,7 +8,7 @@ table
     td.mail-button--alt
       table
         tr
-          td= link_to I18n.t('email.confirmation.confirm_link'), expand_uri_template(:user_confirmation, confirmation_token: resource['confirmationToken'])
+          td= link_to I18n.t('email.confirmation.confirm_link'), expand_uri_template(:user_confirmation, confirmation_token: opts[:confirmationToken])
   tr
     td
       table
@@ -16,7 +16,7 @@ table
           td.mail-p.small.mail-center
             =I18n.t('copy_paste_link')
             br
-            =expand_uri_template(:user_confirmation, confirmation_token: resource['confirmationToken'])
+            =expand_uri_template(:user_confirmation, confirmation_token: opts[:confirmationToken])
         tr
           td.mail-p.small.mail-center
             =I18n.t('email.confirmation.not_requested')

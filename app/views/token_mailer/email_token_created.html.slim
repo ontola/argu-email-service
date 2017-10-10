@@ -3,15 +3,15 @@ table
     td.mail-box
       table
         tr
-          td.mail-p= @record.event.resource[:message].presence || t('tokens.email_token_created.header', group: group.display_name, organization: organization.display_name)
-  - if profile.present?
+          td.mail-p= opts[:message].presence || t('tokens.email_token_created.header', group: opts[:group_name], organization: opts[:organization_name])
+  - if opts[:profile][:id].present?
     tr
       td.mail-p.mail-profile
-        =link_to profile.id
-          img.mail-profile-logo[src=profile.profile_photo.thumbnail width="25px" height="25px"]
-          =profile.display_name
+        =link_to opts[:profile][:id]
+          img.mail-profile-logo[src=opts['profile']['profile_photo_thumbnail'] width="25px" height="25px"]
+          =opts[:profile][:display_name]
   tr
     td.mail-button--alt
       table
         tr
-          td= link_to(t('tokens.email_token_created.link'), resource['links']['self'])
+          td= link_to(t('tokens.email_token_created.link'), opts[:links][:self])

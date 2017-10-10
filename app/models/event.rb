@@ -33,18 +33,18 @@ class Event < ApplicationRecord
   def resource
     body['resource']
       .except('attributes')
-      .merge(body['resource']['attributes'])
+      .merge(body['resource']['attributes'] || {})
       .with_indifferent_access
   end
 
   private
 
-  def add_desired_email(template, recipient)
-    @desired_emails << {
+  def add_desired_email(template, recipient, options = {})
+    @desired_emails << options.merge(
       template: template,
       mailer: mailer,
       recipient: recipient
-    }
+    )
   end
 
   def initialize_desired_emails; end

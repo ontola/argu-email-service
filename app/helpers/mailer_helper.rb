@@ -5,11 +5,11 @@ module MailerHelper
     @record.recipient
   end
 
-  def resource
-    @record.event.resource
+  def opts
+    @record.options
   end
 
   def show_footer?
-    @record.event.mailer.show_footer?
+    @record.mailer.constantize.show_footer?
   end
 end
