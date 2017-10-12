@@ -1,5 +1,5 @@
 nl:
-  email:
+  confirmations:
     confirmation:
       subject: "Bevestig jouw e-mailadres"
       body: "Klik op onderstaande link om je e-mailadres te bevestigen."

@@ -2,15 +2,14 @@ table
   tr
     td.mail-box
       table
+        =greeting_row
         tr
-          td.mail-p= I18n.t('greeting', name: recipient.display_name)
-        tr
-          td.mail-p= I18n.t('email.confirmation.body')
+          td.mail-p= I18n.t('confirmations.confirmation.body')
   tr
     td.mail-button--alt
       table
         tr
-          td= link_to I18n.t('email.confirmation.confirm_link'), expand_uri_template(:user_confirmation, confirmation_token: opts[:confirmationToken])
+          td= link_to I18n.t('confirmations.confirmation.confirm_link'), expand_uri_template(:user_confirmation, confirmation_token: opts[:confirmationToken])
   tr
     td
       table
@@ -21,4 +20,4 @@ table
             =expand_uri_template(:user_confirmation, confirmation_token: opts[:confirmationToken])
         tr
           td.mail-p.small.mail-center
-            =I18n.t('email.confirmation.not_requested')
+            =I18n.t('confirmations.confirmation.not_requested')

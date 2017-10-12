@@ -29,7 +29,7 @@ describe 'Create emails', type: :request do
       post '/spi/emails',
            params: {
              email: {
-               mailer: 'EmailAddressMailer',
+               mailer: 'ConfirmationsMailer',
                template: 'confirmation',
                recipient: {email: 'test@example.com'},
                options: {confirmationToken: 'confirmationToken'}
@@ -39,7 +39,7 @@ describe 'Create emails', type: :request do
     end
     assert(Email.last.sent_at)
     assert_equal Email.last.sent_to, 'test@example.com'
-    assert_equal Email.last.mailer, 'EmailAddressMailer'
+    assert_equal Email.last.mailer, 'ConfirmationsMailer'
     assert_equal ActionMailer::Base.deliveries.first.subject, 'Bevestig jouw e-mailadres'
     assert_match 'confirmationToken', ActionMailer::Base.deliveries.first.body.encoded
   end
@@ -50,7 +50,7 @@ describe 'Create emails', type: :request do
       post '/spi/emails',
            params: {
              email: {
-               mailer: 'EmailAddressMailer',
+               mailer: 'ConfirmationsMailer',
                template: 'confirmation',
                recipient: {email: 'test@example.com', language: 'en'},
                options: {confirmationToken: 'confirmationToken'}
@@ -60,7 +60,7 @@ describe 'Create emails', type: :request do
     end
     assert(Email.last.sent_at)
     assert_equal Email.last.sent_to, 'test@example.com'
-    assert_equal Email.last.mailer, 'EmailAddressMailer'
+    assert_equal Email.last.mailer, 'ConfirmationsMailer'
     assert_equal ActionMailer::Base.deliveries.first.subject, 'Confirm your e-mail address'
     assert_match 'confirmationToken', ActionMailer::Base.deliveries.first.body.encoded
   end
