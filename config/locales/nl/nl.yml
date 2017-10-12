@@ -5,3 +5,4 @@ nl:
     adjust_settings: "Wijzig jouw instellingen."
     sent_at_date: "Verzonden op %{date}"
   copy_paste_link: "Of kopieer en plak deze link:"
+  not_for_you: "Is deze mail niet voor jou bedoeld? Laat het ons weten door te mailen naar info@argu.co."

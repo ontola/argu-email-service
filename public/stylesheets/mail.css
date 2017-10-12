@@ -69,11 +69,12 @@ table, td {
 /* line 65, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
 a {
   color: #3D6CA5;
-  text-decoration: underline;
+  text-decoration: none;
 }
 /* line 68, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
 a:hover {
   color: #475668 !important;
+  text-decoration: underline !important;
 }
 
 /* line 73, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
@@ -284,16 +285,46 @@ table {
 .question-t * {
   color: #684747 !important;
 }
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
 
-*/
+/* line 243, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.decision-t {
+  color: #5a5a5a;
+}
+/* line 245, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.decision-t * {
+  color: #5a5a5a;
+}
+
+/* line 250, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.blog_post-t {
+  color: #5a5a5a;
+}
+/* line 252, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.blog_post-t * {
+  color: #5a5a5a;
+}
+
+/* line 257, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.markdown--motion {
+  color: #475668;
+  font-weight: bold;
+}
+
+/* line 261, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.markdown--question {
+  color: #684747;
+  font-weight: bold;
+}
+
+/* line 265, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.markdown--argument-con {
+  color: #863d3d;
+  font-weight: bold;
+}
+
+/* line 269, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
+.markdown--argument-pro {
+  color: #547f4b;
+  font-weight: bold;
+}
 

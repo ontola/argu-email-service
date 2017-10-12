@@ -9,3 +9,27 @@ en:
       subject: "Add your e-mail address"
     requested_confirmation:
       subject: "Confirm your e-mail address"
+    set_password:
+      subject: "Set your password"
+      greeting: "Welcome to Argu!"
+      body: "You can set your password by pressing the link below."
+      link: "Set your password"
+    confirm_votes:
+      subject:
+        one: "Confirm your vote"
+        other: "Confirm your votes"
+      greeting: "Welcome to Argu!"
+      body:
+        one: "The following vote requires your confirmation:"
+        other: "The following votes require your confirmation:"
+      side:
+        pro: "In favour of "
+        neutral: "Neutral about "
+        con: "Against "
+      confirm:
+        one: "You can confirm your vote by pressing the link below."
+        other: "You can confirm your votes by pressing the link below."
+      link:
+        one: "Confirm my vote"
+        other: "Confirm my votes"
+

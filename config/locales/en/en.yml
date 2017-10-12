@@ -5,3 +5,4 @@ en:
     adjust_settings: "Adjust your settings."
     sent_at_date: "Sent at %{date}"
   copy_paste_link: "Or copy and paste this link:"
+  not_for_you: "Is this mail not meant for you? Please let us know by mailing to info@argu.co."

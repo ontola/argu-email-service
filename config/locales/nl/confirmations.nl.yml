@@ -9,3 +9,27 @@ nl:
       subject: "Voeg jouw e-mailadres toe"
     requested_confirmation:
       subject: "Bevestig jouw e-mailadres"
+    set_password:
+      subject: "Stel een wachtwoord in"
+      greeting: "Welkom bij Argu!"
+      body: "Klik op onderstaande link om een wachtwoord in te stellen."
+      link: "Stel een wachtwoord in"
+    confirm_votes:
+      subject:
+        one: "Bevestig jouw stem"
+        other: "Bevestig jouw stemmen"
+      greeting: "Welkom bij Argu!"
+      body:
+        one: "De volgende stem moet nog bevestigd worden:"
+        other: "De volgende stemmen moeten nog bevestigd worden:"
+      side:
+        pro: "Vóór "
+        neutral: "Neutraal over "
+        con: "Tegen "
+      confirm:
+        one: "Klik op onderstaande link om de stem te bevestigen."
+        other: "Klik op onderstaande link om de stemmen te bevestigen."
+      link:
+        one: "Bevestig mijn stem"
+        other: "Bevestig mijn stemmen"
+
