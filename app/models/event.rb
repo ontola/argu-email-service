@@ -11,10 +11,6 @@ class Event < ApplicationRecord
   end
 
   def enqueue_job
-    if mailer.nil?
-      update!(processed_at: DateTime.current)
-      return
-    end
     return if job_is_active?
     update!(job_id: ProcessEventJob.perform_async(id))
   end
@@ -41,8 +37,7 @@ class Event < ApplicationRecord
 
   def add_desired_email(template, recipient, options = {})
     @desired_emails << options.merge(
-      template: template,
-      mailer: mailer,
+      template: Template.find_by(name: template),
       recipient: recipient
     )
   end

@@ -36,7 +36,6 @@ class ProcessEventJob < ApplicationJob
       event: @event,
       template: opts.delete(:template),
       recipient: opts.delete(:recipient),
-      mailer: opts.delete(:mailer),
       options: opts
     )
     email.save ? email : nil

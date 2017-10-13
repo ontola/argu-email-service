@@ -4,7 +4,7 @@ table
       table
         =greeting_row
         tr
-          td.mail-p= opts[:message].presence || t('tokens.email_token_created.header', group: opts[:group_name], organization: opts[:organization_name])
+          td.mail-p= opts[:message].presence || t('templates.email_token_created.header', group: opts[:group_name], organization: opts[:organization_name])
   - if opts[:profile][:id].present?
     tr
       td.mail-p.mail-profile
@@ -15,4 +15,4 @@ table
     td.mail-button--alt
       table
         tr
-          td= link_to(t('tokens.email_token_created.link'), opts[:links][:self])
+          td= link_to(t('templates.email_token_created.link'), opts[:links][:self])

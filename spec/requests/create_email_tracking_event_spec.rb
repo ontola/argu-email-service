@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require 'support/seeds'
 
 describe 'Create email tracking event', type: :request do
   let!(:event) do

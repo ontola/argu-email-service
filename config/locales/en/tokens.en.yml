@@ -1,6 +1,0 @@
-en:
-  tokens:
-    email_token_created:
-      subject: "Invitation for %{organization} on Argu"
-      header: "You have been invited to join the group '%{group}' of %{organization}"
-      link: "Click here to accept this invitation"

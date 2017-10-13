@@ -1,5 +1,5 @@
 en:
-  confirmations:
+  templates:
     confirmation:
       subject: "Confirm your e-mail address"
       body: "You can confirm this e-mail address by pressing the link below."
@@ -32,4 +32,13 @@ en:
       link:
         one: "Confirm my vote"
         other: "Confirm my votes"
-
+    email_token_created:
+      subject: "Invitation for %{organization} on Argu"
+      header: "You have been invited to join the group '%{group}' of %{organization}"
+      link: "Click here to accept this invitation"
+    registration_confirmation:
+      subject: "Confirm your e-mail address"
+    password_changed:
+      subject: "Your password has been updated"
+      header: "Your password has been updated."
+      body_html: "We're letting you know that the password for your Argu account \"%{shortname}\" has been updated.<br/> If this is unauthorized, please send an email to info@argu.co."

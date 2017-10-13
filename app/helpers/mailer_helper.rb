@@ -10,7 +10,7 @@ module MailerHelper
   end
 
   def show_footer?
-    @record.mailer.constantize.show_footer?
+    @record.template.show_footer?
   end
 
   def greeting_row

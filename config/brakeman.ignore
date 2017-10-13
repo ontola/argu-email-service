@@ -3,13 +3,13 @@
     {
       "warning_type": "Mass Assignment",
       "warning_code": 70,
-      "fingerprint": "83a78855ecbe8cccaf22e2daf039e7af63ff945aae0d68e74957240784cc4244",
+      "fingerprint": "ac967edc6e66f4a6d43de4e15b06ff4a037975b8cefa3f9d6887faeec3703a4b",
       "check_name": "MassAssignment",
       "message": "Parameters should be whitelisted for mass assignment",
       "file": "app/controllers/spi/emails_controller.rb",
-      "line": 20,
+      "line": 21,
       "link": "http://brakemanscanner.org/docs/warning_types/mass_assignment/",
-      "code": "params.require(:email).permit(:mailer, :template, :recipient => ([:display_name, :email, :id, :language])).permit!",
+      "code": "params.require(:email).permit(:recipient => ([:display_name, :email, :id, :language])).permit!",
       "render_path": null,
       "location": {
         "type": "method",
@@ -21,6 +21,6 @@
       "note": ""
     }
   ],
-  "updated": "2017-10-12 13:52:05 +0200",
+  "updated": "2017-10-13 16:21:06 +0200",
   "brakeman_version": "3.7.2"
 }

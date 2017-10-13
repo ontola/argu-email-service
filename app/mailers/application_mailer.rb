@@ -2,6 +2,7 @@
 
 class ApplicationMailer < ActionMailer::Base
   include Roadie::Rails::Mailer
+  include TemplateOptions
 
   default from: 'Argu <noreply@argu.co>',
           charset: 'UTF-8',
@@ -10,13 +11,8 @@ class ApplicationMailer < ActionMailer::Base
   add_template_helper(MailerHelper)
   add_template_helper(UriTemplateHelper)
 
-  def initialize(record)
-    @record = record
-    I18n.locale = record.recipient.language
-    super()
-  end
   attr_accessor :record
-  delegate :recipient, to: :record
+  delegate :recipient, :template, :options, to: :record
 
   def roadie_mail(_opts = {})
     m = super
@@ -24,21 +20,23 @@ class ApplicationMailer < ActionMailer::Base
     m
   end
 
-  def self.show_footer?
-    true
-  end
-
-  def self.method_missing(method_name, *args) # :nodoc:
-    if action_methods.include?(method_name.to_s)
-      Argu::MessageDelivery.new(self, method_name, *args)
-    else
-      super
-    end
+  def template_mail(record)
+    self.record = record
+    I18n.locale = record.recipient.language
+    opts = default_options
+    opts.merge!(send("#{template.name}_opts")) if respond_to?("#{template.name}_opts")
+    opts[:subject] = t(opts.delete(:subject_key), opts.delete(:subject_opts))
+    roadie_mail(opts)
   end
 
   private
 
-  def opts
-    record.options
+  def default_options
+    {
+      to: recipient.email,
+      subject_key: "templates.#{template.name}.subject",
+      subject_opts: options,
+      template_name: template.name
+    }
   end
 end

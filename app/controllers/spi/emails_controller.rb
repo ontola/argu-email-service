@@ -15,7 +15,8 @@ module SPI
     private
 
     def permit_params
-      p = params.require(:email).permit(:mailer, :template, recipient: %i[display_name email id language])
+      p = params.require(:email).permit(recipient: %i[display_name email id language])
+      p[:template] = Template.find_by!(name: params[:email][:template])
       p[:options] = params[:email][:options]
       p.permit!
     end

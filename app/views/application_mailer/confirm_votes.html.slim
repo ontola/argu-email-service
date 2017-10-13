@@ -3,21 +3,21 @@ table
     td.mail-box
       table
         tr
-          td.mail-p= I18n.t('confirmations.confirm_votes.greeting')
+          td.mail-p= I18n.t('templates.confirm_votes.greeting')
         tr
-          td.mail-p= I18n.t('confirmations.confirm_votes.body', count: opts[:motions].count)
+          td.mail-p= I18n.t('templates.confirm_votes.body', count: opts[:motions].count)
         -opts[:motions].each do |motion|
           tr
             td.mail-p
-              strong[class="#{motion[:option]}-t"]=I18n.t("confirmations.confirm_votes.side.#{motion[:option]}")
+              strong[class="#{motion[:option]}-t"]=I18n.t("templates.confirm_votes.side.#{motion[:option]}")
               =link_to motion[:display_name], motion[:url], class: 'motion-t markdown--motion'
         tr
-          td.mail-p= I18n.t('confirmations.confirm_votes.confirm', count: opts[:motions].count)
+          td.mail-p= I18n.t('templates.confirm_votes.confirm', count: opts[:motions].count)
   tr
     td.mail-button--alt
       table
         tr
-          td= link_to I18n.t('confirmations.confirm_votes.link', count: opts[:motions].count), expand_uri_template(:user_confirmation, confirmation_token: opts[:confirmationToken])
+          td= link_to I18n.t('templates.confirm_votes.link', count: opts[:motions].count), expand_uri_template(:user_confirmation, confirmation_token: opts[:confirmationToken])
   tr
     td
       table

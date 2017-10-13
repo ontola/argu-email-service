@@ -1,8 +1,0 @@
-nl:
-  user:
-    registration_confirmation:
-      subject: "Bevestig jouw e-mailadres"
-    password_changed:
-      subject: "Je wachtwoord is gewijzigd"
-      header: "Je wachtwoord is gewijzigd."
-      body_html: 'We laten je weten dat je wachtwoord voor je Argu account "%{shortname}" gewijzigd is.<br/> Mail naar info@argu.co als je dit niet gedaan hebt.'
