@@ -30,8 +30,8 @@ describe 'Create emails', type: :request do
            }
       expect(response.code).to eq('201')
     end
-    assert(Email.last.sent_at)
-    assert_equal Email.last.sent_to, 'test@example.com'
+    assert(EmailMessage.last.sent_at)
+    assert_equal EmailMessage.last.sent_to, 'test@example.com'
     assert_equal ActionMailer::Base.deliveries.first.subject, 'Bevestig jouw e-mailadres'
     assert_match 'confirmationToken', ActionMailer::Base.deliveries.first.body.encoded
   end
@@ -49,8 +49,8 @@ describe 'Create emails', type: :request do
            }
       expect(response.code).to eq('201')
     end
-    assert(Email.last.sent_at)
-    assert_equal Email.last.sent_to, 'test@example.com'
+    assert(EmailMessage.last.sent_at)
+    assert_equal EmailMessage.last.sent_to, 'test@example.com'
     assert_equal ActionMailer::Base.deliveries.first.subject, 'Confirm your e-mail address'
     assert_match 'confirmationToken', ActionMailer::Base.deliveries.first.body.encoded
   end
@@ -68,8 +68,8 @@ describe 'Create emails', type: :request do
            }
       expect(response.code).to eq('201')
     end
-    assert(Email.last.sent_at)
-    assert_equal Email.last.sent_to, 'secondary@example.com'
+    assert(EmailMessage.last.sent_at)
+    assert_equal EmailMessage.last.sent_to, 'secondary@example.com'
     assert_equal ActionMailer::Base.deliveries.first.subject, 'Voeg jouw e-mailadres toe'
     assert_match 'confirmationToken', ActionMailer::Base.deliveries.first.body.encoded
   end
@@ -87,8 +87,8 @@ describe 'Create emails', type: :request do
            }
       expect(response.code).to eq('201')
     end
-    assert(Email.last.sent_at)
-    assert_equal Email.last.sent_to, 'secondary@example.com'
+    assert(EmailMessage.last.sent_at)
+    assert_equal EmailMessage.last.sent_to, 'secondary@example.com'
     assert_equal ActionMailer::Base.deliveries.first.subject, 'Bevestig jouw e-mailadres'
     assert_match 'confirmationToken', ActionMailer::Base.deliveries.first.body.encoded
   end
@@ -111,8 +111,8 @@ describe 'Create emails', type: :request do
            }
       expect(response.code).to eq('201')
     end
-    assert(Email.last.sent_at)
-    assert_equal Email.last.sent_to, 'test@example.com'
+    assert(EmailMessage.last.sent_at)
+    assert_equal EmailMessage.last.sent_to, 'test@example.com'
     assert_equal ActionMailer::Base.deliveries.first.subject, 'Bevestig jouw stemmen'
     assert_match 'V=C3=B3=C3=B3r', ActionMailer::Base.deliveries.first.body.encoded
     assert_match 'Motion 1', ActionMailer::Base.deliveries.first.body.encoded
@@ -132,8 +132,8 @@ describe 'Create emails', type: :request do
            }
       expect(response.code).to eq('201')
     end
-    assert(Email.last.sent_at)
-    assert_equal Email.last.sent_to, 'test@example.com'
+    assert(EmailMessage.last.sent_at)
+    assert_equal EmailMessage.last.sent_to, 'test@example.com'
     assert_equal ActionMailer::Base.deliveries.first.subject, 'Stel een wachtwoord in'
     assert_match 'passwordToken', ActionMailer::Base.deliveries.first.body.encoded
   end

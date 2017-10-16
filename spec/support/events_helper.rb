@@ -25,8 +25,8 @@ RSpec.configure do |config|
         Sidekiq::Worker.drain_all
       end
       assert(Event.first.processed_at)
-      assert(Email.last.sent_at)
-      assert_equal Email.last.sent_to, expected_sent_to
+      assert(EmailMessage.last.sent_at)
+      assert_equal EmailMessage.last.sent_to, expected_sent_to
       assert_equal ActionMailer::Base.deliveries.first.header['From'].value, expected_from
       assert_equal ActionMailer::Base.deliveries.first.subject, expected_subject
       assert_match expected_match,

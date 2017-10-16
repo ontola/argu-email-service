@@ -3,24 +3,24 @@
     {
       "warning_type": "Mass Assignment",
       "warning_code": 70,
-      "fingerprint": "ac967edc6e66f4a6d43de4e15b06ff4a037975b8cefa3f9d6887faeec3703a4b",
+      "fingerprint": "62aedf128e31b3df59b650a674f7a788765d932ec8407525e91e6f448dfc9175",
       "check_name": "MassAssignment",
       "message": "Parameters should be whitelisted for mass assignment",
-      "file": "app/controllers/spi/emails_controller.rb",
+      "file": "app/controllers/spi/email_messages_controller.rb",
       "line": 21,
       "link": "http://brakemanscanner.org/docs/warning_types/mass_assignment/",
       "code": "params.require(:email).permit(:recipient => ([:display_name, :email, :id, :language])).permit!",
       "render_path": null,
       "location": {
         "type": "method",
-        "class": "SPI::EmailsController",
+        "class": "SPI::EmailMessagesController",
         "method": "permit_params"
       },
       "user_input": null,
       "confidence": "Medium",
-      "note": ""
+      "note": "We are mass whitelisting the #options param, might get fixed by https://github.com/rails/rails/pull/26308."
     }
   ],
-  "updated": "2017-10-13 16:21:06 +0200",
+  "updated": "2017-10-16 10:29:52 +0200",
   "brakeman_version": "3.7.2"
 }

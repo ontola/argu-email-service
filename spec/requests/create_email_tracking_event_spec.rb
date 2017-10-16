@@ -23,8 +23,8 @@ describe 'Create email tracking event', type: :request do
 
     assert_difference('EmailTrackingEvent.count', 1) do
       post '/email_events', params: {
-        'argu-mail-id': Email.last.id,
-        recipient: Email.last.sent_to,
+        'argu-mail-id': EmailMessage.last.id,
+        recipient: EmailMessage.last.sent_to,
         event: 'clicked',
         format: :json
       }
@@ -40,7 +40,7 @@ describe 'Create email tracking event', type: :request do
     assert_difference('EmailTrackingEvent.count', 0) do
       post '/email_events', params: {
         'argu-mail-id': 'not-existing',
-        recipient: Email.last.sent_to,
+        recipient: EmailMessage.last.sent_to,
         event: 'clicked',
         format: :json
       }
@@ -55,7 +55,7 @@ describe 'Create email tracking event', type: :request do
 
     assert_difference('EmailTrackingEvent.count', 0) do
       post '/email_events', params: {
-        recipient: Email.last.sent_to,
+        recipient: EmailMessage.last.sent_to,
         event: 'clicked',
         format: :json
       }

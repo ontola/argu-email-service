@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module SPI
-  class EmailsController < ApplicationController
+  class EmailMessagesController < ApplicationController
     def create
-      email = Email.new(permit_params)
+      email = EmailMessage.new(permit_params)
       if email.save
         email.deliver_now
         head 201

@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-class Email < ApplicationRecord
-  has_many :email_tracking_events
+class EmailMessage < ApplicationRecord
+  self.table_name = 'emails'
+
+  has_many :email_tracking_events, foreign_key: :email_id
   belongs_to :event
   belongs_to :template
   validates :recipient, presence: true

@@ -17,7 +17,7 @@ class CreateTemplates < ActiveRecord::Migration[5.0]
       ['requested_confirmation', false],
       ['set_password', false]
     ].each do |template, show_footer|
-      Email
+      EmailMessage
         .where('template = ?', template)
         .update_all(template_id: Template.create!(name: template, show_footer: show_footer).id)
     end

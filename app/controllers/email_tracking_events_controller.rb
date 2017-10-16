@@ -7,7 +7,7 @@ class EmailTrackingEventsController < ApplicationController
 
   def create
     if params['argu-mail-id'].present?
-      Email.find(params['argu-mail-id'])&.email_tracking_events&.create(event: params['event'])
+      EmailMessage.find(params['argu-mail-id'])&.email_tracking_events&.create(event: params['event'])
     end
     head 200
   rescue ActiveRecord::RecordNotFound

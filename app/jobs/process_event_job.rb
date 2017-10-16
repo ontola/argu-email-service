@@ -8,7 +8,7 @@ class ProcessEventJob < ApplicationJob
     return if @event.nil? || @event.processed_at
 
     @event.desired_emails.each { |email| send_email(email) }
-    @event.update_columns(processed_at: DateTime.current, body: {}) if @event.emails.where(sent_at: nil).empty?
+    @event.update_columns(processed_at: DateTime.current, body: {}) if @event.email_messages.where(sent_at: nil).empty?
   end
 
   private
@@ -28,11 +28,11 @@ class ProcessEventJob < ApplicationJob
     json_opts[:recipient] = json_opts[:recipient].attributes
     query = json_opts.map { |key, value| value.map { |k, _v| "#{key} ->> '#{k}' = ?" } }.flatten.join(' AND ')
     query_values = json_opts.map { |_key, value| value.map { |_k, v| v.to_s } }.flatten
-    @event.emails.where(query, *query_values).take
+    @event.email_messages.where(query, *query_values).take
   end
 
   def create_email(opts)
-    email = Email.new(
+    email = EmailMessage.new(
       event: @event,
       template: opts.delete(:template),
       recipient: opts.delete(:recipient),

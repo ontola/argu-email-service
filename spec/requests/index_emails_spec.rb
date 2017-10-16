@@ -8,7 +8,7 @@ describe 'Index emails', type: :request do
     valid_user_mock(1)
     valid_user_mock(2)
     Sidekiq::Worker.drain_all
-    Email.last.email_tracking_events.create(event: 'delivered')
+    EmailMessage.last.email_tracking_events.create(event: 'delivered')
 
     get '/emails?resource=https://argu.local/u/user1&event=update'
     expect(response.code).to eq('200')

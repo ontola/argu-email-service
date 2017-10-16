@@ -2,5 +2,5 @@
 
 class EventSerializer < ActiveModel::Serializer
   attributes :id
-  has_many :emails
+  has_many :email_messages
 end

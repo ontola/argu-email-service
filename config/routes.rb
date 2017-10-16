@@ -4,7 +4,7 @@ require 'argu/whitelist_constraint'
 
 Rails.application.routes.draw do
   constraints(Argu::WhitelistConstraint) do
-    get '/emails', to: 'emails#index', defaults: {format: :json}
+    get '/emails', to: 'email_messages#index', defaults: {format: :json}
   end
   post '/email_events', to: 'email_tracking_events#create', defaults: {format: :json}
 
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     health_check_routes
 
     namespace :spi do
-      post 'emails', to: 'emails#create', defaults: {format: :json}
+      post 'emails', to: 'email_messages#create', defaults: {format: :json}
     end
   end
 end
