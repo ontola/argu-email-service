@@ -1,2 +1,4 @@
+production:
+  :concurrency: 5
 :queues:
   - email_service
