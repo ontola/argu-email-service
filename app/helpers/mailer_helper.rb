@@ -21,4 +21,15 @@ module MailerHelper
       end
     end
   end
+
+  def markdown_to_plaintext(markdown)
+    return if markdown.blank?
+    require 'redcarpet/render_strip'
+    @plaintext_renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
+    @plaintext_renderer.render(markdown)
+  end
+
+  def truncate(body)
+    HTML_Truncator.truncate(body, 250, length_in_chars: true, ellipsis: ' ...')
+  end
 end
