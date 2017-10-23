@@ -1,0 +1,24 @@
+-if notifications.present?
+  tr
+    td.mail-p.no-padding
+      strong[class=type_class(followable)]= link_to followable[:display_name], followable[:id]
+      =t('templates.activity_notifications.trashed')
+      - if follow_id
+        .mail-unsubscribe= link_to t('templates.activity_notifications.unsubscribe'), follow_id
+  - notifications.each do |notification|
+    tr
+      td.mail-p.mail-profile
+        =link_to notification[:creator][:id] do
+          img.mail-profile-logo[src=notification[:creator][:thumbnail] width="25px" height="25px"]
+          =notification[:creator][:display_name]
+    - if notification[:content].present?
+      tr
+        td.mail-box
+          table
+            tr
+              td.mail-p.mail-grey-link
+                =link_to truncate(markdown_to_plaintext(notification[:content])), notification[:id]
+    tr
+      td.mail-p
+  tr
+    td.mail-p

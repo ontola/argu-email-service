@@ -9,7 +9,8 @@ RSpec.configure do |config|
       ['email_token_created', false],
       ['password_changed', true],
       ['requested_confirmation', false],
-      ['set_password', false]
+      ['set_password', false],
+      ['activity_notifications', false]
     ].each { |template, show_footer| Template.create!(name: template, show_footer: show_footer) }
   end
 

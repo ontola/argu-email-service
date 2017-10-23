@@ -179,7 +179,6 @@ a:hover {
 }
 
 .mail-profile {
-  text-align: right;
   padding: 10px;
 }
 .mail-profile a {
@@ -328,3 +327,15 @@ table {
   font-weight: bold;
 }
 
+.mail-unsubscribe {
+  font-family: Open sans, Helvetica, Segoe UI, sans-serif;
+  font-size: .8em;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.no-padding {
+  padding: 0;
+}

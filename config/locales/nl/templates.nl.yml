@@ -42,4 +42,17 @@ nl:
       subject: "Je wachtwoord is gewijzigd"
       header: "Je wachtwoord is gewijzigd."
       body_html: 'We laten je weten dat je wachtwoord voor je Argu account "%{shortname}" gewijzigd is.<br/> Mail naar info@argu.co als je dit niet gedaan hebt.'
-
+    activity_notifications:
+      subject:
+        argu: "Nieuwe Argu meldingen"
+        recipient: "%{type} in '%{recipient}'"
+      unsubscribe: "Meldingen hiervoor uitschakelen"
+      go_to: "Ga naar discussie"
+      decision:
+        rejected: " is verworpen."
+        approved: " is aangenomen."
+        forwarded: " is doorgestuurd."
+      trashed: " is verwijderd."
+      new_reactions:
+        one: "Er is een %{type} geplaatst in "
+        other: "Er zijn %{type} geplaatst in "

@@ -1,0 +1,19 @@
+nl:
+  models:
+    new:
+      notification: "nieuwe melding"
+      question: "nieuwe uitdaging"
+      motion: "nieuw idee"
+      argument: "nieuw argument"
+      comment: "nieuwe reactie"
+      blog_post: "nieuwe update"
+      decision: "nieuw besluit"
+      default: "nieuwe reactie"
+    new_plural:
+      notification: "nieuwe meldingen"
+      question: "nieuwe uitdagingen"
+      motion: "nieuwe ideeën"
+      argument: "nieuwe argumenten"
+      comment: "nieuwe reacties"
+      blog_post: "nieuwe updates"
+      default: "nieuwe reacties"

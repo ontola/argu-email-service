@@ -18,3 +18,5 @@ RSpec/ExampleLength:
   Enabled: false
 Rails/SkipsModelValidations:
   Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false

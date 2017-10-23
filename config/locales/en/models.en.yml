@@ -1,0 +1,19 @@
+en:
+  models:
+    new:
+      notification: "new notification"
+      question: "new challenge"
+      motion: "new idea"
+      argument: "new argument"
+      comment: "new comment"
+      blog_post: "new update"
+      decision: "new decision"
+      default: "new reply"
+    new_plural:
+      notification: "new notifications"
+      question: "new challenges"
+      motion: "new ideas"
+      argument: "new arguments"
+      comment: "new comments"
+      blog_post: "new updates"
+      default: "new replies"

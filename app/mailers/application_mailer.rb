@@ -8,6 +8,7 @@ class ApplicationMailer < ActionMailer::Base
           charset: 'UTF-8',
           content_type: 'text/html'
   layout 'mailer'
+  add_template_helper(ActivityNotificationHelper)
   add_template_helper(MailerHelper)
   add_template_helper(UriTemplateHelper)
 
@@ -23,20 +24,21 @@ class ApplicationMailer < ActionMailer::Base
   def template_mail(record)
     self.record = record
     I18n.locale = record.recipient.language
-    opts = default_options
-    opts.merge!(send("#{template.name}_opts")) if respond_to?("#{template.name}_opts")
-    opts[:subject] = t(opts.delete(:subject_key), opts.delete(:subject_opts))
+    opts = template_options
+    opts[:subject] = t(opts.delete(:subject_key), opts.delete(:subject_opts)).sub(/^./, &:upcase)
     roadie_mail(opts)
   end
 
   private
 
-  def default_options
-    {
+  def template_options
+    opts = {
       to: recipient.email,
       subject_key: "templates.#{template.name}.subject",
       subject_opts: options,
       template_name: template.name
     }
+    opts.merge!(send("#{template.name}_opts")) if respond_to?("#{template.name}_opts")
+    opts
   end
 end

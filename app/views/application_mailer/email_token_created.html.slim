@@ -7,7 +7,7 @@ table
           td.mail-p= opts[:message].presence || t('templates.email_token_created.header', group: opts[:group_name], organization: opts[:organization_name])
   - if opts[:profile][:id].present?
     tr
-      td.mail-p.mail-profile
+      td.mail-p.mail-profile.align-right
         =link_to opts[:profile][:id]
           img.mail-profile-logo[src=opts['profile']['profile_photo_thumbnail'] width="25px" height="25px"]
           =opts[:profile][:display_name]

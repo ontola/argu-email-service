@@ -1,0 +1,13 @@
+table
+  tr
+    td.mail-p= I18n.t('greeting', name: recipient.display_name)
+  - activity_follows.each do |follow|
+    =render partial: 'activities/decision', locals: notifications_group(follow, 'decision')
+    =render partial: 'activities/new_reaction', locals: notifications_group(follow, 'reaction')
+    =render partial: 'activities/trashed', locals: notifications_group(follow, 'trash')
+  - if activity_follows.count == 1
+    tr
+      td.mail-button--alt
+        table
+          tr
+            td= link_to t('templates.activity_notifications.go_to'), activity_follows.first.followable[:id]
