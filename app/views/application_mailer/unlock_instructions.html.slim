@@ -1,0 +1,20 @@
+table
+  tr
+    td.mail-box
+      table
+        =greeting_row
+        tr
+          td.mail-p= I18n.t('templates.unlock_instructions.body')
+  tr
+    td.mail-button--alt
+      table
+        tr
+          td= link_to I18n.t('templates.unlock_instructions.unlock_link'), expand_uri_template(:user_unlock, unlock_token: opts[:token])
+  tr
+    td
+      table
+        tr
+          td.mail-p.small.mail-center
+            =I18n.t('copy_paste_link')
+            br
+            =expand_uri_template(:user_unlock, unlock_token: opts[:token])
