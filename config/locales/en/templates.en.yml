@@ -9,6 +9,10 @@ en:
       subject: "Add your e-mail address"
     requested_confirmation:
       subject: "Confirm your e-mail address"
+    confirmation_reminder:
+      subject: "Don't forget to confirm your votes!"
+      body: "You have casted one or multiple votes on Argu. These votes will only be valid after you have confirmed your e-mail."
+      confirm_link: 'Confirm your e-mail'
     set_password:
       subject: "Set your password"
       greeting: "Welcome to Argu!"

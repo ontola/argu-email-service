@@ -9,6 +9,10 @@ nl:
       subject: "Voeg jouw e-mailadres toe"
     requested_confirmation:
       subject: "Bevestig jouw e-mailadres"
+    confirmation_reminder:
+      subject: "Vergeet je stemmen niet te bevestigen!"
+      body: "Je hebt een of meerdere stemmen uitgebracht op Argu. Deze zullen pas definitief gemaakt worden na het bevestigen van je e-mailadres."
+      confirm_link: 'Bevestig jouw e-mailadres'
     set_password:
       subject: "Stel een wachtwoord in"
       greeting: "Welkom bij Argu!"
