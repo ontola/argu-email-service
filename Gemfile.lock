@@ -125,6 +125,8 @@ GEM
     ffi (1.9.17)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    hamster (3.0.0)
+      concurrent-ruby (~> 1.0)
     hashdiff (0.3.0)
     health_check (2.6.0)
       rails (>= 4.0)
@@ -142,6 +144,7 @@ GEM
     jsonapi-parser (0.1.1.beta3)
     jsonapi-renderer (0.1.1.beta1)
     jwt (1.5.6)
+    link_header (0.0.8)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -219,6 +222,9 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    rdf (2.2.11)
+      hamster (~> 3.0)
+      link_header (~> 0.0, >= 0.0.8)
     redcarpet (3.3.4)
     redis (3.3.1)
     rest-client (2.0.0)
@@ -341,6 +347,7 @@ DEPENDENCIES
   puma (~> 3.9.1)
   pundit (~> 1.0.0)
   rails (~> 5.0.1)
+  rdf
   redcarpet
   roadie-rails (~> 1.2.1)
   rspec-rails
