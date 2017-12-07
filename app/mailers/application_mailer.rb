@@ -25,8 +25,8 @@ class ApplicationMailer < ActionMailer::Base
     self.record = record
     I18n.locale = record.recipient.language
     opts = template_options
-    opts[:subject] = t(opts.delete(:subject_key), opts.delete(:subject_opts)).sub(/^./, &:upcase)
-    roadie_mail(opts)
+    opts[:subject] ||= t(opts[:subject_key], opts[:subject_opts]).sub(/^./, &:upcase)
+    roadie_mail(opts.except(:subject_key, :subject_opts))
   end
 
   private

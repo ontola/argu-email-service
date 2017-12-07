@@ -7,6 +7,14 @@ module TemplateOptions
     {to: options[:email]}
   end
 
+  def direct_message_opts
+    {
+      from: "#{options[:actor][:display_name]} <#{options[:email]}>",
+      subject: options[:subject],
+      reply_to: options[:email]
+    }
+  end
+
   def requested_confirmation_opts
     {to: options[:email]}
   end
