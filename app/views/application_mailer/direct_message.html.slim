@@ -1,11 +1,5 @@
 table
   tr
-    td
-      table
-        =greeting_row
-        tr
-          td.mail-p= t('templates.direct_message.header_html', actor: opts[:actor][:display_name], actor_iri: opts[:actor][:iri], subject: opts[:resource][:display_name], subject_iri: opts[:resource][:iri])
-  tr
     td.mail-box
       table
         tr
@@ -21,4 +15,4 @@ table
         tr
           td.mail-p= t('templates.direct_message.reply_directly')
         tr
-          td.mail-p.small= t('templates.direct_message.disclaimer', actor: opts[:actor][:display_name], email: opts[:email])
+          td.mail-p.small= t('templates.direct_message.disclaimer_html', actor: opts[:actor][:display_name], actor_iri: opts[:actor][:iri], email: opts[:email], subject: opts[:resource][:display_name], subject_iri: opts[:resource][:iri])

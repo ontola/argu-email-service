@@ -70,6 +70,5 @@ nl:
         one: "Er is een %{type} geplaatst in "
         other: "Er zijn %{type} geplaatst in "
     direct_message:
-      header_html: 'Je hebt een bericht ontvangen van <a href="%{actor_iri}">%{actor}</a> naar aanleiding van <a href="%{subject_iri}">%{subject}</a>.'
       reply_directly: "Je kunt direct op deze e-mail reageren om te antwoorden"
-      disclaimer: "%{actor} heeft dit bericht kunnen verzenden via Argu omdat je hebt meegedaan aan een discussie op Argu. Jouw e-mailadres is hierbij niet gedeeld met derden. Reacties op deze e-mail worden direct naar de verzender gestuurd. In dat geval ziet %{actor} wel jouw e-mailadres."
+      disclaimer_html: 'Je hebt een bericht ontvangen van <a href="%{actor_iri}">%{actor}</a> naar aanleiding van <a href="%{subject_iri}">%{subject}</a>. Jouw e-mailadres is hierbij niet gedeeld met %{actor}. Reacties op deze e-mail worden direct naar de verzender gestuurd. In dat geval ziet %{actor} wel jouw e-mailadres.'

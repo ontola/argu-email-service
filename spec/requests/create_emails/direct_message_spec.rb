@@ -42,6 +42,5 @@ describe 'Direct message', type: :request do
     expect(ActionMailer::Base.deliveries.first.reply_to).to include('sender@example.com')
     assert_match 'This is the body of the message', ActionMailer::Base.deliveries.first.body.encoded
     assert_match 'Motion title', ActionMailer::Base.deliveries.first.body.encoded
-    assert_match 'Motion poster', ActionMailer::Base.deliveries.first.body.encoded
   end
 end

@@ -70,6 +70,5 @@ en:
         one: "A %{type} is posted in "
         other: "%{type} are posted in "
     direct_message:
-      header_html: '<a href="%{actor_iri}">%{actor}</a> has sent you a message in response to <a href="%{subject_iri}">%{subject}</a>.'
       reply_directly: "You can reply to this email directly to answer"
-      disclaimer: "%{actor} was able to send this message because you have participated in a discussion on Argu. Your e-mail address was not shared. Replies to this e-mail will be sent directly to the sender. In that case %{actor} will see your e-mailaddress."
+      disclaimer_html: '<a href="%{actor_iri}">%{actor}</a> has sent you a message in response to <a href="%{subject_iri}">%{subject}</a>. Your e-mail address was not shared with %{actor}. Replies to this e-mail will be sent directly to the sender. In that case %{actor} will see your e-mailaddress.'
