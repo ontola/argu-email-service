@@ -3,11 +3,21 @@
 require 'openssl'
 
 class EmailTrackingEventsController < ApplicationController
-  before_action :verify
+  MAILJET_EVENTS = {
+    'open' => 'opened',
+    'click' => 'clicked',
+    'bounce' => 'bounced',
+    'spam' => 'complained',
+    'blocked' => 'blocked',
+    'unsub' => 'unsubscribed',
+    'sent' => 'delivered'
+  }.freeze
 
   def create
     if params['argu-mail-id'].present?
-      EmailMessage.find(params['argu-mail-id'])&.email_tracking_events&.create(event: params['event'])
+      process_mailgun_event
+    elsif params['CustomID'].present?
+      process_mailjet_event
     end
     head 200
   rescue ActiveRecord::RecordNotFound
@@ -16,7 +26,22 @@ class EmailTrackingEventsController < ApplicationController
 
   private
 
-  def verify
+  def process_mailgun_event
+    verify_mailgun_event
+    EmailMessage
+      .find(params['argu-mail-id'])
+      &.email_tracking_events
+      &.create(event: params['event'])
+  end
+
+  def process_mailjet_event
+    EmailMessage
+      .find(params['CustomID'])
+      &.email_tracking_events
+      &.create(event: MAILJET_EVENTS[params['event']] || params['event'])
+  end
+
+  def verify_mailgun_event
     return if Rails.env.test?
     digest = OpenSSL::Digest::SHA256.new
     data = [params['timestamp'], params['token']].join

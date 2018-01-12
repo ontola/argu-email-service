@@ -17,7 +17,11 @@ class ApplicationMailer < ActionMailer::Base
 
   def roadie_mail(_opts = {})
     m = super
-    m.mailgun_variables = {'argu-mail-id' => record.id}
+    if delivery_method == :mailjet
+      m.headers['X-MJ-CustomID'] = record.id
+    else
+      m.mailgun_variables = {'argu-mail-id' => record.id}
+    end
     m
   end
 
@@ -26,6 +30,7 @@ class ApplicationMailer < ActionMailer::Base
     I18n.locale = record.recipient.language
     opts = template_options
     opts[:subject] ||= t(opts[:subject_key], opts[:subject_opts]).sub(/^./, &:upcase)
+    self.delivery_method = :mailjet if opts[:to].include?('@argu.co')
     roadie_mail(opts.except(:subject_key, :subject_opts))
   end
 
