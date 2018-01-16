@@ -25,10 +25,7 @@ class ApplicationMailer < ActionMailer::Base
     self.record = record
     I18n.locale = record.recipient.language
     opts = template_options
-    if opts[:to].include?('@argu.co')
-      opts[:delivery_method] = :mailjet_api
-      opts[:delivery_method_options] = {'CustomID' => record.id.to_s}
-    end
+    opts[:delivery_method_options] = {'CustomID' => record.id.to_s}
     roadie_mail(opts)
   end
 
