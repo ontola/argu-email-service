@@ -9,7 +9,7 @@ module TemplateOptions
 
   def direct_message_opts
     {
-      from: "#{options[:actor][:display_name]} <#{options[:email]}>",
+      from: "#{options[:actor][:display_name]} <noreply@argu.co>",
       subject: options[:subject],
       reply_to: options[:email]
     }

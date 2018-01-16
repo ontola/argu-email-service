@@ -38,7 +38,7 @@ describe 'Direct message', type: :request do
     assert(EmailMessage.last.sent_at)
     assert_equal EmailMessage.last.sent_to, 'test@example.com'
     assert_equal ActionMailer::Base.deliveries.first.subject, 'Subject of message'
-    assert_equal ActionMailer::Base.deliveries.first.header['from'].value, 'Mail sender <sender@example.com>'
+    assert_equal ActionMailer::Base.deliveries.first.header['from'].value, 'Mail sender <noreply@argu.co>'
     expect(ActionMailer::Base.deliveries.first.reply_to).to include('sender@example.com')
     assert_match 'This is the body of the message', ActionMailer::Base.deliveries.first.body.encoded
     assert_match 'Motion title', ActionMailer::Base.deliveries.first.body.encoded

@@ -17,11 +17,7 @@ class ApplicationMailer < ActionMailer::Base
 
   def roadie_mail(_opts = {})
     m = super
-    if delivery_method == :mailjet
-      m.headers['X-MJ-CustomID'] = record.id
-    else
-      m.mailgun_variables = {'argu-mail-id' => record.id}
-    end
+    m.mailgun_variables = {'argu-mail-id' => record.id}
     m
   end
 
@@ -29,21 +25,24 @@ class ApplicationMailer < ActionMailer::Base
     self.record = record
     I18n.locale = record.recipient.language
     opts = template_options
-    opts[:subject] ||= t(opts[:subject_key], opts[:subject_opts]).sub(/^./, &:upcase)
-    self.delivery_method = :mailjet if opts[:to].include?('@argu.co')
-    roadie_mail(opts.except(:subject_key, :subject_opts))
+    if opts[:to].include?('@argu.co')
+      opts[:delivery_method] = :mailjet_api
+      opts[:delivery_method_options] = {'CustomID' => record.id.to_s}
+    end
+    roadie_mail(opts)
   end
 
   private
 
   def template_options
-    opts = {
-      to: recipient.email,
-      subject_key: "templates.#{template.name}.subject",
-      subject_opts: options,
-      template_name: template.name
-    }
+    opts = {to: recipient.email, template_name: template.name}
     opts.merge!(send("#{template.name}_opts")) if respond_to?("#{template.name}_opts")
-    opts
+    options_with_subject(opts)
+  end
+
+  def options_with_subject(opts)
+    opts[:subject] ||=
+      t(opts[:subject_key] || "templates.#{template.name}.subject", opts[:subject_opts] || options).sub(/^./, &:upcase)
+    opts.except(:subject_key, :subject_opts)
   end
 end
