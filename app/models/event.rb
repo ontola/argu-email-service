@@ -3,7 +3,7 @@
 require 'sidekiq/api'
 
 class Event < ApplicationRecord
-  has_many :email_messages
+  has_many :email_messages, dependent: :destroy
   after_create :enqueue_job
 
   def changes(resource_id = self.resource_id, resource_type = self.resource_type)

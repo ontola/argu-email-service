@@ -79,7 +79,7 @@ describe 'Create activity notification emails', type: :request do
     end
   end
 
-  context 'one argument created' do
+  context 'when one argument created' do
     let(:follows) do
       {
         '1': {
@@ -94,7 +94,7 @@ describe 'Create activity notification emails', type: :request do
     it_behaves_like 'notification mailer', "New argument in 'Motion'", 'A new argument is posted in'
   end
 
-  context 'two arguments created' do
+  context 'when two arguments created' do
     let(:follows) do
       {
         '1': {
@@ -109,7 +109,7 @@ describe 'Create activity notification emails', type: :request do
     it_behaves_like 'notification mailer', "New notifications in 'Motion'", 'New arguments are posted in'
   end
 
-  context 'two follows' do
+  context 'when two follows' do
     let(:follows) do
       {
         '1': {
@@ -130,7 +130,7 @@ describe 'Create activity notification emails', type: :request do
     it_behaves_like 'notification mailer', "New notifications in 'Organization'", 'A new argument is posted in'
   end
 
-  context 'two organizations' do
+  context 'when two organizations' do
     let(:follows) do
       {
         '1': {
@@ -151,7 +151,7 @@ describe 'Create activity notification emails', type: :request do
     it_behaves_like 'notification mailer', 'New Argu notifications', 'A new argument is posted in'
   end
 
-  context 'decision forwarded' do
+  context 'when decision forwarded' do
     let(:follows) do
       {
         '1': {
@@ -166,7 +166,7 @@ describe 'Create activity notification emails', type: :request do
     it_behaves_like 'notification mailer', "New decision in 'Motion'", 'is approved'
   end
 
-  context 'decision made' do
+  context 'when decision made' do
     let(:follows) do
       {
         '1': {
@@ -181,7 +181,7 @@ describe 'Create activity notification emails', type: :request do
     it_behaves_like 'notification mailer', "New decision in 'Motion'", 'is approved'
   end
 
-  context 'decision made and argument created' do
+  context 'when decision made and argument created' do
     let(:follows) do
       {
         '1': {
@@ -196,7 +196,7 @@ describe 'Create activity notification emails', type: :request do
     it_behaves_like 'notification mailer', "New notifications in 'Motion'", 'A new argument is posted in', 'is approved'
   end
 
-  context 'motion trashed' do
+  context 'when motion trashed' do
     let(:follows) do
       {
         '1': {

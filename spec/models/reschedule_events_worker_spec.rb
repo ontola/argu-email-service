@@ -19,12 +19,12 @@ describe RescheduleEventsWorker, type: :model do
             type: 'users',
             attributes: {
               encryptedPassword: '[FILTERED]',
-              updatedAt: [1.day.ago, DateTime.current]
+              updatedAt: [1.day.ago, Time.current]
             }
           }
         ]
       },
-      processed_at: DateTime.current
+      processed_at: Time.current
     )
 
     assert_difference 'Sidekiq::Worker.jobs.size', 0 do
@@ -48,7 +48,7 @@ describe RescheduleEventsWorker, type: :model do
             type: 'users',
             attributes: {
               encryptedPassword: '[FILTERED]',
-              updatedAt: [1.day.ago, DateTime.current]
+              updatedAt: [1.day.ago, Time.current]
             }
           }
         ]

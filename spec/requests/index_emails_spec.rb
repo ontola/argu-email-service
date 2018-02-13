@@ -25,7 +25,7 @@ describe 'Index emails', type: :request do
       'users',
       changes: {
         encryptedPassword: '[FILTERED]',
-        updatedAt: [1.day.ago, DateTime.current]
+        updatedAt: [1.day.ago, Time.current]
       }
     )
   end

@@ -22,7 +22,7 @@ describe UserEvent, type: :model do
       resource_type,
       attributes: {
         usages: 0,
-        createdAt: DateTime.current,
+        createdAt: Time.current,
         expiresAt: nil,
         retractedAt: nil,
         groupId: 1
@@ -33,10 +33,10 @@ describe UserEvent, type: :model do
 
   context 'when changing password' do
     let(:resource_changes) do
-      {encryptedPassword: '[FILTERED]', updatedAt: [1.day.ago, DateTime.current]}
+      {encryptedPassword: '[FILTERED]', updatedAt: [1.day.ago, Time.current]}
     end
 
-    context 'on update' do
+    context 'when update' do
       let(:event_type) { 'update' }
 
       it_behaves_like :has_mail
@@ -46,14 +46,14 @@ describe UserEvent, type: :model do
   context 'when logging in' do
     let(:resource_changes) do
       {
-        currentSignInAt: [1.day.ago, DateTime.current],
+        currentSignInAt: [1.day.ago, Time.current],
         lastSignInAt: [2.days.ago, 1.day.ago],
         signInCount: [10, 11],
-        updatedAt: [1.day.ago, DateTime.current]
+        updatedAt: [1.day.ago, Time.current]
       }
     end
 
-    context 'on update' do
+    context 'when update' do
       let(:event_type) { 'update' }
 
       it_behaves_like :no_mail

@@ -3,7 +3,7 @@
 class EmailMessage < ApplicationRecord
   self.table_name = 'emails'
 
-  has_many :email_tracking_events, foreign_key: :email_id
+  has_many :email_tracking_events, foreign_key: :email_id, dependent: :destroy, inverse_of: :email_message
   belongs_to :event
   belongs_to :template
   validates :recipient, presence: true
@@ -11,7 +11,7 @@ class EmailMessage < ApplicationRecord
   def deliver_now
     touch # make sure the lock is still valid before sending the mail
     r = ApplicationMailer.template_mail(self).deliver_now
-    update!(sent_at: DateTime.current, sent_to: r.to.first, mailgun_id: r.try(:message_id))
+    update!(sent_at: Time.current, sent_to: r.to.first, mailgun_id: r.try(:message_id))
   end
 
   def options

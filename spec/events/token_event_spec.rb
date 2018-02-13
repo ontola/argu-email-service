@@ -22,7 +22,7 @@ describe TokenEvent, type: :model do
       resource_type,
       attributes: {
         usages: 0,
-        createdAt: DateTime.current,
+        createdAt: Time.current,
         expiresAt: nil,
         retractedAt: nil,
         groupId: 1
@@ -31,7 +31,7 @@ describe TokenEvent, type: :model do
     )
   end
 
-  context 'for email token without message and actor_iri' do
+  context 'with email token without message and actor_iri' do
     let(:resource_attributes) do
       {
         email: 'test@example.com',
@@ -41,20 +41,20 @@ describe TokenEvent, type: :model do
       }
     end
 
-    context 'on create' do
+    context 'when create' do
       let(:event_type) { 'create' }
 
       it_behaves_like :has_mail
     end
 
-    context 'on update' do
+    context 'when update' do
       let(:event_type) { 'update' }
 
       it_behaves_like :no_mail
     end
   end
 
-  context 'for email token with message and actor_iri' do
+  context 'with email token with message and actor_iri' do
     let(:expected_from) { 'User1 <noreply@argu.co>' }
     let(:expected_match) { 'Hello world!' }
 
@@ -67,20 +67,20 @@ describe TokenEvent, type: :model do
       }
     end
 
-    context 'on create' do
+    context 'when create' do
       let(:event_type) { 'create' }
 
       it_behaves_like :has_mail
     end
 
-    context 'on update' do
+    context 'when update' do
       let(:event_type) { 'update' }
 
       it_behaves_like :no_mail
     end
   end
 
-  context 'for email token created with send_mail = false' do
+  context 'with email token created with send_mail = false' do
     let(:resource_attributes) do
       {
         email: 'test@example.com',
@@ -90,33 +90,33 @@ describe TokenEvent, type: :model do
       }
     end
 
-    context 'on create' do
+    context 'when create' do
       let(:event_type) { 'create' }
 
       it_behaves_like :no_mail
     end
 
-    context 'on update' do
+    context 'when update' do
       let(:event_type) { 'update' }
 
       it_behaves_like :no_mail
     end
   end
 
-  context 'for bearer token created' do
+  context 'with bearer token created' do
     let(:resource_attributes) do
       {
         sendMail: true
       }
     end
 
-    context 'on create' do
+    context 'when create' do
       let(:event_type) { 'create' }
 
       it_behaves_like :no_mail
     end
 
-    context 'on update' do
+    context 'when update' do
       let(:event_type) { 'update' }
 
       it_behaves_like :no_mail

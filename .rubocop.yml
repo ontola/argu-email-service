@@ -20,3 +20,9 @@ Rails/SkipsModelValidations:
   Enabled: false
 RSpec/MultipleExpectations:
   Enabled: false
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+    - staging

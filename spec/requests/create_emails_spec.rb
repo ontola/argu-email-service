@@ -4,7 +4,7 @@ require 'spec_helper'
 require 'support/seeds'
 
 describe 'Create emails', type: :request do
-  context 'invalid' do
+  context 'when invalid' do
     it "don't post invalid template" do
       post '/spi/emails',
            params: {email: {template: 'invalid', recipient: {email: 'test@example.com'}}}
