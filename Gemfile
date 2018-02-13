@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'puma', '~> 3.9.1'
 gem 'rails', '~> 5.0.1'
 
-gem 'active_model_serializers', '~> 0.10.4'
+gem 'active_model_serializers', '~> 0.10.7'
 gem 'activeresource',
     git: 'https://github.com/rails/activeresource',
     ref: 'e28f907145c34bcad1d354fa9b25fbd4264e52e9'
