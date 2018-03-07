@@ -10,6 +10,7 @@ module ActivityNotificationHelper
     type = follow.notifications.count == 1 ? follow_subject_type(follow) : t('models.new_plural.notification')
     {
       'List-Unsubscribe': "<#{follow.follow_id}>",
+      'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
       subject_key: 'templates.activity_notifications.subject.recipient',
       subject_opts: {type: type, recipient: follow.followable[:display_name]}
     }
