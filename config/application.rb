@@ -36,6 +36,8 @@ module EmailService
     config.api_only = true
     config.host_name = ENV['HOSTNAME']
     config.oauth_url = ENV['OAUTH_URL']
+    config.origin = "https://#{Rails.application.config.host_name}"
+
     ActiveModelSerializers.config.key_transform = :camel_lower
 
     config.templates = HashWithIndifferentAccess.new(
