@@ -2,17 +2,7 @@
 
 RSpec.configure do |config|
   config.before(:suite) do
-    [
-      ['confirm_secondary', false],
-      ['confirm_votes', false],
-      ['confirmation', false],
-      ['email_token_created', false],
-      ['password_changed', true],
-      ['requested_confirmation', false],
-      ['set_password', false],
-      ['activity_notifications', true],
-      ['direct_message', false]
-    ].each { |template, show_footer| Template.create!(name: template, show_footer: show_footer) }
+    load(Dir[Rails.root.join('db', 'seeds.rb')][0])
   end
 
   config.after(:suite) do
