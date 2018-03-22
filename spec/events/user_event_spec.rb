@@ -41,6 +41,16 @@ describe UserEvent, type: :model do
 
       it_behaves_like :has_mail
     end
+
+    context 'when user destroyed' do
+      let(:event_type) { 'update' }
+      let(:resource_id) do
+        not_found_mock(argu_url('/u/destroyed'))
+        argu_url('/u/destroyed')
+      end
+
+      it_behaves_like :no_mail
+    end
   end
 
   context 'when logging in' do

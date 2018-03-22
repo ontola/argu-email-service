@@ -4,6 +4,7 @@ class UserEvent < Event
   private
 
   def initialize_desired_emails
+    return if user.nil?
     case event
     when 'update'
       if changes.include?('encryptedPassword') && changes['hasPass']&.first != false
@@ -14,5 +15,7 @@ class UserEvent < Event
 
   def user
     @user ||= User.find(:one, from: URI(resource_id).path)
+  rescue OAuth2::Error => e
+    raise e unless e.response.status == 404
   end
 end

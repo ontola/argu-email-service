@@ -3,6 +3,10 @@
 module TestMocks
   include UrlHelper
 
+  def not_found_mock(url)
+    stub_request(:get, url).to_return(status: 404)
+  end
+
   def valid_user_mock(id, language = 'nl')
     stub_request(:get, argu_url("/u/user#{id}"))
       .to_return(
