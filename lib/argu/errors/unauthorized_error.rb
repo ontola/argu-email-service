@@ -1,1 +1,0 @@
-../../../service_module/lib/argu/errors/unauthorized_error.rb
