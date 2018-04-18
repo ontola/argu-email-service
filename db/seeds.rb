@@ -9,5 +9,7 @@
   ['requested_confirmation', false],
   ['set_password', false],
   ['activity_notifications', true],
-  ['direct_message', false]
+  ['direct_message', false],
+  ['export_failed', true],
+  ['export_done', true]
 ].each { |template, show_footer| Template.create!(name: template, show_footer: show_footer) }

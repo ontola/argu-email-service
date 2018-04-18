@@ -72,3 +72,10 @@ en:
     direct_message:
       reply_directly: "You can reply to this email directly to answer"
       disclaimer_html: '<a href="%{actor_iri}">%{actor}</a> has sent you a message in response to <a href="%{subject_iri}">%{subject}</a>. Your e-mail address was not shared with %{actor}. Replies to this e-mail will be sent directly to the sender. In that case %{actor} will see your e-mailaddress.'
+    export_failed:
+      subject: "Export failed"
+      body: "We failed to process the export you've requested. We have been notified of this error and will try to solve the issue. We will contact you when we have more information. Sorry for the inconvenience"
+    export_done:
+      subject: "Export ready"
+      body: "The export you've requested is ready."
+      link: "Click here to download the export"

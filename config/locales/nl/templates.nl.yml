@@ -72,3 +72,10 @@ nl:
     direct_message:
       reply_directly: "Je kunt direct op deze e-mail reageren om te antwoorden"
       disclaimer_html: 'Je hebt een bericht ontvangen van <a href="%{actor_iri}">%{actor}</a> naar aanleiding van <a href="%{subject_iri}">%{subject}</a>. Jouw e-mailadres is hierbij niet gedeeld met %{actor}. Reacties op deze e-mail worden direct naar de verzender gestuurd. In dat geval ziet %{actor} wel jouw e-mailadres.'
+    export_failed:
+      subject: "Export mislukt"
+      body: "De door jouw aangevraagde export is mislukt. We zijn op de hoogte gebracht van deze fout en zullen proberen het probleem te verhelpen. We nemen contact op als we meer informatie hebben. Excuses voor het ongemak."
+    export_done:
+      subject: "Export beschikbaar"
+      body: "De door jouw aangevraagde export is beschikbaar."
+      link: "Klik hier om de export te downloaden"
