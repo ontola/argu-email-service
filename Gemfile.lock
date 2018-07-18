@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/ArthurWD/mailjet-gem
-  revision: d15fa437f57d5539570b7e04ce749a6999e8762b
-  ref: d15fa
+  revision: fad0077d4c953a01d2e5dd4628c30d508e8fcd54
+  ref: fad007
   specs:
     mailjet (1.5.4)
       activesupport (>= 3.1.0)
@@ -130,7 +130,7 @@ GEM
       addressable
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
-    domain_name (0.5.20170404)
+    domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.1.1)
     dotenv-rails (2.1.1)
@@ -219,7 +219,7 @@ GEM
     puma (3.9.1)
     pundit (1.0.1)
       activesupport (>= 3.0.0)
-    rack (2.0.4)
+    rack (2.0.5)
     rack-protection (1.5.5)
       rack
     rack-test (0.6.3)
