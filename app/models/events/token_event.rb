@@ -37,7 +37,7 @@ class TokenEvent < Event
   def profile_opts
     {
       id: profile&.id,
-      profile_photo_thumbnail: profile&.profile_photo&.thumbnail,
+      profile_photo_thumbnail: profile&.default_profile_photo&.thumbnail,
       display_name: profile&.display_name
     }
   end

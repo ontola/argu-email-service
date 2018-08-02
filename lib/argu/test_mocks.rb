@@ -23,7 +23,7 @@ module TestMocks
               language: language
             },
             relationships: {
-              profilePhoto: {
+              defaultProfilePhoto: {
                 data: {
                   id: 'https://argu.dev/media_objects/1',
                   type: 'schema:ImageObject'
