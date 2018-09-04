@@ -8,7 +8,7 @@ module TestMocks
   end
 
   def valid_user_mock(id, language = 'nl')
-    stub_request(:get, argu_url("/u/user#{id}"))
+    stub_request(:get, expand_service_url(:argu, "/u/user#{id}"))
       .to_return(
         status: 200,
         headers: {'Content-Type' => 'application/json'},
@@ -45,7 +45,7 @@ module TestMocks
   end
 
   def group_mock(id)
-    stub_request(:get, argu_url("/g/#{id}"))
+    stub_request(:get, expand_service_url(:argu, "/g/#{id}"))
       .to_return(
         status: 200,
         headers: {'Content-Type' => 'application/json'},

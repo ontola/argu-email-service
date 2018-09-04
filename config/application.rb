@@ -22,7 +22,6 @@ require_relative './initializers/build'
 Bundler.require(*Rails.groups)
 
 require_relative '../lib/ns'
-require_relative '../app/serializers/base/base_serializer'
 
 module EmailService
   class Application < Rails::Application
@@ -35,7 +34,6 @@ module EmailService
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
     config.host_name = ENV['HOSTNAME']
-    config.oauth_url = ENV['OAUTH_URL']
     config.origin = "https://#{Rails.application.config.host_name}"
 
     ActiveModelSerializers.config.key_transform = :camel_lower
@@ -43,7 +41,12 @@ module EmailService
     config.templates = HashWithIndifferentAccess.new(
       YAML.safe_load(File.read(File.expand_path('../templates.yml', __FILE__)))
     )
+
+    config.autoload_paths += %w[lib]
+    config.autoload_paths += %W[#{config.root}/app/serializers/base]
+    config.autoload_paths += %W[#{config.root}/app/models/actions]
     config.autoload_paths += %W[#{config.root}/app/models/events]
+    config.autoload_paths += %W[#{config.root}/app/responders]
 
     config.active_job.queue_adapter = :sidekiq
 

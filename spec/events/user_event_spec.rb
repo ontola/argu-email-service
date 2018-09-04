@@ -45,7 +45,7 @@ describe UserEvent, type: :model do
     context 'when user destroyed' do
       let(:event_type) { 'update' }
       let(:resource_id) do
-        not_found_mock(argu_url('/u/destroyed'))
+        not_found_mock(expand_service_url(:argu, '/u/destroyed'))
         argu_url('/u/destroyed')
       end
 
