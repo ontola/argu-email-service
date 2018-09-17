@@ -9,6 +9,9 @@
   ['requested_confirmation', false],
   ['set_password', false],
   ['activity_notifications', true],
+  ['reset_password_instructions', false],
+  ['unlock_instructions', false],
+  ['confirmation_reminder', false],
   ['direct_message', false],
   ['export_failed', true],
   ['export_done', true]
