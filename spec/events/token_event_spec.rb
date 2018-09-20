@@ -25,7 +25,8 @@ describe TokenEvent, type: :model do
         createdAt: Time.current,
         expiresAt: nil,
         retractedAt: nil,
-        groupId: 1
+        groupId: 1,
+        rootId: TEST_ROOT_ID
       }.merge(resource_attributes),
       changes: resource_changes
     )

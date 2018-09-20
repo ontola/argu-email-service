@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative '../../spec/support/test_root_id'
+
 module TestMocks
   include UrlHelper
 
@@ -45,7 +47,7 @@ module TestMocks
   end
 
   def group_mock(id)
-    stub_request(:get, expand_service_url(:argu, "/g/#{id}"))
+    stub_request(:get, expand_service_url(:argu, "/#{TEST_ROOT_ID}/g/#{id}"))
       .to_return(
         status: 200,
         headers: {'Content-Type' => 'application/json'},

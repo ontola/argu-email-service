@@ -4,7 +4,7 @@ class TokenEvent < Event
   private
 
   def group
-    @group ||= Group.find(resource[:groupId])
+    @group ||= Group.find(resource[:groupId], params: {root_id: resource[:rootId]})
   end
 
   def profile
