@@ -30,7 +30,7 @@ describe 'Confirmation', type: :request do
            params: {
              email: {
                template: 'confirmation',
-               recipient: {email: 'test@example.com', language: 'en'},
+               recipient: {email: 'test@example.com', language: NS::ARGU['locale/en']},
                options: {confirmationToken: 'confirmationToken'}
              }
            }

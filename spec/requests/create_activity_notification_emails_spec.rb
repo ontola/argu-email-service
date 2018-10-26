@@ -63,7 +63,7 @@ describe 'Create activity notification emails', type: :request do
              params: {
                email: {
                  template: 'activity_notifications',
-                 recipient: {email: 'test@example.com', display_name: 'Recipient', language: 'en'},
+                 recipient: {email: 'test@example.com', display_name: 'Recipient', language: NS::ARGU['locale/en']},
                  options: {follows: follows}
                }
              }
