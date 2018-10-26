@@ -31,14 +31,14 @@ class EmailTrackingEventsController < ApplicationController
     EmailMessage
       .find(params['argu-mail-id'])
       &.email_tracking_events
-      &.create(event: params['event'])
+      &.create(event: params['event'], params: params.to_unsafe_h)
   end
 
   def process_mailjet_event
     EmailMessage
       .find(params['CustomID'])
       &.email_tracking_events
-      &.create(event: MAILJET_EVENTS[params['event']] || params['event'])
+      &.create(event: MAILJET_EVENTS[params['event']] || params['event'], params: params.to_unsafe_h)
   end
 
   def verify_mailgun_event

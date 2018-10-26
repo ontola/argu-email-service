@@ -23,12 +23,14 @@ describe 'Create email tracking event', type: :request do
 
     assert_difference('EmailTrackingEvent.count', 1) do
       post '/email_events', params: {
-        'argu-mail-id': EmailMessage.last.id,
+        CustomID: EmailMessage.last.id,
         recipient: EmailMessage.last.sent_to,
         event: 'clicked',
+        payload: {error: 'value'},
         format: :json
       }
       expect(response.code).to eq('200')
+      expect(EmailTrackingEvent.last.params['payload']['error']).to eq('value')
     end
   end
 
@@ -39,7 +41,7 @@ describe 'Create email tracking event', type: :request do
 
     assert_difference('EmailTrackingEvent.count', 0) do
       post '/email_events', params: {
-        'argu-mail-id': 'not-existing',
+        CustomID: 'not-existing',
         recipient: EmailMessage.last.sent_to,
         event: 'clicked',
         format: :json
