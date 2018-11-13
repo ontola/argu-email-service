@@ -18,7 +18,7 @@ class ExportEvent < Event
 
   def export_opts
     {
-      download_url: resource[:downloadUrl]
+      download_url: resource[:relationships][:exportCollection][:data][:id]
     }
   end
 
