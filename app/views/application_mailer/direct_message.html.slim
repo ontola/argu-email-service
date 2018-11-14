@@ -3,7 +3,7 @@ table
     td.mail-box
       table
         tr
-          td.mail-p= opts[:body]
+          td.mail-p= markdown_to_html(opts[:body])&.html_safe
   tr
     td.mail-p.mail-profile.align-right
       =link_to opts[:actor][:iri]

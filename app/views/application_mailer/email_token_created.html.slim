@@ -4,7 +4,7 @@ table
       table
         =greeting_row
         tr
-          td.mail-p= opts[:message].presence || t('templates.email_token_created.header', group: opts[:group_name], organization: opts[:organization_name])
+          td.mail-p= markdown_to_html(opts[:message])&.html_safe || t('templates.email_token_created.header', group: opts[:group_name], organization: opts[:organization_name])
   - if opts[:profile][:id].present?
     tr
       td.mail-p.mail-profile.align-right

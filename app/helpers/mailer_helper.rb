@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'redcarpet/render_strip'
+
 module MailerHelper
   def recipient
     @record.recipient
@@ -22,9 +24,14 @@ module MailerHelper
     end
   end
 
+  def markdown_to_html(markdown)
+    return if markdown.blank?
+    @html_renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(escape_html: true))
+    @html_renderer.render(markdown)
+  end
+
   def markdown_to_plaintext(markdown)
     return if markdown.blank?
-    require 'redcarpet/render_strip'
     @plaintext_renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
     @plaintext_renderer.render(markdown)
   end
