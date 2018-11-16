@@ -6,12 +6,12 @@ describe 'Index emails', type: :request do
   it 'gets index emails' do
     2.times { create_email_event }
     as_user
-    valid_user_mock(1)
-    valid_user_mock(2)
+    user_mock(1)
+    user_mock(2)
     Sidekiq::Worker.drain_all
     EmailMessage.last.email_tracking_events.create(event: 'delivered')
 
-    get '/emails?resource=https://argu.local/u/user1&event=update'
+    get '/emails?resource=https://argu.local/u/1&event=update', headers: service_headers
     expect(response.code).to eq('200')
     expect_data_size(2)
     expect_included(EmailTrackingEvent.pluck(:id))
@@ -22,7 +22,7 @@ describe 'Index emails', type: :request do
   def create_email_event
     create_event(
       'update',
-      'https://argu.local/u/user1',
+      'https://argu.local/u/1',
       'users',
       changes: {
         encryptedPassword: '[FILTERED]',

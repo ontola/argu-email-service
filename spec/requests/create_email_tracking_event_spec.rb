@@ -7,7 +7,7 @@ describe 'Create email tracking event', type: :request do
   let!(:event) do
     create_event(
       'update',
-      'https://argu.local/u/user1',
+      'https://argu.local/u/1',
       'users',
       changes: {
         encryptedPassword: '[FILTERED]',
@@ -17,8 +17,8 @@ describe 'Create email tracking event', type: :request do
   end
 
   it 'posts event with send emails' do
-    valid_user_mock(1)
-    valid_user_mock(2)
+    user_mock(1)
+    user_mock(2)
     Sidekiq::Worker.drain_all
 
     assert_difference('EmailTrackingEvent.count', 1) do
@@ -35,8 +35,8 @@ describe 'Create email tracking event', type: :request do
   end
 
   it 'posts event for non-existing mail-id' do
-    valid_user_mock(1)
-    valid_user_mock(2)
+    user_mock(1)
+    user_mock(2)
     Sidekiq::Worker.drain_all
 
     assert_difference('EmailTrackingEvent.count', 0) do
@@ -51,8 +51,8 @@ describe 'Create email tracking event', type: :request do
   end
 
   it 'posts event without mail-id' do
-    valid_user_mock(1)
-    valid_user_mock(2)
+    user_mock(1)
+    user_mock(2)
     Sidekiq::Worker.drain_all
 
     assert_difference('EmailTrackingEvent.count', 0) do

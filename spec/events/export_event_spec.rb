@@ -13,7 +13,7 @@ describe ExportEvent, type: :model do
   let(:resource_type) { 'exports' }
   let(:resource_attributes) { {downloadUrl: argu_url('/download')} }
   let(:resource_relationships) do
-    {user: {data: {id: argu_url('/u/user1')}}, exportCollection: {data: {id: argu_url('/exports')}}}
+    {user: {data: {id: argu_url('/u/1')}}, exportCollection: {data: {id: argu_url('/exports')}}}
   end
 
   let(:event) do
@@ -29,16 +29,16 @@ describe ExportEvent, type: :model do
 
   context 'when export done' do
     let(:resource_changes) { {status: %w[processing done]} }
-    let(:expected_subject) { 'Export beschikbaar' }
-    let(:expected_match) { 'De door jouw aangevraagde export is beschikbaar' }
+    let(:expected_subject) { 'Export ready' }
+    let(:expected_match) { 'The export you\'ve requested is ready' }
 
     it_behaves_like :has_mail
   end
 
   context 'when export failed' do
     let(:resource_changes) { {status: %w[processing failed]} }
-    let(:expected_subject) { 'Export mislukt' }
-    let(:expected_match) { 'De door jouw aangevraagde export is mislukt' }
+    let(:expected_subject) { 'Export failed' }
+    let(:expected_match) { 'We failed to process the export you\'ve requested' }
 
     it_behaves_like :has_mail
   end

@@ -5,17 +5,17 @@ require 'support/seeds'
 
 describe RescheduleEventsWorker, type: :model do
   it 'does not reschedule processed event' do
-    valid_user_mock(1)
+    user_mock(1)
     create(
       :event,
       event: 'update',
-      resource_id: 'http://argu.local/u/user1',
+      resource_id: 'http://argu.local/u/1',
       resource_type: 'users',
       type: 'UserEvent',
       body: {
         changes: [
           {
-            id: 'https://argu.local/u/user1',
+            id: 'https://argu.local/u/1',
             type: 'users',
             attributes: {
               encryptedPassword: '[FILTERED]',
@@ -33,18 +33,18 @@ describe RescheduleEventsWorker, type: :model do
   end
 
   it 'reschedules unprocessed event' do
-    valid_user_mock(1)
+    user_mock(1)
 
     create(
       :event,
       event: 'update',
-      resource_id: 'http://argu.local/u/user1',
+      resource_id: 'http://argu.local/u/1',
       resource_type: 'users',
       type: 'UserEvent',
       body: {
         changes: [
           {
-            id: 'https://argu.local/u/user1',
+            id: 'https://argu.local/u/1',
             type: 'users',
             attributes: {
               encryptedPassword: '[FILTERED]',

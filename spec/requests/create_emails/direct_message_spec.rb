@@ -14,7 +14,7 @@ describe 'Direct message', type: :request do
         },
         options: {
           actor: {
-            iri: argu_url('/u/user1'),
+            iri: argu_url('/u/1'),
             display_name: 'Mail sender'
           },
           body: 'This is the body of the message',
