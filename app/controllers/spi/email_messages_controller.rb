@@ -2,6 +2,8 @@
 
 module SPI
   class EmailMessagesController < ApplicationController
+    skip_before_action :set_locale
+
     def create
       email = EmailMessage.new(permit_params)
       if email.save

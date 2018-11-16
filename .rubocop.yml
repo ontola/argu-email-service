@@ -1,7 +1,4 @@
 inherit_from: service_module/.rubocop.yml
-Metrics/MethodLength:
-  Exclude:
-    - 'lib/argu/test_mocks.rb'
 Metrics/BlockLength:
   Exclude:
     - 'config/environments/development.rb'

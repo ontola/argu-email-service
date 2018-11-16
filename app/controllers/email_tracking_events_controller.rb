@@ -13,6 +13,8 @@ class EmailTrackingEventsController < ApplicationController
     'sent' => 'delivered'
   }.freeze
 
+  skip_before_action :set_locale
+
   def create
     if params['argu-mail-id'].present?
       process_mailgun_event
