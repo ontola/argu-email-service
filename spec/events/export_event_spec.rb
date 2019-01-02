@@ -5,7 +5,7 @@ require 'support/seeds'
 require 'support/events_helper'
 
 describe ExportEvent, type: :model do
-  let(:expected_sent_to) { 'user1@example.com' }
+  let(:expected_sent_to) { 'user1@email.com' }
   let(:expected_from) { 'Argu <noreply@argu.co>' }
 
   let(:event_type) { 'update' }

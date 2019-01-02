@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'puma', '~> 3.9.1'
-gem 'rails', '~> 5.0.1'
+gem 'rails', '~> 5.0.7.1'
 
 gem 'active_model_serializers', '~> 0.10.7'
 gem 'active_response', git: 'https://github.com/ontola/active_response', branch: :master

@@ -3,12 +3,13 @@
 require 'spec_helper'
 require 'support/seeds'
 require 'support/events_helper'
+require 'support/test_root_id'
 
 describe TokenEvent, type: :model do
-  let(:expected_sent_to) { 'test@example.com' }
+  let(:expected_sent_to) { 'test@email.com' }
   let(:expected_from) { 'Argu <noreply@argu.co>' }
-  let(:expected_subject) { 'Uitnodiging voor Argu op Argu' }
-  let(:expected_match) { 'Je bent uitgenodigd om lid te worden van de groep \'Group1\' van Argu' }
+  let(:expected_subject) { 'Uitnodiging voor Organization Name op Argu' }
+  let(:expected_match) { 'Je bent uitgenodigd om lid te worden van de groep \'Group1\' van Organization Name' }
 
   let(:resource_id) { 'https://argu.dev/token/xxx' }
   let(:resource_type) { 'tokens' }
@@ -35,7 +36,7 @@ describe TokenEvent, type: :model do
   context 'with email token without message and actor_iri' do
     let(:resource_attributes) do
       {
-        email: 'test@example.com',
+        email: 'test@email.com',
         message: '',
         actorIRI: nil,
         sendMail: true
@@ -61,7 +62,7 @@ describe TokenEvent, type: :model do
 
     let(:resource_attributes) do
       {
-        email: 'test@example.com',
+        email: 'test@email.com',
         message: 'Hello world!',
         actorIRI: argu_url('/u/1'),
         sendMail: true
@@ -84,7 +85,7 @@ describe TokenEvent, type: :model do
   context 'with email token created with send_mail = false' do
     let(:resource_attributes) do
       {
-        email: 'test@example.com',
+        email: 'test@email.com',
         message: 'Hello world!',
         actorIRI: argu_url('/u/1'),
         sendMail: false

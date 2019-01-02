@@ -16,9 +16,9 @@ class EmailTrackingEventsController < ApplicationController
   skip_before_action :set_locale
 
   def create
-    if params['argu-mail-id'].present?
+    if mailgun_event?
       process_mailgun_event
-    elsif params['CustomID'].present?
+    elsif mailjet_event?
       process_mailjet_event
     end
     head 200
@@ -27,6 +27,19 @@ class EmailTrackingEventsController < ApplicationController
   end
 
   private
+
+  def authorize_action
+    skip_verify_policy_authorized(true)
+    mailgun_event? ? verify_mailgun_event : true
+  end
+
+  def mailgun_event?
+    @mailgun_event ||= params['argu-mail-id'].present?
+  end
+
+  def mailjet_event?
+    @mailjet_event ||= params['CustomID'].present?
+  end
 
   def process_mailgun_event
     verify_mailgun_event

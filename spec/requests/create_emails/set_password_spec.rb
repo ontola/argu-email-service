@@ -5,21 +5,22 @@ require 'support/seeds'
 
 describe 'Set password', type: :request do
   it 'posts email' do
+    as_service
     Sidekiq::Worker.drain_all
     assert_difference('ActionMailer::Base.deliveries.size', 1) do
       post '/spi/emails',
            params: {
              email: {
                template: 'set_password',
-               recipient: {email: 'test@example.com'},
+               recipient: {email: 'test@email.com'},
                options: {passwordToken: 'passwordToken'}
              }
-           }
+           }, headers: service_headers
       expect(response.code).to eq('201')
     end
     assert(EmailMessage.last.sent_at)
-    assert_equal EmailMessage.last.sent_to, 'test@example.com'
-    assert_equal ActionMailer::Base.deliveries.first.subject, 'Stel een wachtwoord in'
+    assert_equal EmailMessage.last.sent_to, 'test@email.com'
+    assert_equal ActionMailer::Base.deliveries.first.subject, 'Set your password'
     assert_match 'passwordToken', ActionMailer::Base.deliveries.first.body.encoded
   end
 end

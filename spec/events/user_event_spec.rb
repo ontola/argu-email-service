@@ -5,7 +5,7 @@ require 'support/seeds'
 require 'support/events_helper'
 
 describe UserEvent, type: :model do
-  let(:expected_sent_to) { 'user1@example.com' }
+  let(:expected_sent_to) { 'user1@email.com' }
   let(:expected_from) { 'Argu <noreply@argu.co>' }
   let(:expected_subject) { 'Your password has been updated' }
   let(:expected_match) { 'We\'re letting you know that the password for your Argu account "user1" has been updated' }

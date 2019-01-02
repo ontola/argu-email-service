@@ -6,6 +6,6 @@ class User < ActiveResourceModel
   end
 
   def language
-    attributes['language'] || 'nl'
+    attributes['language'] || I18n.default_locale
   end
 end

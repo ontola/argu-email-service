@@ -11,6 +11,7 @@ describe 'Index emails', type: :request do
     Sidekiq::Worker.drain_all
     EmailMessage.last.email_tracking_events.create(event: 'delivered')
 
+    as_service
     get '/emails?resource=https://argu.local/u/1&event=update', headers: service_headers
     expect(response.code).to eq('200')
     expect_data_size(2)

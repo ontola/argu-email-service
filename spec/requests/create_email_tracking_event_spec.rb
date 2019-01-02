@@ -17,6 +17,7 @@ describe 'Create email tracking event', type: :request do
   end
 
   it 'posts event with send emails' do
+    as_service
     user_mock(1)
     user_mock(2)
     Sidekiq::Worker.drain_all
@@ -28,13 +29,14 @@ describe 'Create email tracking event', type: :request do
         event: 'clicked',
         payload: {error: 'value'},
         format: :json
-      }
+      }, headers: service_headers
       expect(response.code).to eq('200')
       expect(EmailTrackingEvent.last.params['payload']['error']).to eq('value')
     end
   end
 
   it 'posts event for non-existing mail-id' do
+    as_service
     user_mock(1)
     user_mock(2)
     Sidekiq::Worker.drain_all
@@ -45,12 +47,13 @@ describe 'Create email tracking event', type: :request do
         recipient: EmailMessage.last.sent_to,
         event: 'clicked',
         format: :json
-      }
+      }, headers: service_headers
       expect(response.code).to eq('406')
     end
   end
 
   it 'posts event without mail-id' do
+    as_service
     user_mock(1)
     user_mock(2)
     Sidekiq::Worker.drain_all
@@ -60,7 +63,7 @@ describe 'Create email tracking event', type: :request do
         recipient: EmailMessage.last.sent_to,
         event: 'clicked',
         format: :json
-      }
+      }, headers: service_headers
       expect(response.code).to eq('200')
     end
   end

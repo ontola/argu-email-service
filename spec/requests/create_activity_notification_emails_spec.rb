@@ -58,20 +58,21 @@ describe 'Create activity notification emails', type: :request do
     let(:email_delivery) { ActionMailer::Base.deliveries.last }
 
     it 'sends mail' do
+      as_service
       assert_difference('ActionMailer::Base.deliveries.size', 1) do
         post '/spi/emails',
              params: {
                email: {
                  template: 'activity_notifications',
-                 recipient: {email: 'test@example.com', display_name: 'Recipient', language: NS::ARGU['locale/en']},
+                 recipient: {email: 'test@email.com', display_name: 'Recipient', language: NS::ARGU['locale/en']},
                  options: {follows: follows}
                }
-             }
+             }, headers: service_headers
         expect(response.code).to eq('201')
       end
 
       expect(email_message.sent_at).to be_truthy
-      expect(email_message.sent_to).to eq('test@example.com')
+      expect(email_message.sent_to).to eq('test@email.com')
       expect(email_delivery.subject).to eq(subject)
       headers.each do |header|
         expect(email_delivery.body).to match(header)
