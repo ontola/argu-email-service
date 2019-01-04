@@ -17,7 +17,7 @@ describe 'Create email tracking event', type: :request do
   end
 
   it 'posts event with send emails' do
-    as_service
+    as_guest
     user_mock(1)
     user_mock(2)
     Sidekiq::Worker.drain_all
@@ -36,7 +36,7 @@ describe 'Create email tracking event', type: :request do
   end
 
   it 'posts event for non-existing mail-id' do
-    as_service
+    as_guest
     user_mock(1)
     user_mock(2)
     Sidekiq::Worker.drain_all
@@ -53,7 +53,7 @@ describe 'Create email tracking event', type: :request do
   end
 
   it 'posts event without mail-id' do
-    as_service
+    as_guest
     user_mock(1)
     user_mock(2)
     Sidekiq::Worker.drain_all

@@ -13,6 +13,7 @@ class EmailTrackingEventsController < ApplicationController
     'sent' => 'delivered'
   }.freeze
 
+  skip_before_action :check_if_registered
   skip_before_action :set_locale
 
   def create
