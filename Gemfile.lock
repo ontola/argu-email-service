@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/ArthurWD/acts_as_tenant
+  revision: deff226341a1b65dfd89cec2fab895f0cbf2546d
+  branch: master
+  specs:
+    acts_as_tenant (0.4.3)
+      rails (>= 4.0)
+      request_store (>= 1.0.5)
+
+GIT
   remote: https://github.com/ArthurWD/mailjet-gem
   revision: 3915416e38bb304585684e8a07877fca41e730d3
   ref: 391541
@@ -294,6 +303,8 @@ GEM
       rdf (~> 3.0)
     redcarpet (3.3.4)
     redis (3.3.1)
+    request_store (1.4.1)
+      rack (>= 1.4)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
@@ -394,6 +405,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.7)
   active_response!
   activeresource!
+  acts_as_tenant!
   assert_difference
   better_errors
   binding_of_caller

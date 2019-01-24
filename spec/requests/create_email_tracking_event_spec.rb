@@ -18,8 +18,8 @@ describe 'Create email tracking event', type: :request do
 
   it 'posts event with send emails' do
     as_guest
-    user_mock(1)
-    user_mock(2)
+    user_mock(1, url: expand_service_url(:argu, '/u/1'))
+    user_mock(2, url: expand_service_url(:argu, '/u/2'))
     Sidekiq::Worker.drain_all
 
     assert_difference('EmailTrackingEvent.count', 1) do
@@ -37,8 +37,8 @@ describe 'Create email tracking event', type: :request do
 
   it 'posts event for non-existing mail-id' do
     as_guest
-    user_mock(1)
-    user_mock(2)
+    user_mock(1, url: expand_service_url(:argu, '/u/1'))
+    user_mock(2, url: expand_service_url(:argu, '/u/2'))
     Sidekiq::Worker.drain_all
 
     assert_difference('EmailTrackingEvent.count', 0) do
@@ -54,8 +54,8 @@ describe 'Create email tracking event', type: :request do
 
   it 'posts event without mail-id' do
     as_guest
-    user_mock(1)
-    user_mock(2)
+    user_mock(1, url: expand_service_url(:argu, '/u/1'))
+    user_mock(2, url: expand_service_url(:argu, '/u/2'))
     Sidekiq::Worker.drain_all
 
     assert_difference('EmailTrackingEvent.count', 0) do

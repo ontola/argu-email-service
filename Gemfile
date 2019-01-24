@@ -10,6 +10,7 @@ gem 'active_response', git: 'https://github.com/ontola/active_response', branch:
 gem 'activeresource',
     git: 'https://github.com/rails/activeresource',
     ref: 'e28f907145c34bcad1d354fa9b25fbd4264e52e9'
+gem 'acts_as_tenant', git: 'https://github.com/ArthurWD/acts_as_tenant', branch: :master
 gem 'bootsnap'
 gem 'bugsnag', '~> 4.2.1'
 gem 'bunny', '~> 2.6.1'

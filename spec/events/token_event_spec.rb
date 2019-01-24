@@ -64,7 +64,7 @@ describe TokenEvent, type: :model do
       {
         email: 'test@email.com',
         message: 'Hello world!',
-        actorIRI: argu_url('/u/1'),
+        actorIRI: argu_url('/argu/u/1'),
         sendMail: true
       }
     end
@@ -87,7 +87,7 @@ describe TokenEvent, type: :model do
       {
         email: 'test@email.com',
         message: 'Hello world!',
-        actorIRI: argu_url('/u/1'),
+        actorIRI: argu_url('/argu/u/1'),
         sendMail: false
       }
     end

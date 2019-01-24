@@ -13,7 +13,7 @@ describe ExportEvent, type: :model do
   let(:resource_type) { 'exports' }
   let(:resource_attributes) { {downloadUrl: argu_url('/download')} }
   let(:resource_relationships) do
-    {user: {data: {id: argu_url('/u/1')}}, exportCollection: {data: {id: argu_url('/exports')}}}
+    {user: {data: {id: argu_url('/argu/u/1')}}, exportCollection: {data: {id: argu_url('/exports')}}}
   end
 
   let(:event) do

@@ -10,7 +10,7 @@ describe UserEvent, type: :model do
   let(:expected_subject) { 'Your password has been updated' }
   let(:expected_match) { 'We\'re letting you know that the password for your Argu account "user1" has been updated' }
 
-  let(:resource_id) { 'https://argu.local/u/1' }
+  let(:resource_id) { 'https://argu.local/argu/u/1' }
   let(:resource_type) { 'users' }
   let(:resource_attributes) { {} }
   let(:resource_changes) { {} }
@@ -45,8 +45,8 @@ describe UserEvent, type: :model do
     context 'when user destroyed' do
       let(:event_type) { 'update' }
       let(:resource_id) do
-        not_found_mock(expand_service_url(:argu, '/u/destroyed'))
-        argu_url('/u/destroyed')
+        not_found_mock(expand_service_url(:argu, '/argu/u/destroyed'))
+        argu_url('/argu/u/destroyed')
       end
 
       it_behaves_like :no_mail

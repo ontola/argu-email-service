@@ -6,8 +6,8 @@ describe 'Index emails', type: :request do
   it 'gets index emails' do
     2.times { create_email_event }
     as_user
-    user_mock(1)
-    user_mock(2)
+    user_mock(1, url: expand_service_url(:argu, '/u/1'))
+    user_mock(2, url: expand_service_url(:argu, '/u/2'))
     Sidekiq::Worker.drain_all
     EmailMessage.last.email_tracking_events.create(event: 'delivered')
 
