@@ -15,7 +15,7 @@ class UserEvent < Event
 
   def user
     @user ||= User.find(:one, from: URI(resource_id).path)
-  rescue OAuth2::Error => e
-    raise e unless e.response.status == 404
+  rescue ActiveResource::ResourceNotFound
+    nil
   end
 end
