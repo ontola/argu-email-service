@@ -10,4 +10,4 @@ table
       td.mail-button--alt
         table
           tr
-            td= link_to t('templates.activity_notifications.go_to'), activity_follows.first.followable[:id]
+            td= link_to t('templates.activity_notifications.go_to'), revert_dynamic_iri(activity_follows.first.followable[:id])

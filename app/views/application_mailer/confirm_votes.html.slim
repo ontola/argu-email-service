@@ -10,7 +10,7 @@ table
           tr
             td.mail-p
               strong[class="#{motion[:option]}-t"]=I18n.t("templates.confirm_votes.side.#{motion[:option]}")
-              =link_to motion[:display_name], motion[:url], class: 'motion-t markdown--motion'
+              =link_to motion[:display_name], revert_dynamic_iri(motion[:url]), class: 'motion-t markdown--motion'
         tr
           td.mail-p= I18n.t('templates.confirm_votes.confirm', count: opts[:motions].count)
   tr

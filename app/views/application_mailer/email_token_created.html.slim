@@ -8,11 +8,11 @@ table
   - if opts[:profile][:id].present?
     tr
       td.mail-p.mail-profile.align-right
-        =link_to opts[:profile][:id]
+        =link_to revert_dynamic_iri(opts[:profile][:id])
           img.mail-profile-logo[src=opts['profile']['profile_photo_thumbnail'] width="25px" height="25px"]
           =opts[:profile][:display_name]
   tr
     td.mail-button--alt
       table
         tr
-          td= link_to(t('templates.email_token_created.link'), opts[:links][:self])
+          td= link_to(t('templates.email_token_created.link'), revert_dynamic_iri(opts[:links][:self]))

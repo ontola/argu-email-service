@@ -6,7 +6,7 @@ table
           td.mail-p= markdown_to_html(opts[:body])&.html_safe
   tr
     td.mail-p.mail-profile.align-right
-      =link_to opts[:actor][:iri]
+      =link_to revert_dynamic_iri(opts[:actor][:iri])
         img.mail-profile-logo[src=opts[:actor][:thumbnail] width="25px" height="25px"]
         =opts[:actor][:display_name]
   tr
