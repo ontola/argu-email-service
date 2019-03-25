@@ -303,6 +303,14 @@ table {
   color: #5a5a5a;
 }
 
+.topic-t {
+  color: #5a5a5a;
+}
+
+.topic-t * {
+  color: #5a5a5a;
+}
+
 /* line 257, /Users/arthur/argu/app/assets/stylesheets/briarcliff/_mail.scss */
 .markdown--motion {
   color: #475668;

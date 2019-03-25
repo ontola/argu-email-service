@@ -8,6 +8,7 @@ nl:
       comment: "nieuwe reactie"
       blog_post: "nieuwe update"
       decision: "nieuw besluit"
+      topic: "nieuw topic"
       default: "nieuwe reactie"
     new_plural:
       notification: "nieuwe meldingen"
@@ -16,4 +17,5 @@ nl:
       argument: "nieuwe argumenten"
       comment: "nieuwe reacties"
       blog_post: "nieuwe updates"
+      topic: "nieuwe topics"
       default: "nieuwe reacties"

@@ -8,6 +8,7 @@ en:
       comment: "new comment"
       blog_post: "new update"
       decision: "new decision"
+      topic: "new topic"
       default: "new reply"
     new_plural:
       notification: "new notifications"
@@ -16,4 +17,5 @@ en:
       argument: "new arguments"
       comment: "new comments"
       blog_post: "new updates"
+      topic: "new topics"
       default: "new replies"
