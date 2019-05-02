@@ -5,14 +5,14 @@ require 'support/seeds'
 require 'support/events_helper'
 require 'support/test_root_id'
 
-describe TokenEvent, type: :model do
+describe EmailTokenEvent, type: :model do
   let(:expected_sent_to) { 'test@email.com' }
   let(:expected_from) { 'Argu <noreply@argu.co>' }
   let(:expected_subject) { 'Uitnodiging voor Organization Name op Argu' }
   let(:expected_match) { 'Je bent uitgenodigd om lid te worden van de groep \'Group1\' van Organization Name' }
 
   let(:resource_id) { 'https://argu.dev/token/xxx' }
-  let(:resource_type) { 'tokens' }
+  let(:resource_type) { 'email_tokens' }
   let(:resource_attributes) { {} }
   let(:resource_changes) { {} }
 

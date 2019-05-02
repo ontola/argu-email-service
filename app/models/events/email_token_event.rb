@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class TokenEvent < Event
+class EmailTokenEvent < Event
   private
 
   def group
