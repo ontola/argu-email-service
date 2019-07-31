@@ -4,7 +4,7 @@ class EmailTokenEvent < Event
   private
 
   def group
-    @group ||= Group.find(resource[:groupId], params: {root_id: resource[:rootId]})
+    @group ||= Group.find(resource[:groupId])
   end
 
   def profile

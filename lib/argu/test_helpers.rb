@@ -25,13 +25,15 @@ def assert_differences(expression_array, message = nil, &block)
 end
 
 def create_event(event, id, type, opts = {})
-  Event.create(
-    event: event,
-    resource_id: id,
-    resource_type: type,
-    type: "#{type.classify}Event",
-    body: create_event_body(event, id, type, opts)
-  )
+  ActsAsTenant.with_tenant(Page.default) do
+    Event.create!(
+      event: event,
+      resource_id: id,
+      resource_type: type,
+      type: "#{type.classify}Event",
+      body: create_event_body(event, id, type, opts)
+    )
+  end
 end
 
 def create_event_body(event, id, type, opts)
@@ -53,4 +55,12 @@ def create_event_resource(id, type, opts)
     relationships: opts[:relationships],
     links: {self: id}
   }
+end
+
+def use_legacy_frontend
+  @use_legacy_frontend = true
+end
+
+def use_legacy_frontend?
+  @use_legacy_frontend == true
 end

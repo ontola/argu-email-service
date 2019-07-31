@@ -7,6 +7,7 @@ class EmailMessage < ApplicationRecord
   belongs_to :event
   belongs_to :template
   validates :recipient, presence: true
+  after_create :create_email_indentifier
 
   def deliver_now
     touch # make sure the lock is still valid before sending the mail
@@ -20,5 +21,11 @@ class EmailMessage < ApplicationRecord
 
   def recipient
     @recipient ||= User.new(attributes['recipient']) if attributes['recipient'].present?
+  end
+
+  private
+
+  def create_email_indentifier
+    EmailIdentifier.create!(email_id: id, tenant: Apartment::Tenant.current)
   end
 end

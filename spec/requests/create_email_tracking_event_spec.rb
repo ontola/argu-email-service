@@ -22,8 +22,8 @@ describe 'Create email tracking event', type: :request do
     user_mock(2, url: expand_service_url(:argu, '/u/2'))
     Sidekiq::Worker.drain_all
 
-    assert_difference('EmailTrackingEvent.count', 1) do
-      post '/email_events', params: {
+    assert_difference('Apartment::Tenant.switch(\'argu\') { EmailTrackingEvent.count }', 1) do
+      post '/_public/email_events', params: {
         CustomID: EmailMessage.last.id,
         recipient: EmailMessage.last.sent_to,
         event: 'clicked',
@@ -31,7 +31,9 @@ describe 'Create email tracking event', type: :request do
         format: :json
       }, headers: service_headers
       expect(response.code).to eq('200')
-      expect(EmailTrackingEvent.last.params['payload']['error']).to eq('value')
+      Apartment::Tenant.switch('argu') do
+        expect(EmailTrackingEvent.last.params['payload']['error']).to eq('value')
+      end
     end
   end
 
@@ -42,7 +44,7 @@ describe 'Create email tracking event', type: :request do
     Sidekiq::Worker.drain_all
 
     assert_difference('EmailTrackingEvent.count', 0) do
-      post '/email_events', params: {
+      post '/_public/email_events', params: {
         CustomID: 'not-existing',
         recipient: EmailMessage.last.sent_to,
         event: 'clicked',
@@ -59,7 +61,7 @@ describe 'Create email tracking event', type: :request do
     Sidekiq::Worker.drain_all
 
     assert_difference('EmailTrackingEvent.count', 0) do
-      post '/email_events', params: {
+      post '/_public/email_events', params: {
         recipient: EmailMessage.last.sent_to,
         event: 'clicked',
         format: :json

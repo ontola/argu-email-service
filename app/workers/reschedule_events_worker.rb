@@ -8,6 +8,8 @@ class RescheduleEventsWorker
   recurrence { minutely }
 
   def perform
-    Event.where(processed_at: nil).each(&:enqueue_job)
+    Apartment::Tenant.each do
+      Event.where(processed_at: nil).each(&:enqueue_job)
+    end
   end
 end

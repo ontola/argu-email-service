@@ -11,8 +11,4 @@ if Rails.env.development? || Rails.env.staging?
 elsif Rails.env.production?
   ActionMailer::Base.raise_delivery_errors = true
   ActionMailer::Base.delivery_method = ENV['DELIVERY_METHOD']&.to_sym || :mailjet_api
-  ActionMailer::Base.mailgun_settings = {
-    api_key: Rails.application.secrets.mailgun_api_token,
-    domain: Rails.application.secrets.mailgun_domain
-  }
 end

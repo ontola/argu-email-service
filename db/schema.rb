@@ -10,50 +10,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181026085020) do
+ActiveRecord::Schema.define(version: 2019_08_02_101554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "email_identifiers", force: :cascade do |t|
+    t.integer "email_id", null: false
+    t.string "tenant", null: false
+    t.index ["email_id", "tenant"], name: "index_email_identifiers_on_email_id_and_tenant", unique: true
+  end
+
   create_table "email_tracking_events", force: :cascade do |t|
-    t.integer  "email_id"
-    t.string   "event"
+    t.integer "email_id"
+    t.string "event"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.json     "params"
+    t.json "params"
   end
 
   create_table "emails", force: :cascade do |t|
-    t.json     "options"
-    t.json     "recipient",                null: false
-    t.integer  "event_id"
-    t.string   "sent_to"
+    t.json "options"
+    t.json "recipient", null: false
+    t.integer "event_id"
+    t.string "sent_to"
     t.datetime "sent_at"
-    t.string   "mailgun_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "lock_version", default: 0
-    t.integer  "template_id",              null: false
+    t.string "mailgun_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "lock_version", default: 0
+    t.integer "template_id", null: false
   end
 
   create_table "events", force: :cascade do |t|
-    t.string   "event",         null: false
-    t.string   "resource_id",   null: false
-    t.string   "resource_type", null: false
-    t.string   "type",          null: false
-    t.json     "body",          null: false
-    t.string   "job_id"
+    t.string "event", null: false
+    t.string "resource_id", null: false
+    t.string "resource_type", null: false
+    t.string "type", null: false
+    t.json "body", null: false
+    t.string "job_id"
     t.datetime "processed_at"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "templates", force: :cascade do |t|
-    t.string   "name"
-    t.boolean  "show_footer"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["name"], name: "index_templates_on_name", unique: true, using: :btree
+    t.string "name"
+    t.boolean "show_footer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_templates_on_name", unique: true
   end
 
   add_foreign_key "emails", "templates"

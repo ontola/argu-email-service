@@ -15,12 +15,6 @@ class ApplicationMailer < ActionMailer::Base
   attr_accessor :record
   delegate :recipient, :template, :options, to: :record
 
-  def roadie_mail(_opts = {})
-    m = super
-    m.mailgun_variables = {'argu-mail-id' => record.id}
-    m
-  end
-
   def template_mail(record)
     self.record = record
     I18n.locale = record.recipient.language.to_s.gsub(NS::ARGU['locale/'], '')

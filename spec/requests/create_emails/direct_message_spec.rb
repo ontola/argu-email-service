@@ -33,7 +33,7 @@ describe 'Direct message', type: :request do
     as_service
     Sidekiq::Worker.drain_all
     assert_difference('ActionMailer::Base.deliveries.size', 1) do
-      post '/spi/emails', params: params, headers: service_headers
+      post '/argu/spi/emails', params: params, headers: service_headers
       expect(response.code).to eq('201')
     end
     assert(EmailMessage.last.sent_at)

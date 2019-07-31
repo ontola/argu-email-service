@@ -8,7 +8,7 @@ describe 'Set password', type: :request do
     as_service
     Sidekiq::Worker.drain_all
     assert_difference('ActionMailer::Base.deliveries.size', 1) do
-      post '/spi/emails',
+      post '/argu/spi/emails',
            params: {
              email: {
                template: 'set_password',

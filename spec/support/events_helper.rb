@@ -3,7 +3,7 @@
 RSpec.configure do |config|
   config.before do
     ActionMailer::Base.deliveries.clear
-    group_mock(1, root_id: TEST_ROOT_ID)
+    group_mock(1)
     user_mock(1, root: 'argu', token: ENV['SERVICE_TOKEN'])
   end
 

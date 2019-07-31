@@ -60,7 +60,7 @@ describe 'Create activity notification emails', type: :request do
     it 'sends mail' do
       as_service
       assert_difference('ActionMailer::Base.deliveries.size', 1) do
-        post '/spi/emails',
+        post '/argu/spi/emails',
              params: {
                email: {
                  template: 'activity_notifications',

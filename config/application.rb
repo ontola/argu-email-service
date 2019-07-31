@@ -21,6 +21,10 @@ require_relative './initializers/build'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require 'linked_rails/middleware/linked_data_params'
+require_relative '../lib/acts_as_tenant/sidekiq_for_service'
+require_relative '../lib/tenant_finder'
+require_relative '../lib/tenant_middleware'
 require_relative '../lib/ns'
 
 module EmailService
@@ -36,12 +40,17 @@ module EmailService
     config.frontend_url = "https://#{ENV['FRONTEND_HOSTNAME'] || "app.#{ENV['HOSTNAME']}"}"
     config.host_name = ENV['HOSTNAME']
     config.origin = "https://#{Rails.application.config.host_name}"
+    LinkedRails.host = config.host_name
+    LinkedRails.scheme = :https
 
     ActiveModelSerializers.config.key_transform = :camel_lower
 
     config.templates = HashWithIndifferentAccess.new(
       YAML.safe_load(File.read(File.expand_path('../templates.yml', __FILE__)))
     )
+
+    config.middleware.use TenantMiddleware
+    config.middleware.use LinkedRails::Middleware::LinkedDataParams
 
     config.autoload_paths += %w[lib]
     config.autoload_paths += %W[#{config.root}/app/serializers/base]
