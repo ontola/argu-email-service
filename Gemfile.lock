@@ -18,9 +18,9 @@ GIT
       request_store (>= 1.0.5)
 
 GIT
-  remote: https://github.com/ArthurWD/mailjet-gem
-  revision: 3915416e38bb304585684e8a07877fca41e730d3
-  ref: 391541
+  remote: https://github.com/mailjet/mailjet-gem
+  revision: 0edfa4bb00e985fbae91648267f7d5a1f972c135
+  ref: 0edfa4
   specs:
     mailjet (1.5.4)
       activesupport (>= 3.1.0)
@@ -159,7 +159,7 @@ GEM
       addressable
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
-    domain_name (0.5.20180417)
+    domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.1.1)
     dotenv-rails (2.1.1)
@@ -219,7 +219,7 @@ GEM
     method_source (0.9.2)
     mime-types (3.2.2)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2018.0812)
+    mime-types-data (3.2019.0331)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
@@ -249,7 +249,7 @@ GEM
     puma (3.9.1)
     pundit (1.0.1)
       activesupport (>= 3.0.0)
-    rack (2.0.6)
+    rack (2.0.7)
     rack-protection (1.5.5)
       rack
     rack-test (0.6.3)
@@ -381,7 +381,7 @@ GEM
       tzinfo (>= 1.0.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.5)
+    unf_ext (0.0.7.6)
     unicode-display_width (1.3.0)
     uri_template (0.7.0)
     web-console (3.3.1)
