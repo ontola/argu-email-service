@@ -23,7 +23,7 @@ describe 'Create email tracking event', type: :request do
     Sidekiq::Worker.drain_all
 
     assert_difference('Apartment::Tenant.switch(\'argu\') { EmailTrackingEvent.count }', 1) do
-      post '/_public/email_events', params: {
+      post '/_public/email/email_events', params: {
         CustomID: EmailMessage.last.id,
         recipient: EmailMessage.last.sent_to,
         event: 'clicked',
@@ -44,7 +44,7 @@ describe 'Create email tracking event', type: :request do
     Sidekiq::Worker.drain_all
 
     assert_difference('EmailTrackingEvent.count', 0) do
-      post '/_public/email_events', params: {
+      post '/_public/email/email_events', params: {
         CustomID: 'not-existing',
         recipient: EmailMessage.last.sent_to,
         event: 'clicked',
@@ -61,7 +61,7 @@ describe 'Create email tracking event', type: :request do
     Sidekiq::Worker.drain_all
 
     assert_difference('EmailTrackingEvent.count', 0) do
-      post '/_public/email_events', params: {
+      post '/_public/email/email_events', params: {
         recipient: EmailMessage.last.sent_to,
         event: 'clicked',
         format: :json

@@ -8,7 +8,7 @@ describe 'Confirm votes', type: :request do
     as_service
     Sidekiq::Worker.drain_all
     assert_difference('ActionMailer::Base.deliveries.size', 1) do
-      post '/argu/spi/emails',
+      post '/argu/email/spi/emails',
            params: {
              email: {
                template: 'confirm_votes',
