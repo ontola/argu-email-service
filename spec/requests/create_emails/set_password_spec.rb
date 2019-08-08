@@ -13,7 +13,7 @@ describe 'Set password', type: :request do
              email: {
                template: 'set_password',
                recipient: {email: 'test@email.com'},
-               options: {passwordToken: 'passwordToken'}
+               options: {token_url: 'http://example.com/passwordToken'}
              }
            }, headers: service_headers
       expect(response.code).to eq('201')

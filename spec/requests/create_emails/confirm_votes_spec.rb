@@ -14,7 +14,8 @@ describe 'Confirm votes', type: :request do
                template: 'confirm_votes',
                recipient: {email: 'test@email.com'},
                options: {
-                 confirmationToken: 'confirmationToken', motions: [
+                 token_url: 'http://example.com/confirmationToken',
+                 motions: [
                    {display_name: 'Motion 1', url: '', option: 'pro'},
                    {display_name: 'Motion 2', url: '', option: 'con'}
                  ]

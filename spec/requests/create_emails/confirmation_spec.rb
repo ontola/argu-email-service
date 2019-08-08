@@ -13,7 +13,7 @@ describe 'Confirmation', type: :request do
              email: {
                template: 'confirmation',
                recipient: {email: 'test@email.com'},
-               options: {confirmationToken: 'confirmationToken'}
+               options: {token_url: 'http://example.com/confirmationToken'}
              }
            }, headers: service_headers
       expect(response.code).to eq('201')
@@ -33,7 +33,7 @@ describe 'Confirmation', type: :request do
              email: {
                template: 'confirmation',
                recipient: {email: 'test@email.com', language: NS::ARGU['locale/en']},
-               options: {confirmationToken: 'confirmationToken'}
+               options: {token_url: 'http://example.com/confirmationToken'}
              }
            }, headers: service_headers
       expect(response.code).to eq('201')

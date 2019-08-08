@@ -13,7 +13,7 @@ describe 'Confirm secondary', type: :request do
              email: {
                template: 'confirm_secondary',
                recipient: {email: 'test@email.com'},
-               options: {email: 'secondary@email.com', confirmationToken: 'confirmationToken'}
+               options: {email: 'secondary@email.com', token_url: 'http://example.com/confirmationToken'}
              }
            }, headers: service_headers
       expect(response.code).to eq('201')

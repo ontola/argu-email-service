@@ -9,7 +9,7 @@ table
     td.mail-button--alt
       table
         tr
-          td= link_to I18n.t('templates.confirmation_reminder.confirm_link'), expand_uri_template(:user_confirmation, confirmation_token: opts[:token], with_hostname: true)
+          td= link_to I18n.t('templates.confirmation_reminder.confirm_link'), revert_dynamic_iri(opts[:token_url])
   tr
     td
       table
@@ -17,4 +17,4 @@ table
           td.mail-p.small.mail-center
             =I18n.t('copy_paste_link')
             br
-            =expand_uri_template(:user_confirmation, confirmation_token: opts[:token], with_hostname: true)
+            =revert_dynamic_iri(opts[:token_url])

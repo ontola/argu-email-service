@@ -17,7 +17,7 @@ table
     td.mail-button--alt
       table
         tr
-          td= link_to I18n.t('templates.confirm_votes.link', count: opts[:motions].count), expand_uri_template(:user_confirmation, confirmation_token: opts[:confirmationToken], with_hostname: true)
+          td= link_to I18n.t('templates.confirm_votes.link', count: opts[:motions].count), revert_dynamic_iri(opts[:token_url])
   tr
     td
       table
@@ -25,7 +25,7 @@ table
           td.mail-p.small.mail-center
             =I18n.t('copy_paste_link')
             br
-            =expand_uri_template(:user_confirmation, confirmation_token: opts[:confirmationToken], with_hostname: true)
+            =revert_dynamic_iri(opts[:token_url])
         tr
           td.mail-p.small.mail-center
             =I18n.t('not_for_you')
