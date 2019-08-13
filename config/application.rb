@@ -65,5 +65,7 @@ module EmailService
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
     require 'argu/message_delivery'
+
+    Sidekiq.default_worker_options = {queue: 'email_service'}
   end
 end
