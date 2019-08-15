@@ -7,6 +7,12 @@ namespace :broadcast do
       type = "#{data_event.resource_type.classify}Event"
       if type.safe_constantize.present?
         ActsAsTenant.with_tenant(TenantFinder.from_url(data_event.resource_id)) do
+          if ActsAsTenant.current_tenant.blank?
+            Bugsnag.notify("No tenant found for #{data_event.resource_id}") do |report|
+              report.add_tab(:event, data_event.as_json)
+            end
+          end
+
           Event.create!(
             type: type,
             event: data_event.event,
