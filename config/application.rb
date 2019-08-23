@@ -49,6 +49,8 @@ module EmailService
       YAML.safe_load(File.read(File.expand_path('../templates.yml', __FILE__)))
     )
 
+    Rails.application.routes.default_scope = :email
+
     config.middleware.use TenantMiddleware
     config.middleware.use LinkedRails::Middleware::LinkedDataParams
 
