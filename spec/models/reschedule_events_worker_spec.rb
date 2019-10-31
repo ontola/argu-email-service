@@ -34,6 +34,7 @@ describe RescheduleEventsWorker, type: :model do
 
   it 'reschedules unprocessed event' do
     user_mock(1)
+    find_tenant_mock('argu.local/u/1')
 
     create(
       :event,
