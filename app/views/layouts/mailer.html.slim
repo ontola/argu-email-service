@@ -33,7 +33,7 @@ html
               tr
                 td.mail-p.small
                   =t('layout.too_many_notifications') + ' '
-                  =link_to t('layout.adjust_settings'), "https://#{Rails.configuration.host_name}/settings?tab=notifications"
+                  =link_to t('layout.adjust_settings'), "https://#{Rails.configuration.host_name}/#{ActsAsTenant.current_tenant.url}/u/settings?tab=notifications"
               tr
                 td.mail-hidden
                   =t('layout.sent_at_date', date: Time.current.utc.strftime('%Y-%m-%d %H:%M:%S'))
