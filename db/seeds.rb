@@ -15,4 +15,4 @@
   ['direct_message', false],
   ['export_failed', true],
   ['export_done', true]
-].each { |template, show_footer| Template.create!(name: template, show_footer: show_footer) }
+].each { |template, show_footer| Template.find_or_create_by!(name: template, show_footer: show_footer) }
