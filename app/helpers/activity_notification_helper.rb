@@ -23,6 +23,13 @@ module ActivityNotificationHelper
     }
   end
 
+  def activity_notification_multi_organization_opts
+    {
+      subject_key: 'templates.activity_notifications.subject.argu',
+      from: ApplicationMailer.default_params[:from]
+    }
+  end
+
   def follow_subject_type(follow)
     notification = follow.notifications.first
     case notification_group(notification)

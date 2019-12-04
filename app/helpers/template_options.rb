@@ -32,11 +32,13 @@ module TemplateOptions
 
   def activity_notifications_opts
     organizations = activity_follows.map(&:organization).uniq
-    return {subject_key: 'templates.activity_notifications.subject.argu'} if organizations.count > 1
+
     if activity_follows.count == 1
       activity_notification_one_follow_opts
-    else
+    elsif organizations.count == 1
       activity_notification_multi_follow_opts(organizations.first)
+    else
+      activity_notification_multi_organization_opts
     end
   end
 end

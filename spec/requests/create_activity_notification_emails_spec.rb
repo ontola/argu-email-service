@@ -8,6 +8,7 @@ describe 'Create activity notification emails', type: :request do
   let(:organization2_name) { 'Organization 2' }
   let(:motion) { {display_name: 'Motion', id: argu_url('/m/1'), pro: nil, type: 'Motion'} }
   let(:creator) { {display_name: 'User', id: argu_url('/u/1'), thumbnail: argu_url('/thumbnail')} }
+  let(:expected_from) { 'Page name <noreply@argu.co>' }
   let(:create_argument_notification) do
     {
       action: 'create',
@@ -73,6 +74,8 @@ describe 'Create activity notification emails', type: :request do
 
       expect(email_message.sent_at).to be_truthy
       expect(email_message.sent_to).to eq('test@email.com')
+      expect(email_delivery.to).to eq(['test@email.com'])
+      expect(ActionMailer::Base.deliveries.first.header['From'].value).to eq(expected_from)
       expect(email_delivery.subject).to eq(subject)
       headers.each do |header|
         expect(email_delivery.body).to match(header)
@@ -148,6 +151,7 @@ describe 'Create activity notification emails', type: :request do
         }
       }
     end
+    let(:expected_from) { 'Argu <noreply@argu.co>' }
 
     it_behaves_like 'notification mailer', 'New Argu notifications', 'A new argument is posted in'
   end

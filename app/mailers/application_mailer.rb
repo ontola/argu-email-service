@@ -26,7 +26,11 @@ class ApplicationMailer < ActionMailer::Base
   private
 
   def template_options
-    opts = {to: recipient.email, template_name: template.name}
+    opts = {
+      from: "#{ActsAsTenant.current_tenant.display_name} <noreply@argu.co>",
+      template_name: template.name,
+      to: recipient.email
+    }
     opts.merge!(send("#{template.name}_opts")) if respond_to?("#{template.name}_opts")
     options_with_subject(opts)
   end
