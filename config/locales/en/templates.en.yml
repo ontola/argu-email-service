@@ -4,7 +4,7 @@ en:
       subject: "Confirm your e-mail address"
       body: "You can confirm this e-mail address by pressing the link below."
       confirm_link: 'Confirm your e-mail'
-      not_requested: "Did you not request an account? Please let us know by mailing to info@argu.co."
+      not_requested: "Did you not request a confirmation? Please let us know by mailing to info@argu.co."
     confirm_secondary:
       subject: "Add your e-mail address"
     requested_confirmation:
