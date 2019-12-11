@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'puma', '~> 3.9.1'
+gem 'puma'
 gem 'rails', '~> 5.2.2'
 
 gem 'active_model_serializers', '~> 0.10.7'
