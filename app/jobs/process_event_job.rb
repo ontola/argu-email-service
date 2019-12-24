@@ -8,7 +8,7 @@ class ProcessEventJob < ApplicationJob
     return if @event.nil? || @event.processed_at
 
     @event.desired_emails.each { |email| send_email(email) }
-    return if @event.email_messages.where('sent_at IS NOT NULL').empty?
+    return if @event.email_messages.present? && @event.email_messages.where('sent_at IS NOT NULL').empty?
 
     @event.update_columns(processed_at: Time.current, body: {})
   end
