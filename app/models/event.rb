@@ -7,7 +7,7 @@ class Event < ApplicationRecord
   after_commit :enqueue_job, on: :create, unless: :job_id
 
   def changes(resource_id = self.resource_id, resource_type = self.resource_type)
-    body['changes'].find { |h| h['id'] == resource_id && h['type'] == resource_type }['attributes']
+    body['changes'].find { |h| h['id'] == resource_id && h['type'] == resource_type }.try(:[], 'attributes') || {}
   end
 
   def enqueue_job
