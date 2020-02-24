@@ -44,8 +44,8 @@ end
 
 group :development, :test do
   gem 'binding_of_caller'
-  gem 'brakeman', '~> 3.4.1'
-  gem 'bundler-audit', '~> 0.5.0'
+  gem 'brakeman'
+  gem 'bundler-audit'
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
   gem 'rubocop'
