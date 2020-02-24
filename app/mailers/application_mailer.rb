@@ -27,7 +27,7 @@ class ApplicationMailer < ActionMailer::Base
 
   def template_options
     opts = {
-      from: "#{ActsAsTenant.current_tenant.display_name} <noreply@argu.co>",
+      from: ActsAsTenant.current_tenant.from,
       template_name: template.name,
       to: recipient.email
     }
