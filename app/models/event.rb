@@ -12,11 +12,13 @@ class Event < ApplicationRecord
 
   def enqueue_job
     return if job_is_active?
+
     update!(job_id: ProcessEventJob.perform_async(id))
   end
 
   def desired_emails
     return @desired_emails unless @desired_emails.nil?
+
     @desired_emails = []
     initialize_desired_emails
     @desired_emails
@@ -46,6 +48,7 @@ class Event < ApplicationRecord
 
   def job_is_active?
     return if job_id.nil?
+
     workers = Sidekiq::Workers.new
     workers.detect { |worker| worker[2]['payload']['jid'] == job_id }.present?
   end

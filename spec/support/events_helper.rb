@@ -7,7 +7,7 @@ RSpec.configure do |config|
     user_mock(1, root: 'argu', token: ENV['SERVICE_TOKEN'])
   end
 
-  shared_examples_for :no_mail do
+  shared_examples_for 'no mail' do
     it 'sends no mail' do
       event
 
@@ -17,7 +17,7 @@ RSpec.configure do |config|
     end
   end
 
-  shared_examples_for :has_mail do
+  shared_examples_for 'has mail' do
     it 'sends mail' do
       event
 

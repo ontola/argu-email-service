@@ -32,7 +32,7 @@ describe ExportEvent, type: :model do
     let(:expected_subject) { 'Export ready' }
     let(:expected_match) { 'The export you\'ve requested is ready' }
 
-    it_behaves_like :has_mail
+    it_behaves_like 'has mail'
   end
 
   context 'when export failed' do
@@ -40,6 +40,6 @@ describe ExportEvent, type: :model do
     let(:expected_subject) { 'Export failed' }
     let(:expected_match) { 'We failed to process the export you\'ve requested' }
 
-    it_behaves_like :has_mail
+    it_behaves_like 'has mail'
   end
 end

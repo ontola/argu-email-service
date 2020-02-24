@@ -39,7 +39,7 @@ gem 'tzinfo-data'
 gem 'uri_template'
 
 group :development, :production do
-  gem 'pg', '~> 0.19.0'
+  gem 'pg'
 end
 
 group :development, :test do
@@ -49,6 +49,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'rubocop-rails'
   gem 'rubocop-rspec'
 end
 

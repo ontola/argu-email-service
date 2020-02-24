@@ -46,7 +46,7 @@ module EmailService
     ActiveModelSerializers.config.key_transform = :camel_lower
 
     config.templates = HashWithIndifferentAccess.new(
-      YAML.safe_load(File.read(File.expand_path('../templates.yml', __FILE__)))
+      YAML.safe_load(File.read(File.expand_path('templates.yml', __dir__)))
     )
 
     Rails.application.routes.default_scope = :email
@@ -64,7 +64,7 @@ module EmailService
 
     I18n.available_locales = %i[nl en]
     config.i18n.available_locales = %i[nl en]
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}')]
 
     require 'argu/message_delivery'
 

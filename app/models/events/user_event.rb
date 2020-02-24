@@ -5,6 +5,7 @@ class UserEvent < Event
 
   def initialize_desired_emails
     return if user.nil?
+
     case event
     when 'update'
       if changes.include?('encryptedPassword') && changes['hasPass']&.first != false

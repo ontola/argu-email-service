@@ -17,6 +17,7 @@ module MailerHelper
 
   def greeting_row
     return if recipient.try(:display_name).blank?
+
     content_tag(:tr) do
       content_tag(:td, class: 'mail-p') do
         I18n.t('greeting', name: recipient.display_name)
@@ -26,12 +27,14 @@ module MailerHelper
 
   def markdown_to_html(markdown)
     return if markdown.blank?
+
     @html_renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(escape_html: true))
     @html_renderer.render(markdown)
   end
 
   def markdown_to_plaintext(markdown)
     return if markdown.blank?
+
     @plaintext_renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
     @plaintext_renderer.render(markdown)
   end

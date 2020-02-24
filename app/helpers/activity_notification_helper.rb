@@ -55,6 +55,7 @@ module ActivityNotificationHelper
   def notification_group(notification)
     return 'decision' if notification[:type] == 'Decision'
     return notification[:action] if notification[:action] == 'trash'
+
     'reaction'
   end
 
@@ -68,6 +69,7 @@ module ActivityNotificationHelper
 
   def type_class(object)
     return "#{object[:pro].to_s == 'true' ? 'pro' : 'con'}-t" unless object[:pro].nil?
+
     "#{object[:type].underscore}-t"
   end
 end

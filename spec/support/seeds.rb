@@ -4,7 +4,7 @@ RSpec.configure do |config|
   config.before(:suite) do
     Apartment::Tenant.create('argu') unless ApplicationRecord.connection.schema_exists?('argu')
     Apartment::Tenant.switch('argu') do
-      load(Dir[Rails.root.join('db', 'seeds.rb')][0])
+      load(Dir[Rails.root.join('db/seeds.rb')][0])
     end
   end
 

@@ -160,7 +160,7 @@ describe 'Create activity notification emails', type: :request do
     let(:follows) do
       {
         '1': {
-          notifications: [create_decision_notification],
+          notifications: [forward_decision_notification],
           follow_id: argu_url('/follow/follow_id'),
           followable: motion,
           organization: {display_name: organization_name}
@@ -168,7 +168,7 @@ describe 'Create activity notification emails', type: :request do
       }
     end
 
-    it_behaves_like 'notification mailer', "New decision in 'Motion'", 'is approved'
+    it_behaves_like 'notification mailer', "New notification in 'Motion'", 'is forwarded'
   end
 
   context 'when decision made' do

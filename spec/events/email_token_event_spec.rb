@@ -46,13 +46,13 @@ describe EmailTokenEvent, type: :model do
     context 'when create' do
       let(:event_type) { 'create' }
 
-      it_behaves_like :has_mail
+      it_behaves_like 'has mail'
     end
 
     context 'when update' do
       let(:event_type) { 'update' }
 
-      it_behaves_like :no_mail
+      it_behaves_like 'no mail'
     end
   end
 
@@ -72,13 +72,13 @@ describe EmailTokenEvent, type: :model do
     context 'when create' do
       let(:event_type) { 'create' }
 
-      it_behaves_like :has_mail
+      it_behaves_like 'has mail'
     end
 
     context 'when update' do
       let(:event_type) { 'update' }
 
-      it_behaves_like :no_mail
+      it_behaves_like 'no mail'
     end
   end
 
@@ -95,13 +95,13 @@ describe EmailTokenEvent, type: :model do
     context 'when create' do
       let(:event_type) { 'create' }
 
-      it_behaves_like :no_mail
+      it_behaves_like 'no mail'
     end
 
     context 'when update' do
       let(:event_type) { 'update' }
 
-      it_behaves_like :no_mail
+      it_behaves_like 'no mail'
     end
   end
 
@@ -115,13 +115,13 @@ describe EmailTokenEvent, type: :model do
     context 'when create' do
       let(:event_type) { 'create' }
 
-      it_behaves_like :no_mail
+      it_behaves_like 'no mail'
     end
 
     context 'when update' do
       let(:event_type) { 'update' }
 
-      it_behaves_like :no_mail
+      it_behaves_like 'no mail'
     end
   end
 end

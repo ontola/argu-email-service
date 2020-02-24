@@ -28,7 +28,7 @@ describe RescheduleEventsWorker, type: :model do
     )
 
     assert_difference 'Sidekiq::Worker.jobs.size', 0 do
-      RescheduleEventsWorker.new.perform
+      described_class.new.perform
     end
   end
 
@@ -58,7 +58,7 @@ describe RescheduleEventsWorker, type: :model do
     )
 
     assert_difference 'Sidekiq::Worker.jobs.size', 1 do
-      RescheduleEventsWorker.new.perform
+      described_class.new.perform
     end
   end
 end

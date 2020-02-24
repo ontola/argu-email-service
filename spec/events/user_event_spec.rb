@@ -39,7 +39,7 @@ describe UserEvent, type: :model do
     context 'when update' do
       let(:event_type) { 'update' }
 
-      it_behaves_like :has_mail
+      it_behaves_like 'has mail'
     end
 
     context 'when user destroyed' do
@@ -49,7 +49,7 @@ describe UserEvent, type: :model do
         argu_url('/argu/u/destroyed')
       end
 
-      it_behaves_like :no_mail
+      it_behaves_like 'no mail'
     end
   end
 
@@ -66,7 +66,7 @@ describe UserEvent, type: :model do
     context 'when update' do
       let(:event_type) { 'update' }
 
-      it_behaves_like :no_mail
+      it_behaves_like 'no mail'
     end
   end
 end

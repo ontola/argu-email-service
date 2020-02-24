@@ -18,6 +18,7 @@ class ProcessEventJob < ApplicationJob
   def send_email(opts)
     email = find_or_create_email(opts)
     return if email.nil? || email.sent_at.present?
+
     email.deliver_now
   end
 
