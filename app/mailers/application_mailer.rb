@@ -13,6 +13,7 @@ class ApplicationMailer < ActionMailer::Base
   add_template_helper(UriTemplateHelper)
 
   attr_accessor :record
+
   delegate :recipient, :template, :options, to: :record
 
   def template_mail(record)

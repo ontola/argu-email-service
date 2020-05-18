@@ -27,8 +27,8 @@ describe 'Index emails', type: :request do
       'https://argu.local/u/1',
       'users',
       changes: {
-        encryptedPassword: '[FILTERED]',
-        updatedAt: [1.day.ago, Time.current]
+        encrypted_password: '[FILTERED]',
+        updated_at: [1.day.ago, Time.current]
       }
     )
   end

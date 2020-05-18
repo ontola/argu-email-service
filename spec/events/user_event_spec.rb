@@ -11,7 +11,7 @@ describe UserEvent, type: :model do
   let(:expected_match) { 'We\'re letting you know that the password for your Argu account "user1" has been updated' }
 
   let(:resource_id) { 'https://argu.local/argu/u/1' }
-  let(:resource_type) { 'users' }
+  let(:resource_type) { 'user' }
   let(:resource_attributes) { {} }
   let(:resource_changes) { {} }
 
@@ -22,10 +22,10 @@ describe UserEvent, type: :model do
       resource_type,
       attributes: {
         usages: 0,
-        createdAt: Time.current,
-        expiresAt: nil,
-        retractedAt: nil,
-        groupId: 1
+        created_at: Time.current,
+        expires_at: nil,
+        retracted_at: nil,
+        group_id: 1
       }.merge(resource_attributes),
       changes: resource_changes
     )
@@ -33,7 +33,7 @@ describe UserEvent, type: :model do
 
   context 'when changing password' do
     let(:resource_changes) do
-      {encryptedPassword: '[FILTERED]', updatedAt: [1.day.ago, Time.current]}
+      {encrypted_password: '[FILTERED]', updated_at: [1.day.ago, Time.current]}
     end
 
     context 'when update' do

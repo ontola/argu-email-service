@@ -10,16 +10,16 @@ describe RescheduleEventsWorker, type: :model do
       :event,
       event: 'update',
       resource_id: 'http://argu.local/u/1',
-      resource_type: 'users',
+      resource_type: 'user',
       type: 'UserEvent',
       body: {
         changes: [
           {
             id: 'https://argu.local/u/1',
-            type: 'users',
+            type: 'user',
             attributes: {
-              encryptedPassword: '[FILTERED]',
-              updatedAt: [1.day.ago, Time.current]
+              encrypted_password: '[FILTERED]',
+              updated_at: [1.day.ago, Time.current]
             }
           }
         ]
@@ -40,16 +40,16 @@ describe RescheduleEventsWorker, type: :model do
       :event,
       event: 'update',
       resource_id: 'http://argu.local/u/1',
-      resource_type: 'users',
+      resource_type: 'user',
       type: 'UserEvent',
       body: {
         changes: [
           {
             id: 'https://argu.local/u/1',
-            type: 'users',
+            type: 'user',
             attributes: {
-              encryptedPassword: '[FILTERED]',
-              updatedAt: [1.day.ago, Time.current]
+              encrypted_password: '[FILTERED]',
+              updated_at: [1.day.ago, Time.current]
             }
           }
         ]
