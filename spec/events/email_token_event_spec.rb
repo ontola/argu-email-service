@@ -12,7 +12,7 @@ describe EmailTokenEvent, type: :model do
   let(:expected_match) { 'Je bent uitgenodigd om lid te worden van de groep \'Group1\' van Organization Name' }
 
   let(:resource_id) { 'https://argu.dev/token/xxx' }
-  let(:resource_type) { 'email_tokens' }
+  let(:resource_type) { 'emailTokens' }
   let(:resource_attributes) { {} }
   let(:resource_changes) { {} }
 
@@ -23,11 +23,11 @@ describe EmailTokenEvent, type: :model do
       resource_type,
       attributes: {
         usages: 0,
-        createdAt: Time.current,
-        expiresAt: nil,
-        retractedAt: nil,
-        groupId: 1,
-        rootId: TEST_ROOT_ID
+        created_at: Time.current,
+        expires_at: nil,
+        retracted_at: nil,
+        group_id: 1,
+        root_id: TEST_ROOT_ID
       }.merge(resource_attributes),
       changes: resource_changes
     )
@@ -38,8 +38,8 @@ describe EmailTokenEvent, type: :model do
       {
         email: 'test@email.com',
         message: '',
-        actorIRI: nil,
-        sendMail: true
+        actor_iri: nil,
+        send_mail: true
       }
     end
 
@@ -64,8 +64,8 @@ describe EmailTokenEvent, type: :model do
       {
         email: 'test@email.com',
         message: 'Hello world!',
-        actorIRI: argu_url('/argu/u/1'),
-        sendMail: true
+        actor_iri: argu_url('/argu/u/1'),
+        send_mail: true
       }
     end
 
@@ -87,8 +87,8 @@ describe EmailTokenEvent, type: :model do
       {
         email: 'test@email.com',
         message: 'Hello world!',
-        actorIRI: argu_url('/argu/u/1'),
-        sendMail: false
+        actor_iri: argu_url('/argu/u/1'),
+        send_mail: false
       }
     end
 
@@ -108,7 +108,7 @@ describe EmailTokenEvent, type: :model do
   context 'with bearer token created' do
     let(:resource_attributes) do
       {
-        sendMail: true
+        send_mail: true
       }
     end
 

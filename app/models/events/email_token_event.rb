@@ -4,17 +4,17 @@ class EmailTokenEvent < Event
   private
 
   def group
-    @group ||= Group.find(resource[:groupId])
+    @group ||= Group.find(resource[:group_id])
   end
 
   def profile
-    @profile ||= ActiveResourceModel.find(:one, from: resource[:actorIRI])
+    @profile ||= ActiveResourceModel.find(:one, from: resource[:actor_iri])
   end
 
   def initialize_desired_emails
     case event
     when 'create'
-      if resource[:email].present? && resource[:sendMail] == true
+      if resource[:email].present? && resource[:send_mail] == true
         add_desired_email(
           :email_token_created,
           User.new(email: resource[:email], language: 'nl'),
@@ -26,7 +26,7 @@ class EmailTokenEvent < Event
 
   def email_token_created_opts
     {
-      links: resource[:links],
+      iri: resource[:id],
       message: resource[:message],
       group_name: group.display_name,
       organization_name: group.organization.display_name,

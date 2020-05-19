@@ -10,7 +10,7 @@ describe ExportEvent, type: :model do
 
   let(:event_type) { 'update' }
   let(:resource_id) { 'https://argu.dev/export/xxx' }
-  let(:resource_type) { 'export' }
+  let(:resource_type) { 'exports' }
   let(:resource_attributes) { {download_url: argu_url('/download')} }
   let(:resource_relationships) do
     {user: {data: {id: argu_url('/argu/u/1')}}, export_collection: {data: {id: argu_url('/exports')}}}

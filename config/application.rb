@@ -69,5 +69,6 @@ module EmailService
     require 'argu/message_delivery'
 
     Sidekiq.default_worker_options = {queue: 'email_service'}
+    Rails.backtrace_cleaner.remove_silencers!
   end
 end

@@ -52,8 +52,7 @@ def create_event_resource(id, type, opts)
     id: id,
     type: type,
     attributes: opts[:attributes],
-    relationships: opts[:relationships],
-    links: {self: id}
+    relationships: opts[:relationships]
   }
 end
 

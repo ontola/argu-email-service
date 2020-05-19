@@ -16,7 +16,7 @@ describe 'Index emails', type: :request do
     get '/argu/email/emails?resource=https://argu.local/u/1&event=update', headers: service_headers
     expect(response.code).to eq('200')
     expect_data_size(2)
-    expect_included(EmailTrackingEvent.pluck(:id))
+    expect_included(EmailTrackingEvent.all.map { |r| resource_iri(r) })
   end
 
   private

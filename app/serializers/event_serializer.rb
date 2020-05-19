@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class EventSerializer < ActiveModel::Serializer
+class EventSerializer < BaseSerializer
   attributes :id
   has_many :email_messages
 end

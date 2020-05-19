@@ -11,7 +11,7 @@ describe UserEvent, type: :model do
   let(:expected_match) { 'We\'re letting you know that the password for your Argu account "user1" has been updated' }
 
   let(:resource_id) { 'https://argu.local/argu/u/1' }
-  let(:resource_type) { 'user' }
+  let(:resource_type) { 'users' }
   let(:resource_attributes) { {} }
   let(:resource_changes) { {} }
 
@@ -56,10 +56,10 @@ describe UserEvent, type: :model do
   context 'when logging in' do
     let(:resource_changes) do
       {
-        currentSignInAt: [1.day.ago, Time.current],
-        lastSignInAt: [2.days.ago, 1.day.ago],
-        signInCount: [10, 11],
-        updatedAt: [1.day.ago, Time.current]
+        current_sign_in_at: [1.day.ago, Time.current],
+        last_sign_in_at: [2.days.ago, 1.day.ago],
+        sign_in_count: [10, 11],
+        updated_at: [1.day.ago, Time.current]
       }
     end
 
