@@ -59,7 +59,7 @@ GIT
 
 GIT
   remote: https://github.com/ontola/rdf-serializers
-  revision: 4f510e9dbfb9aec08da3231cb4aac730a2adeedf
+  revision: 690d4ed3468ca27fa236b0ea62bdfc954e34c9a5
   branch: fast-jsonapi
   specs:
     rdf-serializers (0.0.7)
@@ -279,7 +279,7 @@ GEM
       activemodel
       activesupport
     public_suffix (3.1.1)
-    puma (4.3.3)
+    puma (4.3.5)
       nio4r (~> 2.0)
     pundit (1.0.1)
       activesupport (>= 3.0.0)
