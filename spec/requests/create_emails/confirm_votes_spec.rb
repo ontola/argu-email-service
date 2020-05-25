@@ -16,8 +16,8 @@ describe 'Confirm votes', type: :request do
                options: {
                  token_url: 'http://example.com/confirmationToken',
                  motions: [
-                   {display_name: 'Motion 1', url: '', option: 'pro'},
-                   {display_name: 'Motion 2', url: '', option: 'con'}
+                   {display_name: 'Motion 1', url: '', option: 'yes'},
+                   {display_name: 'Motion 2', url: '', option: 'no'}
                  ]
                }
              }

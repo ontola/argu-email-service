@@ -36,9 +36,9 @@ nl:
         one: "De volgende stem moet nog bevestigd worden:"
         other: "De volgende stemmen moeten nog bevestigd worden:"
       side:
-        pro: "Vóór "
-        neutral: "Neutraal over "
-        con: "Tegen "
+        :yes: "Vóór "
+        other: "Neutraal over "
+        :no: "Tegen "
       confirm:
         one: "Klik op onderstaande link om de stem te bevestigen."
         other: "Klik op onderstaande link om de stemmen te bevestigen."
