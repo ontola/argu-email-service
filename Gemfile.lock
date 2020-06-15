@@ -283,7 +283,7 @@ GEM
       nio4r (~> 2.0)
     pundit (1.0.1)
       activesupport (>= 3.0.0)
-    rack (2.2.2)
+    rack (2.2.3)
     rack-protection (2.0.5)
       rack
     rack-test (1.1.0)
@@ -436,7 +436,7 @@ GEM
       hashdiff
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
-    websocket-extensions (0.1.4)
+    websocket-extensions (0.1.5)
 
 PLATFORMS
   ruby
