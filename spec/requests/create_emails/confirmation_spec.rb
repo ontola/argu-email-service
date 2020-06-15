@@ -32,7 +32,7 @@ describe 'Confirmation', type: :request do
            params: {
              email: {
                template: 'confirmation',
-               recipient: {email: 'test@email.com', language: NS::ARGU['locale/en']},
+               recipient: {email: 'test@email.com', language: NS::ARGU['language#en']},
                options: {token_url: 'http://example.com/confirmationToken'}
              }
            }, headers: service_headers

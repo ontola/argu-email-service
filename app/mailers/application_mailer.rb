@@ -18,7 +18,7 @@ class ApplicationMailer < ActionMailer::Base
 
   def template_mail(record)
     self.record = record
-    I18n.locale = record.recipient.language.to_s.gsub(NS::ARGU['locale/'], '')
+    I18n.locale = record.recipient.language
     opts = template_options
     opts[:delivery_method_options] = {'CustomID' => record.id.to_s}
     roadie_mail(opts)
