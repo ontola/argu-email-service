@@ -4,18 +4,18 @@ nl:
       subject: "Bevestig jouw e-mailadres"
       body: "Klik op onderstaande link om je e-mailadres te bevestigen."
       confirm_link: 'Bevestig jouw e-mailadres'
-      not_requested: "Heb je geen bevestiging aangevraagd? Laat het ons weten door te mailen naar info@argu.co."
+      not_requested: "Heb je geen bevestiging aangevraagd? Dan kan je deze mail negeren."
     confirm_secondary:
       subject: "Voeg jouw e-mailadres toe"
     requested_confirmation:
       subject: "Bevestig jouw e-mailadres"
     confirmation_reminder:
       subject: "Vergeet je stemmen niet te bevestigen!"
-      body: "Je hebt een of meerdere stemmen uitgebracht op Argu. Deze zullen pas definitief gemaakt worden na het bevestigen van je e-mailadres."
+      body: "Je hebt een of meerdere stemmen uitgebracht. Deze zullen pas definitief gemaakt worden na het bevestigen van je e-mailadres."
       confirm_link: 'Bevestig jouw e-mailadres'
     set_password:
       subject: "Stel een wachtwoord in"
-      greeting: "Welkom bij Argu!"
+      greeting: "Welkom bij %{organization}!"
       body: "Klik op onderstaande link om een wachtwoord in te stellen."
       link: "Stel een wachtwoord in"
     reset_password_instructions:
@@ -31,7 +31,7 @@ nl:
       subject:
         one: "Bevestig jouw stem"
         other: "Bevestig jouw stemmen"
-      greeting: "Welkom bij Argu!"
+      greeting: "Welkom bij %{organization}!"
       body:
         one: "De volgende stem moet nog bevestigd worden:"
         other: "De volgende stemmen moeten nog bevestigd worden:"
@@ -46,7 +46,7 @@ nl:
         one: "Bevestig mijn stem"
         other: "Bevestig mijn stemmen"
     email_token_created:
-      subject: "Uitnodiging voor %{organization} op Argu"
+      subject: "Uitnodiging voor %{organization}"
       header: "Je bent uitgenodigd om lid te worden van de groep '%{group}' van %{organization}"
       link: "Klik hier om deze uitnodiging te accepteren"
     registration_confirmation:
@@ -54,10 +54,10 @@ nl:
     password_changed:
       subject: "Je wachtwoord is gewijzigd"
       header: "Je wachtwoord is gewijzigd."
-      body_html: 'We laten je weten dat je wachtwoord voor je Argu account "%{shortname}" gewijzigd is.<br/> Mail naar info@argu.co als je dit niet gedaan hebt.'
+      body_html: 'We laten je weten dat je wachtwoord voor je account "%{shortname}" gewijzigd is.<br/> Mail naar info@argu.co als je dit niet gedaan hebt.'
     activity_notifications:
       subject:
-        argu: "Nieuwe Argu meldingen"
+        argu: "Nieuwe meldingen"
         recipient: "%{type} in '%{recipient}'"
       unsubscribe: "Meldingen hiervoor uitschakelen"
       go_to: "Ga naar discussie"

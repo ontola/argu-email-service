@@ -4,18 +4,18 @@ en:
       subject: "Confirm your e-mail address"
       body: "You can confirm this e-mail address by pressing the link below."
       confirm_link: 'Confirm your e-mail'
-      not_requested: "Did you not request a confirmation? Please let us know by mailing to info@argu.co."
+      not_requested: "If you did not request a confirmation, you can ignore this email."
     confirm_secondary:
       subject: "Add your e-mail address"
     requested_confirmation:
       subject: "Confirm your e-mail address"
     confirmation_reminder:
       subject: "Don't forget to confirm your votes!"
-      body: "You have casted one or multiple votes on Argu. These votes will only be valid after you have confirmed your e-mail."
+      body: "You have casted one or multiple votes. These votes will only be valid after you have confirmed your e-mail."
       confirm_link: 'Confirm your e-mail'
     set_password:
       subject: "Set your password"
-      greeting: "Welcome to Argu!"
+      greeting: "Welcome to %{organization}!"
       body: "You can set your password by pressing the link below."
       link: "Set your password"
     reset_password_instructions:
@@ -31,7 +31,7 @@ en:
       subject:
         one: "Confirm your vote"
         other: "Confirm your votes"
-      greeting: "Welcome to Argu!"
+      greeting: "Welcome to %{organization}!"
       body:
         one: "The following vote requires your confirmation:"
         other: "The following votes require your confirmation:"
@@ -46,7 +46,7 @@ en:
         one: "Confirm my vote"
         other: "Confirm my votes"
     email_token_created:
-      subject: "Invitation for %{organization} on Argu"
+      subject: "Invitation for %{organization}"
       header: "You have been invited to join the group '%{group}' of %{organization}"
       link: "Click here to accept this invitation"
     registration_confirmation:
@@ -54,10 +54,10 @@ en:
     password_changed:
       subject: "Your password has been updated"
       header: "Your password has been updated."
-      body_html: "We're letting you know that the password for your Argu account \"%{shortname}\" has been updated.<br/> If this is unauthorized, please send an e-mail to info@argu.co."
+      body_html: "We're letting you know that the password for your account \"%{shortname}\" has been updated.<br/> If this is unauthorized, please send an e-mail to info@argu.co."
     activity_notifications:
       subject:
-        argu: "New Argu notifications"
+        argu: "New notifications"
         recipient: "%{type} in '%{recipient}'"
       unsubscribe: "Turn off notifications for this"
       go_to: "Go to discussion"

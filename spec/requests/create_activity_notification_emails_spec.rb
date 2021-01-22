@@ -153,7 +153,7 @@ describe 'Create activity notification emails', type: :request do
     end
     let(:expected_from) { 'Argu <noreply@argu.co>' }
 
-    it_behaves_like 'notification mailer', 'New Argu notifications', 'A new argument is posted in'
+    it_behaves_like 'notification mailer', 'New notifications', 'A new argument is posted in'
   end
 
   context 'when decision forwarded' do

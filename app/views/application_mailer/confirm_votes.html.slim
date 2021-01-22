@@ -3,21 +3,21 @@ table
     td.mail-box
       table
         tr
-          td.mail-p= I18n.t('templates.confirm_votes.greeting')
+          td.mail-p= I18n.t('templates.confirm_votes.greeting', organization: ActsAsTenant.current_tenant.display_name)
         tr
-          td.mail-p= I18n.t('templates.confirm_votes.body', count: opts[:motions].count)
-        -opts[:motions].each do |motion|
+          td.mail-p= I18n.t('templates.confirm_votes.body', count: opts.fetch(:motions).count)
+        -opts.fetch(:motions).each do |motion|
           tr
             td.mail-p
               strong[class="#{motion[:option]}-t"]=I18n.t("templates.confirm_votes.side.#{motion[:option]}")
               =link_to motion[:display_name], revert_dynamic_iri(motion[:url]), class: 'motion-t markdown--motion'
         tr
-          td.mail-p= I18n.t('templates.confirm_votes.confirm', count: opts[:motions].count)
+          td.mail-p= I18n.t('templates.confirm_votes.confirm', count: opts.fetch(:motions).count)
   tr
     td.mail-button--alt
       table
         tr
-          td= link_to I18n.t('templates.confirm_votes.link', count: opts[:motions].count), revert_dynamic_iri(opts[:token_url])
+          td= link_to I18n.t('templates.confirm_votes.link', count: opts.fetch(:motions).count), revert_dynamic_iri(opts.fetch(:token_url))
   tr
     td
       table
@@ -25,7 +25,7 @@ table
           td.mail-p.small.mail-center
             =I18n.t('copy_paste_link')
             br
-            =revert_dynamic_iri(opts[:token_url])
+            =revert_dynamic_iri(opts.fetch(:token_url))
         tr
           td.mail-p.small.mail-center
             =I18n.t('not_for_you')

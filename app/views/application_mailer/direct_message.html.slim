@@ -3,16 +3,16 @@ table
     td.mail-box
       table
         tr
-          td.mail-p= markdown_to_html(opts[:body])&.html_safe
+          td.mail-p= markdown_to_html(opts.fetch(:body))&.html_safe
   tr
     td.mail-p.mail-profile.align-right
-      =link_to revert_dynamic_iri(opts[:actor][:iri])
-        img.mail-profile-logo[src=opts[:actor][:thumbnail] width="25px" height="25px"]
-        =opts[:actor][:display_name]
+      =link_to revert_dynamic_iri(opts.fetch(:actor).fetch(:iri))
+        img.mail-profile-logo[src=opts.fetch(:actor).fetch(:thumbnail) width="25px" height="25px"]
+        =opts.fetch(:actor).fetch(:display_name)
   tr
     td
       table
         tr
           td.mail-p= t('templates.direct_message.reply_directly')
         tr
-          td.mail-p.small= t('templates.direct_message.disclaimer_html', actor: opts[:actor][:display_name], actor_iri: revert_dynamic_iri(opts[:actor][:iri]), email: opts[:email], subject: opts[:resource][:display_name], subject_iri: revert_dynamic_iri(opts[:resource][:iri]))
+          td.mail-p.small= t('templates.direct_message.disclaimer_html', actor: opts.fetch(:actor).fetch(:display_name), actor_iri: revert_dynamic_iri(opts.fetch(:actor).fetch(:iri)), email: opts.fetch(:email), subject: opts.fetch(:resource).fetch(:display_name), subject_iri: revert_dynamic_iri(opts.fetch(:resource).fetch(:iri)))

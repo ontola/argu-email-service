@@ -9,4 +9,4 @@ table
     td.mail-button--alt
       table
         tr
-          td= link_to(t('templates.export_done.link'), revert_dynamic_iri(opts[:download_url]))
+          td= link_to(t('templates.export_done.link'), revert_dynamic_iri(opts.fetch(:download_url)))

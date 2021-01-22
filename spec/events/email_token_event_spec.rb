@@ -8,7 +8,7 @@ require 'support/test_root_id'
 describe EmailTokenEvent, type: :model do
   let(:expected_sent_to) { 'test@email.com' }
   let(:expected_from) { 'Argu <noreply@argu.co>' }
-  let(:expected_subject) { 'Uitnodiging voor Organization Name op Argu' }
+  let(:expected_subject) { 'Uitnodiging voor Organization Name' }
   let(:expected_match) { 'Je bent uitgenodigd om lid te worden van de groep \'Group1\' van Organization Name' }
 
   let(:resource_id) { 'https://argu.dev/token/xxx' }

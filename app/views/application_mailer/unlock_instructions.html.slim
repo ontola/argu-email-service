@@ -9,7 +9,7 @@ table
     td.mail-button--alt
       table
         tr
-          td= link_to I18n.t('templates.unlock_instructions.unlock_link'), revert_dynamic_iri(opts[:token_url])
+          td= link_to I18n.t('templates.unlock_instructions.unlock_link'), revert_dynamic_iri(opts.fetch(:token_url))
   tr
     td
       table
@@ -17,4 +17,4 @@ table
           td.mail-p.small.mail-center
             =I18n.t('copy_paste_link')
             br
-            =revert_dynamic_iri(opts[:token_url])
+            =revert_dynamic_iri(opts.fetch(:token_url))
