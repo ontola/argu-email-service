@@ -38,7 +38,10 @@ class ApplicationMailer < ActionMailer::Base
 
   def options_with_subject(opts)
     opts[:subject] ||=
-      t(opts[:subject_key] || "templates.#{template.name}.subject", opts[:subject_opts] || options).sub(/^./, &:upcase)
+      I18n.t(
+        opts[:subject_key] || "templates.#{template.name}.subject",
+        **(opts[:subject_opts] || options)
+      ).sub(/^./, &:upcase)
     opts.except(:subject_key, :subject_opts)
   end
 end
