@@ -29,8 +29,8 @@ class ProcessEventJob < ApplicationJob
   def find_email(opts)
     json_opts = opts.slice(:recipient, :options)
     json_opts[:recipient] = json_opts[:recipient].attributes
-    query = json_opts.map { |key, value| value.map { |k, _v| "#{key} ->> '#{k}' = ?" } }.flatten.join(' AND ')
-    query_values = json_opts.map { |_key, value| value.map { |_k, v| v.to_s } }.flatten
+    query = json_opts.map { |key, value| value.compact.map { |k, _v| "#{key} ->> '#{k}' = ?" } }.flatten.join(' AND ')
+    query_values = json_opts.map { |_key, value| value.compact.map { |_k, v| v.to_s } }.flatten
     @event.email_messages.where(query, *query_values).take
   end
 
