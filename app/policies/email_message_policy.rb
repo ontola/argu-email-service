@@ -14,4 +14,8 @@ class EmailMessagePolicy < RestrictivePolicy
   def index?
     service_scope?
   end
+
+  def show?
+    service_scope?
+  end
 end

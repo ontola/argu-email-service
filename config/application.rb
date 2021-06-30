@@ -26,6 +26,7 @@ require_relative '../lib/acts_as_tenant/sidekiq_for_service'
 require_relative '../lib/tenant_finder'
 require_relative '../lib/tenant_middleware'
 require_relative '../lib/ns'
+require_relative '../lib/argu/redis'
 
 module EmailService
   class Application < Rails::Application
@@ -61,6 +62,7 @@ module EmailService
     config.autoload_paths += %W[#{config.root}/app/responders]
 
     config.active_job.queue_adapter = :sidekiq
+    config.jwt_encryption_method = :hs512
 
     I18n.available_locales = %i[nl en]
     config.i18n.available_locales = %i[nl en]

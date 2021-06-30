@@ -26,7 +26,7 @@ class ProcessEventJob < ApplicationJob
     find_email(opts) || create_email(opts)
   end
 
-  def find_email(opts)
+  def find_email(opts) # rubocop:disable Metrics/AbcSize
     json_opts = opts.slice(:recipient, :options)
     json_opts[:recipient] = json_opts[:recipient].attributes
     query = json_opts.map { |key, value| value.compact.map { |k, _v| "#{key} ->> '#{k}' = ?" } }.flatten.join(' AND ')
