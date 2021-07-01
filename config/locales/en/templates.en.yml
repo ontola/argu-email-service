@@ -54,7 +54,7 @@ en:
     password_changed:
       subject: "Your password has been updated"
       header: "Your password has been updated."
-      body_html: "We're letting you know that the password for your account \"%{shortname}\" has been updated.<br/> If this is unauthorized, please send an e-mail to info@argu.co."
+      body_html: "We're letting you know that the password for your account has been updated.<br/> If this is unauthorized, please send an e-mail to info@argu.co."
     activity_notifications:
       subject:
         argu: "New notifications"

@@ -8,7 +8,7 @@ describe UserEvent, type: :model do
   let(:expected_sent_to) { 'user1@email.com' }
   let(:expected_from) { 'Argu <noreply@argu.co>' }
   let(:expected_subject) { 'Your password has been updated' }
-  let(:expected_match) { 'We\'re letting you know that the password for your account "user1" has been updated' }
+  let(:expected_match) { 'We\'re letting you know that the password for your account has been updated' }
 
   let(:resource_id) { 'https://argu.local/argu/u/1' }
   let(:resource_type) { 'users' }

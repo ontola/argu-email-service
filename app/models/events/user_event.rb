@@ -9,7 +9,7 @@ class UserEvent < Event
     case event
     when 'update'
       if changes.include?('encrypted_password') && changes['has_pass']&.first != false
-        add_desired_email(:password_changed, user, shortname: user.url)
+        add_desired_email(:password_changed, user)
       end
     end
   end

@@ -54,7 +54,7 @@ nl:
     password_changed:
       subject: "Je wachtwoord is gewijzigd"
       header: "Je wachtwoord is gewijzigd."
-      body_html: 'We laten je weten dat je wachtwoord voor je account "%{shortname}" gewijzigd is.<br/> Mail naar info@argu.co als je dit niet gedaan hebt.'
+      body_html: 'We laten je weten dat je wachtwoord voor je account gewijzigd is.<br/> Mail naar info@argu.co als je dit niet gedaan hebt.'
     activity_notifications:
       subject:
         argu: "Nieuwe meldingen"
