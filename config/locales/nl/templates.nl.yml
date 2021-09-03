@@ -31,7 +31,7 @@ nl:
       subject:
         one: "Bevestig jouw stem"
         other: "Bevestig jouw stemmen"
-      greeting: "Welkom bij %{organization}!"
+      greeting: "Bedankt voor jouw stem!"
       body:
         one: "De volgende stem moet nog bevestigd worden:"
         other: "De volgende stemmen moeten nog bevestigd worden:"
@@ -54,7 +54,7 @@ nl:
     password_changed:
       subject: "Je wachtwoord is gewijzigd"
       header: "Je wachtwoord is gewijzigd."
-      body_html: 'We laten je weten dat je wachtwoord voor je account gewijzigd is.<br/> Mail naar info@argu.co als je dit niet gedaan hebt.'
+      body_html: 'We laten je weten dat je wachtwoord voor je account gewijzigd is. Mail naar info@argu.co als je dit niet gedaan hebt.'
     activity_notifications:
       subject:
         argu: "Nieuwe meldingen"
@@ -69,6 +69,7 @@ nl:
       new_reactions:
         one: "Er is een %{type} geplaatst in "
         other: "Er zijn %{type} geplaatst in "
+      read_more: "Lees verder"
     direct_message:
       reply_directly: "Je kunt direct op deze e-mail reageren om te antwoorden"
       disclaimer_html: 'Je hebt een bericht ontvangen van <a href="%{actor_iri}">%{actor}</a> naar aanleiding van <a href="%{subject_iri}">%{subject}</a>. Jouw e-mailadres is hierbij niet gedeeld met %{actor}. Reacties op deze e-mail worden direct naar de verzender gestuurd. In dat geval ziet %{actor} wel jouw e-mailadres.'

@@ -3,6 +3,10 @@
 require 'redcarpet/render_strip'
 
 module MailerHelper
+  def organisation_color(attr)
+    "#{attr}: #{ActsAsTenant.current_tenant.try(:primary_color) || '#2D7080'}"
+  end
+
   def recipient
     @record.recipient
   end
@@ -15,14 +19,8 @@ module MailerHelper
     @record.template.show_footer?
   end
 
-  def greeting_row
-    return if recipient.try(:display_name).blank?
-
-    content_tag(:tr) do
-      content_tag(:td, class: 'mail-p') do
-        I18n.t('greeting', name: recipient.display_name)
-      end
-    end
+  def greet_recipient
+    I18n.t('greeting', name: recipient.try(:display_name) || '')
   end
 
   def markdown_to_html(markdown)

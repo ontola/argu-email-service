@@ -1,12 +1,14 @@
+table.mail-box
+  tr
+    td.mail-h3.text-center style=organisation_color("color") = ActsAsTenant.current_tenant.display_name
+  tr
+    td.mail-header= greet_recipient
+  tr
+    td.mail-p= I18n.t('templates.export_done.body')
+  tr.mail-button--alt
+    td.mail-button--alt style=organisation_color("background-color") = link_to(t('templates.export_done.link'), revert_dynamic_iri(opts.fetch(:download_url)))
 table
   tr
-    td.mail-box
-      table
-        =greeting_row
-        tr
-          td.mail-p= I18n.t('templates.export_done.body')
-  tr
-    td.mail-button--alt
-      table
-        tr
-          td= link_to(t('templates.export_done.link'), revert_dynamic_iri(opts.fetch(:download_url)))
+    td.mail-p.small.link-padding
+      = t('layout.too_many_notifications') + ' '
+      = link_to t('layout.adjust_settings'), "https://#{ActsAsTenant.current_tenant.iri_prefix}/u/settings?tab=notifications"

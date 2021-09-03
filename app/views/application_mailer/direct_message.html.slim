@@ -1,18 +1,14 @@
+table.mail-box
+  tr
+    td.mail-h3.text-center style=organisation_color("color") = ActsAsTenant.current_tenant.display_name
+  tr
+    td.mail-p= markdown_to_html(opts.fetch(:body))&.html_safe
+  tr
+    td.mail-p.mail-profile
+      =link_to revert_dynamic_iri(opts.fetch(:actor).fetch(:iri))
+        img.mail-profile-logo[src=opts.fetch(:actor).fetch(:thumbnail)]
+        =opts.fetch(:actor).fetch(:display_name)
 table
   tr
-    td.mail-box
-      table
-        tr
-          td.mail-p= markdown_to_html(opts.fetch(:body))&.html_safe
-  tr
-    td.mail-p.mail-profile.align-right
-      =link_to revert_dynamic_iri(opts.fetch(:actor).fetch(:iri))
-        img.mail-profile-logo[src=opts.fetch(:actor).fetch(:thumbnail) width="25px" height="25px"]
-        =opts.fetch(:actor).fetch(:display_name)
-  tr
-    td
-      table
-        tr
-          td.mail-p= t('templates.direct_message.reply_directly')
-        tr
-          td.mail-p.small= t('templates.direct_message.disclaimer_html', actor: opts.fetch(:actor).fetch(:display_name), actor_iri: revert_dynamic_iri(opts.fetch(:actor).fetch(:iri)), email: opts.fetch(:email), subject: opts.fetch(:resource).fetch(:display_name), subject_iri: revert_dynamic_iri(opts.fetch(:resource).fetch(:iri)))
+    td.mail-p.small.link-padding
+      = I18n.t('templates.direct_message.disclaimer_html', actor: opts.fetch(:actor).fetch(:display_name), actor_iri: revert_dynamic_iri(opts.fetch(:actor).fetch(:iri)), email: opts.fetch(:email), subject: opts.fetch(:resource).fetch(:display_name), subject_iri: revert_dynamic_iri(opts.fetch(:resource).fetch(:iri)))

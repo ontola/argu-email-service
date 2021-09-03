@@ -1,5 +1,5 @@
 en:
-  greeting: "Dear %{name},"
+  greeting: "Dear %{name}"
   layout:
     too_many_notifications: "Too many notifications?"
     adjust_settings: "Adjust your settings."

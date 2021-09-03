@@ -31,7 +31,7 @@ en:
       subject:
         one: "Confirm your vote"
         other: "Confirm your votes"
-      greeting: "Welcome to %{organization}!"
+      greeting: "Thanks for voting!"
       body:
         one: "The following vote requires your confirmation:"
         other: "The following votes require your confirmation:"
@@ -54,7 +54,7 @@ en:
     password_changed:
       subject: "Your password has been updated"
       header: "Your password has been updated."
-      body_html: "We're letting you know that the password for your account has been updated.<br/> If this is unauthorized, please send an e-mail to info@argu.co."
+      body_html: "We're letting you know that the password for your account has been updated. If this is unauthorized, please send an e-mail to info@argu.co."
     activity_notifications:
       subject:
         argu: "New notifications"
@@ -69,6 +69,7 @@ en:
       new_reactions:
         one: "A %{type} is posted in "
         other: "%{type} are posted in "
+      read_more: "Read more"
     direct_message:
       reply_directly: "You can reply to this email directly to answer"
       disclaimer_html: '<a href="%{actor_iri}">%{actor}</a> has sent you a message in response to <a href="%{subject_iri}">%{subject}</a>. Your e-mail address was not shared with %{actor}. Replies to this e-mail will be sent directly to the sender. In that case %{actor} will see your e-mailaddress.'

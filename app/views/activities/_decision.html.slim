@@ -1,24 +1,17 @@
 - if notifications.present?
   - notifications.each do |notification|
     tr
-      td.mail-p.no-padding
-        strong[class=type_class(followable)]= link_to followable[:display_name], revert_dynamic_iri(followable[:id])
-        =t("templates.activity_notifications.decision.#{notification[:action]}")
-        - if follow_id
-          .mail-unsubscribe= link_to t('templates.activity_notifications.unsubscribe'), revert_dynamic_iri(follow_id)
+      td.mail-p
+        strong[class=type_class(followable)]= link_to followable[:display_name], revert_dynamic_iri(followable[:id]), {style: organisation_color('color')}
+        =I18n.t("templates.activity_notifications.decision.#{notification[:action]}")
     tr
       td.mail-p.mail-profile
         =link_to revert_dynamic_iri(notification[:creator][:id]) do
-          img.mail-profile-logo[src=notification[:creator][:thumbnail] width="25px" height="25px"]
+          img.mail-profile-logo.small[src=notification[:creator][:thumbnail]]
           =notification[:creator][:display_name]
     - if notification[:content].present?
       tr
-        td.mail-box
-          table
-            tr
-              td.mail-p.mail-grey-link
-                =link_to truncate(markdown_to_plaintext(notification[:content])), revert_dynamic_iri(followable[:id])
-    tr
-      td.mail-p
-  tr
-    td.mail-p
+        td.mail-p.link-button
+          =truncate(markdown_to_plaintext(notification[:content]))
+          br
+          =link_to I18n.t('templates.activity_notifications.read_more'), revert_dynamic_iri(followable[:id]), {style: organisation_color('background-color')}

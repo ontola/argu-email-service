@@ -1,13 +1,21 @@
+table.mail-box
+  tr
+    td.mail-h3.text-center style=organisation_color("color") = ActsAsTenant.current_tenant.display_name
+  tr
+    td.mail-header= greet_recipient
+
+  - activity_follows.each do |follow|
+    tr
+      td
+        table.mail-box.small
+          =render partial: 'activities/decision', locals: notifications_group(follow, 'decision')
+          =render partial: 'activities/new_reaction', locals: notifications_group(follow, 'reaction')
+          =render partial: 'activities/trashed', locals: notifications_group(follow, 'trash')
+          - if follow.follow_id
+            tr
+              td.mail-unsubscribe= link_to t('templates.activity_notifications.unsubscribe'), revert_dynamic_iri(follow.follow_id)
 table
   tr
-    td.mail-p= I18n.t('greeting', name: recipient.display_name)
-  - activity_follows.each do |follow|
-    =render partial: 'activities/decision', locals: notifications_group(follow, 'decision')
-    =render partial: 'activities/new_reaction', locals: notifications_group(follow, 'reaction')
-    =render partial: 'activities/trashed', locals: notifications_group(follow, 'trash')
-  - if activity_follows.count == 1
-    tr
-      td.mail-button--alt
-        table
-          tr
-            td= link_to t('templates.activity_notifications.go_to'), revert_dynamic_iri(activity_follows.first.followable[:id])
+    td.mail-p.small.link-padding
+      = I18n.t('layout.too_many_notifications') + ' '
+      = link_to I18n.t('layout.adjust_settings'), "https://#{ActsAsTenant.current_tenant.iri_prefix}/u/settings?tab=notifications"

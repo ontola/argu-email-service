@@ -17,19 +17,6 @@ html
         td
       tr.mail-margin-bottom
       - if show_footer?
-        tr.mail-footer-padding
-          td
-          td.mail-center
-          td
         tr.mail-footer
-          td
-          td.mail-center
-            table
-              tr
-                td.mail-p.small
-                  =t('layout.too_many_notifications') + ' '
-                  =link_to t('layout.adjust_settings'), "https://#{ActsAsTenant.current_tenant.iri_prefix}/u/settings?tab=notifications"
-              tr
-                td.mail-hidden
-                  =t('layout.sent_at_date', date: Time.current.utc.strftime('%Y-%m-%d %H:%M:%S'))
-          td
+          td.mail-hidden
+            =t('layout.sent_at_date', date: Time.current.utc.strftime('%Y-%m-%d %H:%M:%S'))
