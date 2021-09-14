@@ -14,8 +14,3 @@ table.mail-box
           - if follow.follow_id
             tr
               td.mail-unsubscribe= link_to t('templates.activity_notifications.unsubscribe'), revert_dynamic_iri(follow.follow_id)
-table
-  tr
-    td.mail-p.small.link-padding
-      = I18n.t('layout.too_many_notifications') + ' '
-      = link_to I18n.t('layout.adjust_settings'), "https://#{ActsAsTenant.current_tenant.iri_prefix}/u/settings?tab=notifications"
