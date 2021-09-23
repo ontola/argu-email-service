@@ -8,8 +8,8 @@ table.mail-box
   -opts.fetch(:motions).each do |motion|
     tr
       td.mail-p.markdown--motion
-        =I18n.t("templates.confirm_votes.side.#{motion[:option]}")
         =link_to motion[:display_name], revert_dynamic_iri(motion[:url]), style: organisation_color("color")
+        =": #{motion[:option]}"
   tr
     td.mail-p= I18n.t('templates.confirm_votes.confirm', count: opts.fetch(:motions).count)
   tr.mail-button--alt

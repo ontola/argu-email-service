@@ -35,10 +35,6 @@ en:
       body:
         one: "The following vote requires your confirmation:"
         other: "The following votes require your confirmation:"
-      side:
-        :yes: "In favour of "
-        other: "Neutral about "
-        :no: "Against "
       confirm:
         one: "You can confirm your vote by pressing the link below."
         other: "You can confirm your votes by pressing the link below."

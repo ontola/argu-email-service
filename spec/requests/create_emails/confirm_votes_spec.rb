@@ -16,8 +16,8 @@ describe 'Confirm votes', type: :request do
                options: {
                  token_url: 'http://example.com/confirmationToken',
                  motions: [
-                   {display_name: 'Motion 1', url: '', option: 'yes'},
-                   {display_name: 'Motion 2', url: '', option: 'no'}
+                   {display_name: 'Motion 1', url: '', option: 'Agree'},
+                   {display_name: 'Motion 2', url: '', option: 'Against'}
                  ]
                }
              }
@@ -27,8 +27,7 @@ describe 'Confirm votes', type: :request do
     assert(EmailMessage.last.sent_at)
     assert_equal EmailMessage.last.sent_to, 'test@email.com'
     assert_equal ActionMailer::Base.deliveries.first.subject, 'Confirm your votes'
-    assert_match 'In favour of', ActionMailer::Base.deliveries.first.body.encoded
-    assert_match 'Motion 1', ActionMailer::Base.deliveries.first.body.encoded
-    assert_match 'Against', ActionMailer::Base.deliveries.first.body.encoded
+    assert_match 'Motion 1</a>: Agree', ActionMailer::Base.deliveries.first.body.encoded
+    assert_match 'Motion 2</a>: Against', ActionMailer::Base.deliveries.first.body.encoded
   end
 end
