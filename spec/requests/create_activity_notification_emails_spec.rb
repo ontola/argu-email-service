@@ -53,6 +53,17 @@ describe 'Create activity notification emails', type: :request do
       creator: creator
     }
   end
+  let(:create_reaction_notification) do
+    {
+      action: 'create',
+      content: 'new reaction',
+      id: argu_url('/r/1'),
+      display_name: 'Reaction',
+      pro: nil,
+      type: 'Comment',
+      creator: creator
+    }
+  end
 
   shared_examples 'notification mailer' do |subject, *headers|
     let(:email_message) { EmailMessage.last }
@@ -96,6 +107,21 @@ describe 'Create activity notification emails', type: :request do
     end
 
     it_behaves_like 'notification mailer', "New argument in 'Motion'", 'A new argument is posted in'
+  end
+
+  context 'when one reaction created' do
+    let(:follows) do
+      {
+        '1': {
+          notifications: [create_reaction_notification],
+          follow_id: argu_url('/follow/follow_id'),
+          followable: motion,
+          organization: {display_name: organization_name}
+        }
+      }
+    end
+
+    it_behaves_like 'notification mailer', "New comment in 'Motion'", 'A new comment is posted in'
   end
 
   context 'when two arguments created' do

@@ -5,13 +5,22 @@
         strong[class=type_class(followable)]= link_to followable[:display_name], revert_dynamic_iri(followable[:id]), {style: organisation_color('color')}
         =I18n.t("templates.activity_notifications.decision.#{notification[:action]}")
     tr
-      td.mail-p.mail-profile
-        =link_to revert_dynamic_iri(notification[:creator][:id]) do
-          img.mail-profile-logo.small[src=notification[:creator][:thumbnail]]
-          =notification[:creator][:display_name]
-    - if notification[:content].present?
-      tr
-        td.mail-p.link-button
-          =truncate(markdown_to_plaintext(notification[:content]))
-          br
-          =link_to I18n.t('templates.activity_notifications.read_more'), revert_dynamic_iri(followable[:id]), {style: organisation_color('background-color')}
+      td
+        table.no-padding
+          tr
+            td.text-center.bottom-padding
+              =link_to revert_dynamic_iri(notification[:creator][:id]) do
+                img.mail-profile-logo.small[src=notification[:creator][:thumbnail]]
+            td.mail-p.bottom-padding
+              =notification[:creator][:display_name]
+          - if notification[:content].present?
+            tr
+              td.gray-pilar
+                div
+              td.mail-p.quote
+                =truncate(markdown_to_plaintext(notification[:content]))
+            tr
+              td.gray-pilar
+                div
+              td.mail-p.link-button
+                =link_to I18n.t('templates.activity_notifications.read_more'), revert_dynamic_iri(followable[:id]), {style: organisation_color('background-color')}

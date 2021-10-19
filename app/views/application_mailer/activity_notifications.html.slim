@@ -6,7 +6,7 @@ table.mail-box
 
   - activity_follows.each do |follow|
     tr
-      td
+      td.small-mail-box-padding
         table.mail-box.small
           =render partial: 'activities/decision', locals: notifications_group(follow, 'decision')
           =render partial: 'activities/new_reaction', locals: notifications_group(follow, 'reaction')
