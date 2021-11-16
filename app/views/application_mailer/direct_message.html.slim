@@ -11,4 +11,4 @@ table.mail-box
 table
   tr
     td.mail-p.small.link-padding
-      = I18n.t('templates.direct_message.disclaimer_html', actor: opts.fetch(:actor).fetch(:display_name), actor_iri: revert_dynamic_iri(opts.fetch(:actor).fetch(:iri)), email: opts.fetch(:email), subject: opts.fetch(:resource).fetch(:display_name), subject_iri: revert_dynamic_iri(opts.fetch(:resource).fetch(:iri)))
+      = translate('templates.direct_message.disclaimer_html', actor: opts.fetch(:actor).fetch(:display_name), actor_iri: revert_dynamic_iri(opts.fetch(:actor).fetch(:iri)), email: opts.fetch(:email), subject: opts.fetch(:resource).fetch(:display_name), subject_iri: revert_dynamic_iri(opts.fetch(:resource).fetch(:iri)))
