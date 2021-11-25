@@ -9,14 +9,25 @@ describe 'Create activity notification emails', type: :request do
   let(:motion) { {display_name: 'Motion', id: argu_url('/m/1'), pro: nil, type: 'Motion'} }
   let(:creator) { {display_name: 'User', id: argu_url('/u/1'), thumbnail: argu_url('/thumbnail')} }
   let(:expected_from) { 'Page name <noreply@argu.co>' }
-  let(:create_argument_notification) do
+  let(:create_pro_notification) do
     {
       action: 'create',
       content: 'new argument',
       id: argu_url('/a/1'),
-      display_name: 'Argument',
+      display_name: 'Pro Argument',
       pro: 'true',
-      type: 'Argument',
+      type: 'ProArgument',
+      creator: creator
+    }
+  end
+  let(:create_con_notification) do
+    {
+      action: 'create',
+      content: 'new argument',
+      id: argu_url('/a/1'),
+      display_name: 'Con Argument',
+      pro: 'false',
+      type: 'ConArgument',
       creator: creator
     }
   end
@@ -98,7 +109,7 @@ describe 'Create activity notification emails', type: :request do
     let(:follows) do
       {
         '1': {
-          notifications: [create_argument_notification],
+          notifications: [create_pro_notification],
           follow_id: argu_url('/follow/follow_id'),
           followable: motion,
           organization: {display_name: organization_name}
@@ -106,7 +117,7 @@ describe 'Create activity notification emails', type: :request do
       }
     end
 
-    it_behaves_like 'notification mailer', "New argument in 'Motion'", 'A new argument is posted in'
+    it_behaves_like 'notification mailer', "New pro in 'Motion'", 'A new pro is posted in'
   end
 
   context 'when one reaction created' do
@@ -124,11 +135,11 @@ describe 'Create activity notification emails', type: :request do
     it_behaves_like 'notification mailer', "New comment in 'Motion'", 'A new comment is posted in'
   end
 
-  context 'when two arguments created' do
+  context 'when two pros created' do
     let(:follows) do
       {
         '1': {
-          notifications: [create_argument_notification, create_argument_notification],
+          notifications: [create_pro_notification, create_pro_notification],
           follow_id: argu_url('/follow/follow_id'),
           followable: motion,
           organization: {display_name: organization_name}
@@ -136,20 +147,35 @@ describe 'Create activity notification emails', type: :request do
       }
     end
 
-    it_behaves_like 'notification mailer', "New notifications in 'Motion'", 'New arguments are posted in'
+    it_behaves_like 'notification mailer', "New notifications in 'Motion'", 'New pros are posted in'
+  end
+
+  context 'when pro and con created' do
+    let(:follows) do
+      {
+        '1': {
+          notifications: [create_pro_notification, create_con_notification],
+          follow_id: argu_url('/follow/follow_id'),
+          followable: motion,
+          organization: {display_name: organization_name}
+        }
+      }
+    end
+
+    it_behaves_like 'notification mailer', "New notifications in 'Motion'", 'New replies are posted in'
   end
 
   context 'when two follows' do
     let(:follows) do
       {
         '1': {
-          notifications: [create_argument_notification],
+          notifications: [create_pro_notification],
           follow_id: argu_url('/follow/follow_id'),
           followable: motion,
           organization: {display_name: organization_name}
         },
         '2': {
-          notifications: [create_argument_notification],
+          notifications: [create_pro_notification],
           follow_id: argu_url('/follow/follow_id'),
           followable: motion,
           organization: {display_name: organization_name}
@@ -157,20 +183,20 @@ describe 'Create activity notification emails', type: :request do
       }
     end
 
-    it_behaves_like 'notification mailer', "New notifications in 'Organization'", 'A new argument is posted in'
+    it_behaves_like 'notification mailer', "New notifications in 'Organization'", 'A new pro is posted in'
   end
 
   context 'when two organizations' do
     let(:follows) do
       {
         '1': {
-          notifications: [create_argument_notification],
+          notifications: [create_pro_notification],
           follow_id: argu_url('/follow/follow_id'),
           followable: motion,
           organization: {display_name: organization_name}
         },
         '2': {
-          notifications: [create_argument_notification],
+          notifications: [create_pro_notification],
           follow_id: argu_url('/follow/follow_id'),
           followable: motion,
           organization: {display_name: organization2_name}
@@ -179,7 +205,7 @@ describe 'Create activity notification emails', type: :request do
     end
     let(:expected_from) { 'Argu <noreply@argu.co>' }
 
-    it_behaves_like 'notification mailer', 'New notifications', 'A new argument is posted in'
+    it_behaves_like 'notification mailer', 'New notifications', 'A new pro is posted in'
   end
 
   context 'when decision forwarded' do
@@ -216,7 +242,7 @@ describe 'Create activity notification emails', type: :request do
     let(:follows) do
       {
         '1': {
-          notifications: [create_decision_notification, create_argument_notification],
+          notifications: [create_decision_notification, create_pro_notification],
           follow_id: argu_url('/follow/follow_id'),
           followable: motion,
           organization: {display_name: organization_name}
@@ -224,7 +250,7 @@ describe 'Create activity notification emails', type: :request do
       }
     end
 
-    it_behaves_like 'notification mailer', "New notifications in 'Motion'", 'A new argument is posted in', 'is approved'
+    it_behaves_like 'notification mailer', "New notifications in 'Motion'", 'A new pro is posted in', 'is approved'
   end
 
   context 'when motion trashed' do
