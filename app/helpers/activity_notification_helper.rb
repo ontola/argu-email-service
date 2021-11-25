@@ -45,10 +45,11 @@ module ActivityNotificationHelper
   def new_reactions_header(notifications)
     types = notifications.map { |n| n[:type] }.uniq
     type = types.count == 1 ? types.first.underscore : 'default'
+    plural = notifications.count == 1 ? 'new' : 'new_plural'
     t(
       'templates.activity_notifications.new_reactions',
       count: notifications.count,
-      type: t("models.#{notifications.count == 1 ? 'new' : 'new_plural'}.#{type}", default: t('models.new.default'))
+      type: t("models.#{plural}.#{type}", default: t("models.#{plural}.default"))
     ).capitalize
   end
 
