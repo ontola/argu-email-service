@@ -1,0 +1,107 @@
+de:
+  templates:
+    confirmation:
+      subject: Bestätigen Sie Ihre E-Mail Adresse
+      body: >-
+        Sie können diese E-Mail-Adresse bestätigen, indem Sie auf den unten
+        stehenden Link klicken.
+      confirm_link: Bestätigen Sie Ihre E-Mail
+      not_requested: >-
+        Wenn Sie keine Bestätigung angefordert haben, können Sie diese E-Mail
+        ignorieren.
+    confirm_secondary:
+      subject: Ihre E-Mail-Adresse hinzufügen
+    requested_confirmation:
+      subject: Bestätigen Sie Ihre E-Mail-Adresse
+    confirmation_reminder:
+      subject: Vergessen Sie nicht, Ihre Stimmabgabe zu bestätigen!
+      body: >-
+        Sie haben eine oder mehrere Stimmen abgegeben. Diese Stimmen sind erst
+        dann gültig, wenn Sie Ihre E-Mail bestätigt haben.
+      confirm_link: Bestätigen Sie Ihre E-Mail Adresse
+    set_password:
+      subject: Setzen Sie Ihr Passwort
+      greeting: Willkommen bei %{organization}!
+      body: >-
+        Sie können Ihr Passwort festlegen, indem Sie auf den unten stehenden
+        Link klicken.
+      link: Setzen Sie Ihr Passwort
+    reset_password_instructions:
+      subject: Anweisungen zum Zurücksetzen des Passworts
+      someone_requested: Jemand hat Sie aufgefordert, Ihr Passwort zurückzusetzen.
+      ignore: >-
+        Wenn Sie die Passwortänderung nicht angefordert haben, können Sie diese
+        E-Mail ignorieren.
+      confirm_link: Mein Passwort ändern
+    unlock_instructions:
+      subject: Ihr Konto wurde gesperrt
+      body: >-
+        Ihr Konto wurde aufgrund einer zu großen Anzahl von erfolglosen
+        Anmeldeversuchen gesperrt.
+      unlock_link: Mein Konto freischalten
+    confirm_votes:
+      subject:
+        one: Bestätigen Sie Ihre Stimme
+        other: Bestätigen Sie Ihre Stimmabgabe
+      greeting: Vielen Dank für die Stimmabgabe!
+      body:
+        one: 'Die folgende Abstimmung erfordert Ihre Bestätigung:'
+        other: 'Die folgenden Abstimmungen erfordern Ihre Bestätigung:'
+      side:
+        ':yes': 'Zugunsten von '
+        other: 'Neutral gegenüber '
+        ':no': 'Gegen '
+      confirm:
+        one: >-
+          Sie können Ihre Stimmabgabe bestätigen, indem Sie auf den unten
+          stehenden Link klicken.
+        other: >-
+          Sie können Ihre Stimmabgabe bestätigen, indem Sie auf den unten
+          stehenden Link klicken.
+      link:
+        one: Bestätigen Sie meine Stimme
+        other: Bestätigen Sie meine Stimmabgabe
+    email_token_created:
+      subject: Einladung zum %{organization}
+      header: >-
+        Du wurdest eingeladen, der Gruppe '%{group}' von
+        %{organization} beizutreten
+      link: Klicken Sie hier, um diese Einladung anzunehmen
+    registration_confirmation:
+      subject: Bestätigen Sie Ihre E-Mail Adresse
+    password_changed:
+      subject: Ihr Passwort wurde aktualisiert
+      header: Ihr Passwort wurde aktualisiert.
+      body_html: >-
+        Wir teilen Ihnen mit, dass das Passwort für Ihr Konto aktualisiert
+        wurde. Sollte dieses nicht autorisiert sein, senden Sie bitte eine
+        E-Mail an info@argu.co.
+    activity_notifications:
+      subject:
+        argu: Neue Benachrichtigungen
+        recipient: "%{type} in '%{recipient}'"
+      unsubscribe: Schalten Sie die Benachrichtigungen hierfür aus
+      go_to: Weiter zur Diskussion
+      decision:
+        rejected: ' wird abgelehnt.'
+        approved: ' wird genehmigt.'
+        forwarded: ' wird weitergeleitet.'
+      trashed: ' wird gelöscht.'
+      new_reactions:
+        one: 'Ein %{type} wird veröffentlicht in '
+        other: '%{type} werden veröffentlicht in '
+      read_more: Mehr lesen
+    direct_message:
+      reply_directly: Sie können direkt auf diese E-Mail antworten, um zu antworten
+      disclaimer_html: '<a href="%{actor_iri}">%{actor}</a> hat Ihnen eine Nachricht als Antwort auf <a href="%{subject_iri}">%{subject}</a> gesendet. Ihre E-Mail-Adresse wurde nicht mit %{actor} geteilt. Antworten auf diese E-Mail werden direkt an den Absender gesendet. In diesem Fall wird %{actor} Ihre E-Mail-Adresse sehen.'
+    export_failed:
+      subject: Export fehlgeschlagen
+      body: >-
+        Wir konnten den von Ihnen angeforderten Export nicht verarbeiten. Wir
+        wurden über diesen Fehler informiert und werden versuchen, das Problem
+        zu lösen. Wir werden Sie kontaktieren, sobald wir mehr Informationen
+        haben. Wir entschuldigen uns für die Unannehmlichkeiten.
+    export_done:
+      subject: Export bereit
+      body: Der Export, den Sie angefordert haben, ist fertig.
+      link: Klicken Sie hier, um den Export herunterzuladen

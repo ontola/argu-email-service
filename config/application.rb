@@ -64,8 +64,8 @@ module EmailService
     config.active_job.queue_adapter = :sidekiq
     config.jwt_encryption_method = :hs512
 
-    I18n.available_locales = %i[nl en]
-    config.i18n.available_locales = %i[nl en]
+    I18n.available_locales = %i[de nl en]
+    config.i18n.available_locales = %i[de nl en]
     config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}')]
 
     require 'argu/message_delivery'

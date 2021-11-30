@@ -1,0 +1,25 @@
+de:
+  models:
+    new:
+      notification: neue Meldung
+      question: neue Herausforderung
+      motion: neue Idee
+      argument: neues Argument
+      pro_argument: neues Pro
+      con_argument: neuer Widerspruch
+      comment: neuer Kommentar
+      blog_post: neue Aktualisierung
+      decision: neue Entscheidung
+      topic: neues Thema
+      default: neue Antwort
+    new_plural:
+      notification: neue Benachrichtigungen
+      question: neue Herausforderungen
+      motion: neue Ideen
+      argument: neue Argumente
+      pro_argument: neue Pros
+      con_argument: neue Nachteile
+      comment: neue Kommentare
+      blog_post: neue Aktualisierungen
+      topic: neue Themen
+      default: neue Antworten

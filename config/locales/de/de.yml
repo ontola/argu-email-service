@@ -1,0 +1,10 @@
+de:
+  greeting: Lieber %{name}
+  layout:
+    too_many_notifications: Zu viele Benachrichtigungen?
+    adjust_settings: Passen Sie Ihre Einstellungen an.
+    sent_at_date: Gesendet am %{date}
+  copy_paste_link: 'Oder kopieren Sie diesen Link und fügen Sie ihn ein:'
+  not_for_you: >-
+    Ist diese E-Mail nicht für Sie bestimmt? Bitte teilen Sie uns dies mit,
+    indem Sie eine E-Mail an info@argu.co senden.
