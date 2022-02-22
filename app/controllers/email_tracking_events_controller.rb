@@ -26,7 +26,7 @@ class EmailTrackingEventsController < ApplicationController
   private
 
   def authorize_action
-    skip_verify_policy_authorized(true)
+    skip_verify_policy_authorized(sure: true)
     true
   end
 

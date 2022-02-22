@@ -22,11 +22,13 @@ require_relative './initializers/build'
 Bundler.require(*Rails.groups)
 
 require 'linked_rails/middleware/linked_data_params'
+require 'linked_rails/middleware/error_handling'
 require_relative '../lib/acts_as_tenant/sidekiq_for_service'
 require_relative '../lib/tenant_finder'
 require_relative '../lib/tenant_middleware'
 require_relative '../lib/ns'
 require_relative '../lib/argu/redis'
+require_relative '../lib/argu/i18n_error_handler'
 
 module EmailService
   class Application < Rails::Application
@@ -52,7 +54,8 @@ module EmailService
 
     Rails.application.routes.default_scope = :email
 
-    config.middleware.use TenantMiddleware
+    config.middleware.insert_after ActionDispatch::DebugExceptions, LinkedRails::Middleware::ErrorHandling
+    config.middleware.insert_after ActionDispatch::DebugExceptions, TenantMiddleware
     config.middleware.use LinkedRails::Middleware::LinkedDataParams
 
     config.autoload_paths += %w[lib]

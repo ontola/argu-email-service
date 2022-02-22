@@ -29,7 +29,7 @@ class EmailTokenEvent < Event
       iri: resource[:id],
       message: resource[:message],
       group_name: group.display_name,
-      organization_name: group.organization.display_name,
+      organization_name: ActsAsTenant.current_tenant.display_name,
       profile: profile_opts
     }
   end

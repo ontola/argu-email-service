@@ -10,7 +10,7 @@ class ApplicationMailer < ActionMailer::Base
   layout 'mailer'
   add_template_helper(ActivityNotificationHelper)
   add_template_helper(MailerHelper)
-  add_template_helper(UriTemplateHelper)
+  add_template_helper(URITemplateHelper)
 
   attr_accessor :record
 
