@@ -45,7 +45,7 @@ GIT
 
 GIT
   remote: https://github.com/ontola/linked_rails
-  revision: ebafa4e5537960d00148cacc2a7c8b1eb541956a
+  revision: a46ea7ab20604cbe2eed9dd2e605bc22cbfe01e9
   branch: master
   specs:
     linked_rails (0.0.4)
@@ -196,7 +196,7 @@ GEM
       railties (>= 3.0.0)
     faraday (0.10.1)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.25)
+    ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
     haml (5.0.4)
@@ -269,7 +269,7 @@ GEM
     public_suffix (4.0.6)
     puma (5.6.2)
       nio4r (~> 2.0)
-    pundit (1.0.1)
+    pundit (2.2.0)
       activesupport (>= 3.0.0)
     racc (1.6.0)
     rack (2.2.3)
@@ -306,7 +306,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
-    rdf (3.2.4)
+    rdf (3.2.5)
       link_header (~> 0.0, >= 0.0.8)
     rdf-aggregate-repo (2.2.1)
       rdf (>= 2.2, < 4.0)
@@ -466,7 +466,7 @@ DEPENDENCIES
   pg
   pragmatic_context
   puma
-  pundit (~> 1.0.0)
+  pundit
   rails (~> 5.2.6)
   rdf
   rdf-n3
