@@ -6,8 +6,8 @@ gem 'puma'
 gem 'rails', '~> 5.2.6'
 
 gem 'active_model_serializers', '~> 0.10.7'
-gem 'active_response', git: 'https://github.com/ontola/active_response', branch: :master
 gem 'activeresource', git: 'https://github.com/ArthurWD/activeresource', branch: :master
+gem 'active_response', git: 'https://github.com/ontola/active_response', branch: :master
 gem 'acts_as_tenant', git: 'https://github.com/ArthurWD/acts_as_tenant', branch: :master
 gem 'apartment'
 gem 'bootsnap'
@@ -49,9 +49,9 @@ group :development, :test do
   gem 'bundler-audit'
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
-  gem 'rubocop'
-  gem 'rubocop-rails'
-  gem 'rubocop-rspec'
+  gem 'rubocop', '~> 0.92.0'
+  gem 'rubocop-rails', '~> 2.5.2'
+  gem 'rubocop-rspec', '~> 1.39.0'
 end
 
 group :development do
