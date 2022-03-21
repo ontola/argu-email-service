@@ -3,13 +3,15 @@
 source 'https://rubygems.org'
 
 gem 'puma'
-gem 'rails', '~> 5.2.6'
+gem 'rails', '~> 7'
 
 gem 'active_model_serializers', '~> 0.10.7'
-gem 'activeresource', git: 'https://github.com/ArthurWD/activeresource', branch: :master
 gem 'active_response', git: 'https://github.com/ontola/active_response', branch: :master
+gem 'activeresource'
 gem 'acts_as_tenant', git: 'https://github.com/ArthurWD/acts_as_tenant', branch: :master
-gem 'apartment'
+gem 'ros-apartment',
+    git: 'https://github.com/rails-on-services/apartment',
+    require: 'apartment'
 gem 'bootsnap'
 gem 'bugsnag', '~> 4.2.1'
 gem 'bunny', '~> 2.6.1'
@@ -30,11 +32,12 @@ gem 'rdf'
 gem 'rdf-n3'
 gem 'rdf-rdfa'
 gem 'rdf-rdfxml', git: 'https://github.com/ruby-rdf/rdf-rdfxml', ref: 'dd99a73'
+gem 'rdf-serializers', git: 'https://github.com/ontola/rdf-serializers', branch: :master
 gem 'rdf-turtle'
 gem 'redcarpet'
 gem 'roadie-rails'
 gem 'sidekiq'
-gem 'sidetiq'
+gem 'sidekiq-scheduler'
 gem 'slim'
 gem 'tzinfo-data'
 gem 'uri_template'
@@ -56,9 +59,7 @@ end
 
 group :development do
   gem 'better_errors'
-  gem 'listen', '~> 3.1.5'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.1'
+  gem 'listen'
   gem 'web-console'
 end
 
@@ -66,6 +67,6 @@ group :test do
   gem 'assert_difference'
   gem 'factory_girl'
   gem 'factory_girl_rails'
-  gem 'sqlite3', '~> 1.3.13'
+  gem 'sqlite3'
   gem 'webmock'
 end

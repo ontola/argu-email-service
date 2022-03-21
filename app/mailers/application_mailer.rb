@@ -8,9 +8,9 @@ class ApplicationMailer < ActionMailer::Base
           charset: 'UTF-8',
           content_type: 'text/html'
   layout 'mailer'
-  add_template_helper(ActivityNotificationHelper)
-  add_template_helper(MailerHelper)
-  add_template_helper(URITemplateHelper)
+  helper(ActivityNotificationHelper)
+  helper(MailerHelper)
+  helper(URITemplateHelper)
 
   attr_accessor :record
 

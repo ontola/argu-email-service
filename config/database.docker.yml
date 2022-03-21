@@ -9,7 +9,7 @@ development: &default
   port: <%= ENV['POSTGRESQL_PORT'] %>
 test:
   <<: *default
-  database: argu_test
+  database: email_test
 production: &production
   <<: *default
 staging:

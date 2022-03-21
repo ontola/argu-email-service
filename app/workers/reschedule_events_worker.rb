@@ -2,10 +2,7 @@
 
 class RescheduleEventsWorker
   include Sidekiq::Worker
-  include Sidetiq::Schedulable
   sidekiq_options queue: 'email_service'
-
-  recurrence { minutely }
 
   def perform
     Apartment::Tenant.each do
