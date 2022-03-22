@@ -13,6 +13,10 @@ en:
       subject: "Don't forget to confirm your votes!"
       body: "You have casted one or multiple votes. These votes will only be valid after you have confirmed your e-mail."
       confirm_link: 'Confirm your e-mail'
+    drafts_reminder:
+      subject: "Don't forget to publish your draft"
+      body: "Yesterday, you've saved a draft item. If you want to make it visible to others, you'll have to publish it. You can edit it before you publish it."
+      link: 'Go to drafts'
     set_password:
       subject: "Set your password"
       greeting: "Welcome to %{organization}!"

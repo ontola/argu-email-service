@@ -13,6 +13,10 @@ nl:
       subject: "Vergeet je stemmen niet te bevestigen!"
       body: "Je hebt een of meerdere stemmen uitgebracht. Deze zullen pas definitief gemaakt worden na het bevestigen van je e-mailadres."
       confirm_link: 'Bevestig jouw e-mailadres'
+    drafts_reminder:
+      subject: "Vergeet je concept niet te publiceren"
+      body: "Je hebt gisteren een concept aangemaakt. Als je wil dat het item zichtbaar wordt voor anderen, moet je het nog publiceren. Je kunt het item nog bewerken voordat je publiceert."
+      link: 'Bekijk concepten'
     set_password:
       subject: "Stel een wachtwoord in"
       greeting: "Welkom bij %{organization}!"

@@ -19,6 +19,10 @@ de:
         Sie haben eine oder mehrere Stimmen abgegeben. Diese Stimmen sind erst
         dann gültig, wenn Sie Ihre E-Mail bestätigt haben.
       confirm_link: Bestätigen Sie Ihre E-Mail Adresse
+    drafts_reminder:
+      subject: Vergessen Sie nicht, Ihren Entwurf zu veröffentlichen
+      body: Sie haben gestern einen Entwurf erstellt. Wenn Sie möchten, dass das Element für andere sichtbar ist, müssen Sie es dennoch veröffentlichen. Sie können das Element vor der Veröffentlichung noch bearbeiten.
+      link: Konzepte anzeigen
     set_password:
       subject: Setzen Sie Ihr Passwort
       greeting: Willkommen bei %{organization}!

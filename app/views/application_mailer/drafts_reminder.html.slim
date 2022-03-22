@@ -4,13 +4,13 @@ table.mail-box
   tr
     td.mail-header= greet_recipient
   tr
-    td.mail-p= I18n.t('templates.confirmation_reminder.body')
+    td.mail-p= I18n.t('templates.drafts_reminder.body')
   tr.mail-button--alt
-    td.mail-button--alt style=organisation_color("background-color") = link_to I18n.t('templates.confirmation_reminder.confirm_link'), revert_dynamic_iri(opts.fetch(:token_url))
+    td.mail-button--alt style=organisation_color("background-color") = link_to I18n.t('templates.drafts_reminder.link'), revert_dynamic_iri(opts.fetch(:drafts_url))
 table
   tr
     td.mail-p.small.link-padding
       =I18n.t('copy_paste_link')
   tr
     td.mail-p.small.link-padding
-      =revert_dynamic_iri(opts.fetch(:token_url))
+      =revert_dynamic_iri(opts.fetch(:drafts_url))

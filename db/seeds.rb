@@ -12,6 +12,7 @@
   ['reset_password_instructions', false],
   ['unlock_instructions', false],
   ['confirmation_reminder', false],
+  ['drafts_reminder', false],
   ['direct_message', false],
   ['export_failed', true],
   ['export_done', true]
