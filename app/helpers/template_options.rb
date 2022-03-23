@@ -26,7 +26,7 @@ module TemplateOptions
   def email_token_created_opts
     {
       from: "#{options[:profile].try(:[], :display_name) || 'Argu'} <noreply@argu.co>",
-      subject_opts: {organization: options[:organization_name]}
+      subject_opts: {organization: ActsAsTenant.current_tenant.display_name}
     }
   end
 

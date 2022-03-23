@@ -4,12 +4,11 @@ table.mail-box
   tr
     td.mail-header= greet_recipient
   tr
-    td.mail-p = markdown_to_html(opts.fetch(:message))&.html_safe || t('templates.email_token_created.header', group: opts.fetch(:group_name), organization: opts.fetch(:organization_name))
-  - if opts.fetch(:profile)[:id].present?
-    tr
-      td.mail-p.mail-profile
-        =link_to revert_dynamic_iri(opts.fetch(:profile).fetch(:id))
-          img.mail-profile-logo[src=opts['profile']['profile_photo_thumbnail']]
-          =opts.fetch(:profile).fetch(:display_name)
+    td.mail-p = markdown_to_html(opts.fetch(:message))&.html_safe || t('templates.email_token_created.header', group: @record.group.display_name, organization: ActsAsTenant.current_tenant.display_name)
+  tr
+    td.mail-p.mail-profile
+      =link_to revert_dynamic_iri(@record.profile.id)
+        img.mail-profile-logo[src=@record.profile.default_profile_photo.thumbnail]
+        =@record.profile.display_name
   tr.mail-button--alt
     td.mail-button--alt style=organisation_color("background-color") = link_to(t('templates.email_token_created.link'), revert_dynamic_iri(opts.fetch(:iri)))

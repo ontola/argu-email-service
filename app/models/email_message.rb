@@ -15,8 +15,16 @@ class EmailMessage < ApplicationRecord
     update!(sent_at: Time.current, sent_to: r.to.first, mailgun_id: r.try(:message_id))
   end
 
+  def group
+    @group ||= Group.find(options.fetch(:group_id))
+  end
+
   def options
     super&.with_indifferent_access || {}
+  end
+
+  def profile
+    @profile ||= ActiveResourceModel.find(:one, from: options.fetch(:actor_iri))
   end
 
   def recipient
