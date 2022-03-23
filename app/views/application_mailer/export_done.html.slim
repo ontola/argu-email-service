@@ -6,4 +6,4 @@ table.mail-box
   tr
     td.mail-p= I18n.t('templates.export_done.body')
   tr.mail-button--alt
-    td.mail-button--alt style=organisation_color("background-color") = link_to(t('templates.export_done.link'), revert_dynamic_iri(opts.fetch(:download_url)))
+    td.mail-button--alt style=organisation_color("background-color") = link_to(t('templates.export_done.link'), opts.fetch(:download_url))

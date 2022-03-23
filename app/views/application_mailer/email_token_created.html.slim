@@ -7,8 +7,8 @@ table.mail-box
     td.mail-p = markdown_to_html(opts.fetch(:message))&.html_safe || t('templates.email_token_created.header', group: @record.group.display_name, organization: ActsAsTenant.current_tenant.display_name)
   tr
     td.mail-p.mail-profile
-      =link_to revert_dynamic_iri(@record.profile.id)
+      =link_to @record.profile.id
         img.mail-profile-logo[src=@record.profile.default_profile_photo.thumbnail]
         =@record.profile.display_name
   tr.mail-button--alt
-    td.mail-button--alt style=organisation_color("background-color") = link_to(t('templates.email_token_created.link'), revert_dynamic_iri(opts.fetch(:iri)))
+    td.mail-button--alt style=organisation_color("background-color") = link_to(t('templates.email_token_created.link'), opts.fetch(:iri))

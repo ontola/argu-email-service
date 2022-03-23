@@ -5,10 +5,10 @@ table.mail-box
     td.mail-p= markdown_to_html(opts.fetch(:body))&.html_safe
   tr
     td.mail-p.mail-profile
-      =link_to revert_dynamic_iri(opts.fetch(:actor).fetch(:iri))
+      =link_to opts.fetch(:actor).fetch(:iri)
         img.mail-profile-logo[src=opts.fetch(:actor).fetch(:thumbnail)]
         =opts.fetch(:actor).fetch(:display_name)
 table
   tr
     td.mail-p.small.link-padding
-      = translate('templates.direct_message.disclaimer_html', actor: opts.fetch(:actor).fetch(:display_name), actor_iri: revert_dynamic_iri(opts.fetch(:actor).fetch(:iri)), email: opts.fetch(:email), subject: opts.fetch(:resource).fetch(:display_name), subject_iri: revert_dynamic_iri(opts.fetch(:resource).fetch(:iri)))
+      = translate('templates.direct_message.disclaimer_html', actor: opts.fetch(:actor).fetch(:display_name), actor_iri: opts.fetch(:actor).fetch(:iri), email: opts.fetch(:email), subject: opts.fetch(:resource).fetch(:display_name), subject_iri: opts.fetch(:resource).fetch(:iri))

@@ -8,16 +8,16 @@ table.mail-box
   -opts.fetch(:motions).each do |motion|
     tr
       td.mail-p.markdown--motion
-        =link_to motion[:display_name], revert_dynamic_iri(motion[:url]), style: organisation_color("color")
+        =link_to motion[:display_name], motion[:url], style: organisation_color("color")
         =": #{motion[:option]}"
   tr
     td.mail-p= I18n.t('templates.confirm_votes.confirm', count: opts.fetch(:motions).count)
   tr.mail-button--alt
-    td.mail-button--alt style=organisation_color("background-color") = link_to I18n.t('templates.confirm_votes.link', count: opts.fetch(:motions).count), revert_dynamic_iri(opts.fetch(:token_url))
+    td.mail-button--alt style=organisation_color("background-color") = link_to I18n.t('templates.confirm_votes.link', count: opts.fetch(:motions).count), opts.fetch(:token_url)
 table
   tr
     td.mail-p.small.link-padding
       =I18n.t('copy_paste_link')
   tr
     td.mail-p.small.link-padding
-      =revert_dynamic_iri(opts.fetch(:token_url))
+      =opts.fetch(:token_url)

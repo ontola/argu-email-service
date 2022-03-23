@@ -6,11 +6,11 @@ table.mail-box
   tr
     td.mail-p= I18n.t('templates.confirmation.body')
   tr.mail-button--alt
-    td.mail-button--alt style=organisation_color("background-color") = link_to I18n.t('templates.confirmation.confirm_link'), revert_dynamic_iri(opts.fetch(:token_url))
+    td.mail-button--alt style=organisation_color("background-color") = link_to I18n.t('templates.confirmation.confirm_link'), opts.fetch(:token_url)
 table
   tr
     td.mail-p.small.link-padding
       =I18n.t('copy_paste_link')
   tr
     td.mail-p.small.link-padding
-      =revert_dynamic_iri(opts.fetch(:token_url))
+      =opts.fetch(:token_url)

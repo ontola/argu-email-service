@@ -1,7 +1,7 @@
 -if notifications.present?
   tr
     td.mail-p
-      strong[class=type_class(followable)]= link_to followable[:display_name], revert_dynamic_iri(followable[:id]), {style: organisation_color('color')}
+      strong[class=type_class(followable)]= link_to followable[:display_name], followable[:id], {style: organisation_color('color')}
       =t('templates.activity_notifications.trashed')
   - notifications.each do |notification|
     tr
@@ -9,7 +9,7 @@
         table.no-padding
           tr
             td.text-center.bottom-padding
-              =link_to revert_dynamic_iri(notification[:creator][:id]) do
+              =link_to notification[:creator][:id] do
                 img.mail-profile-logo.small[src=notification[:creator][:thumbnail]]
             td.mail-p.bottom-padding
               =notification[:creator][:display_name]
@@ -23,4 +23,4 @@
               td.gray-pilar
                 div
               td.mail-p.link-button
-                =link_to I18n.t('templates.activity_notifications.read_more'), revert_dynamic_iri(notification[:id]), {style: organisation_color('background-color')}
+                =link_to I18n.t('templates.activity_notifications.read_more'), notification[:id], {style: organisation_color('background-color')}

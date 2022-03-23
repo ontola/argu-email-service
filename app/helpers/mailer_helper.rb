@@ -37,10 +37,6 @@ module MailerHelper
     @plaintext_renderer.render(markdown)
   end
 
-  def revert_dynamic_iri(url)
-    url.sub(Rails.application.config.frontend_url, Rails.application.config.origin)
-  end
-
   def truncate(body)
     HTML_Truncator.truncate(body, 250, length_in_chars: true, ellipsis: ' ...')
   end

@@ -13,4 +13,4 @@ table.mail-box
           =render partial: 'activities/trashed', locals: notifications_group(follow, 'trash')
           - if follow.follow_id
             tr
-              td.mail-unsubscribe= link_to t('templates.activity_notifications.unsubscribe'), revert_dynamic_iri(follow.follow_id)
+              td.mail-unsubscribe= link_to t('templates.activity_notifications.unsubscribe'), follow.follow_id
