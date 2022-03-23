@@ -34,7 +34,7 @@ gem 'rdf-turtle'
 gem 'redcarpet'
 gem 'roadie-rails'
 gem 'sidekiq'
-gem 'sidetiq'
+gem 'sidekiq-scheduler'
 gem 'slim'
 gem 'tzinfo-data'
 gem 'uri_template'
@@ -56,9 +56,6 @@ end
 
 group :development do
   gem 'better_errors'
-  gem 'listen', '~> 3.1.5'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.1'
   gem 'web-console'
 end
 
@@ -66,6 +63,6 @@ group :test do
   gem 'assert_difference'
   gem 'factory_girl'
   gem 'factory_girl_rails'
-  gem 'sqlite3', '~> 1.3.13'
+  gem 'sqlite3'
   gem 'webmock'
 end

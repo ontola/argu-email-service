@@ -21,3 +21,4 @@ secrets.yml
 
 # Ignore Byebug command history file.
 .byebug_history
+.tool-versions

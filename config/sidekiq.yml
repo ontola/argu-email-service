@@ -2,3 +2,6 @@ production:
   :concurrency: 5
 :queues:
   - email_service
+schedule:
+  RescheduleEventsWorker:
+    cron: '* * * * * *'
