@@ -5,9 +5,7 @@ Rails.application.routes.draw do
     post '/email_events', to: 'email_tracking_events#create', defaults: {format: :json}
   end
 
-  constraints(LinkedRails::Constraints::Whitelist) do
-    get '/emails', to: 'email_messages#index', defaults: {format: :json}
-  end
+  linked_resource(EmailMessage, collection: false)
 
   constraints(LinkedRails::Constraints::Whitelist) do
     health_check_routes

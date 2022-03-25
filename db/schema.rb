@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_22_082812) do
+ActiveRecord::Schema.define(version: 2022_03_24_152737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2022_03_22_082812) do
     t.datetime "updated_at", null: false
     t.integer "lock_version", default: 0
     t.integer "template_id", null: false
+    t.uuid "source_identifier"
   end
 
   create_table "events", force: :cascade do |t|
