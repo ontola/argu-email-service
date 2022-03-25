@@ -6,6 +6,3 @@ development:
   :concurrency: <%= ENV['SIDEKIQ_CONCURRENCY']&.to_i || 5 %>
 :queues:
   - email_service
-schedule:
-  RescheduleEventsWorker:
-    cron: <%= ENV['SCHEDULE_RESCHEDULE_EVENTS_WORKER_CRON'] || '* * * * * *' %>

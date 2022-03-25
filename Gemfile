@@ -36,7 +36,6 @@ gem 'ros-apartment',
     git: 'https://github.com/rails-on-services/apartment',
     require: 'apartment'
 gem 'sidekiq'
-gem 'sidekiq-scheduler'
 gem 'slim'
 gem 'tzinfo-data'
 gem 'uri_template'
