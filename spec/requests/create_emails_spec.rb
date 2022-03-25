@@ -21,7 +21,7 @@ describe 'Create emails', type: :request do
       expect(response.code).to eq('422')
     end
 
-    it "stores source_identifier" do
+    it 'stores source_identifier' do
       as_service
       identifier = SecureRandom.uuid
       post '/argu/email/spi/emails',
