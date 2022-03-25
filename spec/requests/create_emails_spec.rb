@@ -5,6 +5,32 @@ require 'support/seeds'
 
 describe 'Create emails', type: :request do
   context 'when invalid' do
+    it "don't post email as guest" do
+      as_guest
+      post '/argu/email/spi/emails',
+           params: {email: {template: 'password_changed', recipient: {email: 'test@email.com'}}},
+           headers: service_headers
+      expect(response.code).to eq('401')
+    end
+
+    it "don't post email without SPI" do
+      as_service
+      assert_raises(ActionController::RoutingError) do
+        post '/argu/email/emails',
+             params: {email: {template: 'password_changed', recipient: {email: 'test@email.com'}}},
+             headers: service_headers
+      end
+    end
+
+    it "don't post email on email_messages route" do
+      as_service
+      assert_raises(ActionController::RoutingError) do
+        post '/argu/email/email_messages',
+             params: {email: {template: 'password_changed', recipient: {email: 'test@email.com'}}},
+             headers: service_headers
+      end
+    end
+
     it "don't post invalid template" do
       as_service
       post '/argu/email/spi/emails',
