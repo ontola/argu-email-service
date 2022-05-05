@@ -3,13 +3,12 @@
 source 'https://rubygems.org'
 
 gem 'puma'
-gem 'rails', '~> 5.2.6'
+gem 'rails', '~> 6'
 
 gem 'active_model_serializers', '~> 0.10.7'
 gem 'activeresource', git: 'https://github.com/ArthurWD/activeresource', branch: :master
 gem 'active_response', git: 'https://github.com/ontola/active_response', branch: :master
 gem 'acts_as_tenant', git: 'https://github.com/ArthurWD/acts_as_tenant', branch: :master
-gem 'apartment'
 gem 'bootsnap'
 gem 'bugsnag'
 gem 'bunny', '~> 2.6.1'
@@ -33,6 +32,9 @@ gem 'rdf-rdfxml', git: 'https://github.com/ruby-rdf/rdf-rdfxml', ref: 'dd99a73'
 gem 'rdf-turtle'
 gem 'redcarpet'
 gem 'roadie-rails'
+gem 'ros-apartment',
+    git: 'https://github.com/rails-on-services/apartment',
+    require: 'apartment'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
 gem 'slim'
@@ -56,6 +58,7 @@ end
 
 group :development do
   gem 'better_errors'
+  gem 'listen'
   gem 'web-console'
 end
 

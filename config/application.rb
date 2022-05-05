@@ -58,9 +58,9 @@ module EmailService
     config.middleware.insert_after ActionDispatch::DebugExceptions, TenantMiddleware
     config.middleware.use LinkedRails::Middleware::LinkedDataParams
 
+    config.autoloader = :zeitwerk
     config.autoload_paths += %w[lib]
     config.autoload_paths += %W[#{config.root}/app/serializers/base]
-    config.autoload_paths += %W[#{config.root}/app/models/actions]
     config.autoload_paths += %W[#{config.root}/app/models/events]
     config.autoload_paths += %W[#{config.root}/app/responders]
 
