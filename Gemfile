@@ -18,7 +18,7 @@ gem 'health_check'
 gem 'html_truncator'
 gem 'json-ld'
 gem 'jwt'
-gem 'linked_rails', git: 'https://github.com/ontola/linked_rails', branch: :master
+gem 'linked_rails', git: 'https://github.com/ontola/linked_rails', branch: :empathy
 gem 'mailjet', git: 'https://github.com/mailjet/mailjet-gem', ref: '0edfa4'
 gem 'nokogiri'
 gem 'oauth2'
