@@ -1,7 +1,11 @@
 production:
-  :concurrency: 5
+  :concurrency: <%= ENV['SIDEKIQ_CONCURRENCY']&.to_i || 5 %>
+staging:
+  :concurrency: <%= ENV['SIDEKIQ_CONCURRENCY']&.to_i || 5 %>
+development:
+  :concurrency: <%= ENV['SIDEKIQ_CONCURRENCY']&.to_i || 5 %>
 :queues:
   - email_service
 schedule:
   RescheduleEventsWorker:
-    cron: '* * * * * *'
+    cron: <%= ENV['SCHEDULE_RESCHEDULE_EVENTS_WORKER_CRON'] || '* * * * * *' %>
