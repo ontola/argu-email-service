@@ -8,7 +8,8 @@ table.mail-box
   tr
     td.mail-p.mail-profile
       =link_to @record.profile.id
-        img.mail-profile-logo[src=@record.profile.default_profile_photo.thumbnail]
+        - if @record.profile.default_profile_photo
+          img.mail-profile-logo[src=@record.profile.default_profile_photo.thumbnail]
         =@record.profile.display_name
   tr.mail-button--alt
     td.mail-button--alt style=organisation_color("background-color") = link_to(t('templates.email_token_created.link'), opts.fetch(:iri))
