@@ -42,6 +42,7 @@ module EmailService
     config.api_only = true
     config.host_name = ENV['HOSTNAME']
     config.origin = "https://#{Rails.application.config.host_name}"
+    config.service_name = 'emails'
     LinkedRails.host = config.host_name
     LinkedRails.scheme = :https
 

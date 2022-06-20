@@ -22,6 +22,7 @@ gem 'mailjet'
 gem 'nokogiri'
 gem 'oauth2'
 gem 'oj'
+gem 'openid_connect'
 gem 'pragmatic_context'
 gem 'pundit'
 gem 'rdf'
@@ -64,6 +65,10 @@ group :test do
   gem 'assert_difference'
   gem 'factory_girl'
   gem 'factory_girl_rails'
+  gem 'fakeredis',
+      require: false,
+      git: 'https://github.com/magicguitarist/fakeredis',
+      branch: 'fix-sadd-return-when-0-or-1'
   gem 'sqlite3'
   gem 'webmock'
 end

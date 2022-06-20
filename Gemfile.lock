@@ -26,6 +26,14 @@ GIT
       activesupport (>= 4.2)
 
 GIT
+  remote: https://github.com/magicguitarist/fakeredis
+  revision: 5dbb823ecf7894fd6ff150fab64bff0f2e568df1
+  branch: fix-sadd-return-when-0-or-1
+  specs:
+    fakeredis (0.8.0)
+      redis (~> 4.1)
+
+GIT
   remote: https://github.com/ontola/active_response
   revision: 6ca39fb81936c8fe0dc796949e3577a33b747f32
   branch: master
@@ -141,14 +149,17 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    aes_key_wrap (1.1.0)
     amazing_print (1.4.0)
     assert_difference (1.0.0)
       activesupport (>= 3.0.0)
     ast (2.4.2)
+    attr_required (1.0.1)
     better_errors (2.9.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
+    bindata (2.4.10)
     bindex (0.8.1)
     binding_of_caller (1.0.0)
       debug_inspector (>= 0.0.1)
@@ -212,9 +223,14 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
+    httpclient (2.8.3)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     json-canonicalization (0.3.0)
+    json-jwt (1.14.0)
+      activesupport (>= 4.2)
+      aes_key_wrap
+      bindata
     json-ld (3.2.0)
       htmlentities (~> 4.3)
       json-canonicalization (~> 0.3)
@@ -270,6 +286,16 @@ GEM
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
     oj (3.13.11)
+    openid_connect (1.3.0)
+      activemodel
+      attr_required (>= 1.0.0)
+      json-jwt (>= 1.5.0)
+      rack-oauth2 (>= 1.6.1)
+      swd (>= 1.0.0)
+      tzinfo
+      validate_email
+      validate_url
+      webfinger (>= 1.0.1)
     parallel (1.22.0)
     parser (3.1.1.0)
       ast (~> 2.4.1)
@@ -284,6 +310,12 @@ GEM
       activesupport (>= 3.0.0)
     racc (1.6.0)
     rack (2.2.4)
+    rack-oauth2 (1.21.2)
+      activesupport
+      attr_required
+      httpclient
+      json-jwt (>= 1.11.0)
+      rack (>= 2.1.0)
     rack-test (2.0.2)
       rack (>= 1.3)
     rails (6.1.6.1)
@@ -427,6 +459,10 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
+    swd (1.3.0)
+      activesupport (>= 3)
+      attr_required (>= 0.0.5)
+      httpclient (>= 2.4)
     sxp (1.2.2)
       matrix
       rdf (~> 3.2)
@@ -443,11 +479,20 @@ GEM
     unicode-display_width (1.8.0)
     unicode-types (1.7.0)
     uri_template (0.7.0)
+    validate_email (0.1.6)
+      activemodel (>= 3.0)
+      mail (>= 2.2.5)
+    validate_url (1.0.15)
+      activemodel (>= 3.0.0)
+      public_suffix
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webfinger (1.2.0)
+      activesupport
+      httpclient (>= 2.4)
     webmock (3.14.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
@@ -476,6 +521,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl
   factory_girl_rails
+  fakeredis!
   fast_jsonapi!
   health_check
   html_truncator
@@ -487,6 +533,7 @@ DEPENDENCIES
   nokogiri
   oauth2
   oj
+  openid_connect
   pg
   pragmatic_context
   puma
