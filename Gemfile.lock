@@ -26,16 +26,6 @@ GIT
       activesupport (>= 4.2)
 
 GIT
-  remote: https://github.com/mailjet/mailjet-gem
-  revision: 0edfa4bb00e985fbae91648267f7d5a1f972c135
-  ref: 0edfa4
-  specs:
-    mailjet (1.5.4)
-      activesupport (>= 3.1.0)
-      rack (>= 1.4.0)
-      rest-client
-
-GIT
   remote: https://github.com/ontola/active_response
   revision: 6ca39fb81936c8fe0dc796949e3577a33b747f32
   branch: master
@@ -220,7 +210,7 @@ GEM
       nokogiri (~> 1.5)
     htmlentities (4.3.4)
     http-accept (1.7.0)
-    http-cookie (1.0.4)
+    http-cookie (1.0.5)
       domain_name (~> 0.5)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
@@ -250,6 +240,10 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+    mailjet (1.7.0)
+      activesupport (>= 3.1.0)
+      rack (>= 1.4.0)
+      rest-client (>= 2.0.0)
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
@@ -439,13 +433,13 @@ GEM
     temple (0.8.2)
     thor (1.2.1)
     tilt (2.0.10)
-    tzinfo (2.0.4)
+    tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2022.1)
       tzinfo (>= 1.0.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.8.1)
+    unf_ext (0.0.8.2)
     unicode-display_width (1.8.0)
     unicode-types (1.7.0)
     uri_template (0.7.0)
@@ -489,7 +483,7 @@ DEPENDENCIES
   jwt
   linked_rails!
   listen
-  mailjet!
+  mailjet
   nokogiri
   oauth2
   oj
