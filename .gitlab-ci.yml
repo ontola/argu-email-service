@@ -5,10 +5,12 @@ cache:
     - vendor/
 
 variables:
-  DOCKER_DRIVER: overlay2
-  POSTGRES_DB: testdb
-  POSTGRES_PASSWORD: testdb
-  POSTGRES_USER: testdb
+  JWT_ENCRYPTION_TOKEN: secret
+  POSTGRES_PASSWORD: password
+  POSTGRES_USER: postgres
+  POSTGRESQL_ADDRESS: postgres
+  POSTGRESQL_PASSWORD: password
+  POSTGRESQL_USERNAME: postgres
 
 build:
   stage: build
