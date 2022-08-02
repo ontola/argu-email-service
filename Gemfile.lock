@@ -42,20 +42,6 @@ GIT
       railties
 
 GIT
-  remote: https://github.com/ontola/linked_rails
-  revision: 9b7dedb1ba1cf09f30f775513823c25b7f7378a5
-  branch: empathy
-  specs:
-    linked_rails (0.0.4)
-      active_response (~> 0.0.2)
-      kaminari-activerecord
-      pundit
-      rdf
-      rdf-serializers (~> 0.0.10)
-      rdf-vocab
-      uri_template
-
-GIT
   remote: https://github.com/rails-on-services/apartment
   revision: fefed666e48fe87d981987892ef98134631ff4a8
   specs:
@@ -198,7 +184,8 @@ GEM
       scanf (~> 1.0)
       sxp (~> 1.2)
       unicode-types (~> 1.7)
-    erubi (1.10.0)
+    emp_json (1.3.0)
+    erubi (1.11.0)
     factory_girl (4.9.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.9.0)
@@ -247,6 +234,16 @@ GEM
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
     link_header (0.0.8)
+    linked_rails (0.0.4.pre.g2c53724b3)
+      active_response (~> 0.0.2)
+      emp_json (>= 1.3.0)
+      kaminari-activerecord
+      pundit
+      rdf
+      rdf-serializers (~> 0.0.10)
+      rdf-vocab
+      redis
+      uri_template
     listen (3.6.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -285,7 +282,7 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
-    oj (3.13.11)
+    oj (3.13.19)
     openid_connect (1.3.0)
       activemodel
       attr_required (>= 1.0.0)
@@ -349,7 +346,7 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    rdf (3.2.6)
+    rdf (3.2.8)
       link_header (~> 0.0, >= 0.0.8)
     rdf-aggregate-repo (3.2.0)
       rdf (~> 3.2)
@@ -519,6 +516,7 @@ DEPENDENCIES
   bundler-audit
   byebug
   dotenv-rails
+  emp_json (= 1.3.0)
   factory_girl
   factory_girl_rails
   fakeredis!
@@ -527,7 +525,7 @@ DEPENDENCIES
   html_truncator
   json-ld
   jwt
-  linked_rails!
+  linked_rails (= 0.0.4.pre.g2c53724b3)
   listen
   mailjet
   nokogiri
