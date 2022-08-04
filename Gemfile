@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '2.7.0'
+ruby '3.0.2'
 
 gem 'puma'
-gem 'rails', '~> 6'
+gem 'rails', '~> 7'
 
-gem 'active_model_serializers', '~> 0.10.7'
-gem 'activeresource', git: 'https://github.com/ArthurWD/activeresource', branch: :master
+gem 'active_model_serializers'
+gem 'activeresource'
 gem 'active_response', git: 'https://github.com/ontola/active_response', branch: :master
 gem 'acts_as_tenant', git: 'https://github.com/ArthurWD/acts_as_tenant', branch: :master
 gem 'bootsnap'
@@ -31,6 +31,7 @@ gem 'rdf'
 gem 'rdf-n3'
 gem 'rdf-rdfa'
 gem 'rdf-rdfxml', git: 'https://github.com/ruby-rdf/rdf-rdfxml', ref: 'dd99a73'
+gem 'rdf-serializers', git: 'https://github.com/ontola/rdf-serializers', branch: 'refactor-includes'
 gem 'rdf-turtle'
 gem 'redcarpet'
 gem 'roadie-rails'
