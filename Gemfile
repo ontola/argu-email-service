@@ -35,9 +35,6 @@ gem 'rdf-serializers', git: 'https://github.com/ontola/rdf-serializers', branch:
 gem 'rdf-turtle'
 gem 'redcarpet'
 gem 'roadie-rails'
-gem 'ros-apartment',
-    git: 'https://github.com/rails-on-services/apartment',
-    require: 'apartment'
 gem 'sidekiq'
 gem 'slim'
 gem 'tzinfo-data'

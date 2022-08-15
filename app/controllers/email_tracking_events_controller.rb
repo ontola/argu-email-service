@@ -35,15 +35,9 @@ class EmailTrackingEventsController < ApplicationController
   end
 
   def process_mailjet_event
-    Apartment::Tenant.switch(tenant) do
-      EmailMessage
-        .find(params['CustomID'])
-        &.email_tracking_events
-        &.create(event: MAILJET_EVENTS[params['event']] || params['event'], params: params.to_unsafe_h)
-    end
-  end
-
-  def tenant
-    EmailIdentifier.find_by!(email_id: params['CustomID']).tenant
+    EmailMessage
+      .find(params['CustomID'])
+      &.email_tracking_events
+      &.create(event: MAILJET_EVENTS[params['event']] || params['event'], params: params.to_unsafe_h)
   end
 end

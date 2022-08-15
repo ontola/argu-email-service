@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-Tenant.create('argu') unless ApplicationRecord.connection.schema_exists?('argu')
+load(Dir[Rails.root.join('db/seeds.rb')][0])

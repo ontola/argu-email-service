@@ -41,7 +41,7 @@ class EmailMessage < ApplicationRecord
   private
 
   def create_email_indentifier
-    EmailIdentifier.create!(email_id: id, tenant: Apartment::Tenant.current)
+    EmailIdentifier.create!(email_id: id)
   end
 
   def email_message

@@ -43,16 +43,6 @@ GIT
       rdf (~> 3.0)
 
 GIT
-  remote: https://github.com/rails-on-services/apartment
-  revision: 7d626d1fd53259da7c193a1710495b384cad6481
-  specs:
-    ros-apartment (2.11.0)
-      activerecord (>= 5.0.0, < 7.1)
-      parallel (< 2.0)
-      public_suffix (>= 2.0.5, < 5.0)
-      rack (>= 1.3.6, < 3.0)
-
-GIT
   remote: https://github.com/ruby-rdf/rdf-rdfxml
   revision: dd99a73f7b9931bcd7b3893007e5c26d894c23da
   ref: dd99a73
@@ -566,7 +556,6 @@ DEPENDENCIES
   rdf-turtle
   redcarpet
   roadie-rails
-  ros-apartment!
   rspec-rails
   rubocop (~> 0.92.0)
   rubocop-rails (~> 2.5.2)

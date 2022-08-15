@@ -9,7 +9,7 @@ describe 'Create email tracking event', type: :request do
   it 'posts event with send emails' do
     as_guest
 
-    assert_difference('Apartment::Tenant.switch(\'argu\') { EmailTrackingEvent.count }', 1) do
+    assert_difference('EmailTrackingEvent.count', 1) do
       post '/email/_public/email_events', params: {
         CustomID: email_message.id,
         recipient: email_message.sent_to,
@@ -18,9 +18,7 @@ describe 'Create email tracking event', type: :request do
         format: :json
       }, headers: service_headers
       expect(response.code).to eq('200')
-      Apartment::Tenant.switch('argu') do
-        expect(EmailTrackingEvent.last.params['payload']['error']).to eq('value')
-      end
+      expect(EmailTrackingEvent.last.params['payload']['error']).to eq('value')
     end
   end
 
