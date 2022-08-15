@@ -247,7 +247,7 @@ GEM
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
     link_header (0.0.8)
-    linked_rails (0.0.4.pre.g2c53724b3)
+    linked_rails (0.0.4.pre.g4c8e21c9f)
       active_response (~> 0.0.2)
       emp_json (>= 1.3.0)
       kaminari-activerecord
@@ -546,7 +546,7 @@ DEPENDENCIES
   html_truncator
   json-ld
   jwt
-  linked_rails (= 0.0.4.pre.g2c53724b3)
+  linked_rails (= 0.0.4.pre.g4c8e21c9f)
   listen
   mailjet
   nokogiri
