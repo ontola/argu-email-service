@@ -57,7 +57,6 @@ nl:
       body_html: 'We laten je weten dat je wachtwoord voor je account gewijzigd is. Mail naar info@argu.co als je dit niet gedaan hebt.'
     activity_notifications:
       subject:
-        argu: "Nieuwe meldingen"
         recipient: "%{type} in '%{recipient}'"
       unsubscribe: "Meldingen hiervoor uitschakelen"
       go_to: "Ga naar discussie"

@@ -111,8 +111,7 @@ describe 'Create activity notification emails', type: :request do
         '1': {
           notifications: [create_pro_notification],
           follow_id: argu_url('/follow/follow_id'),
-          followable: motion,
-          organization: {display_name: organization_name}
+          followable: motion
         }
       }
     end
@@ -126,8 +125,7 @@ describe 'Create activity notification emails', type: :request do
         '1': {
           notifications: [create_reaction_notification],
           follow_id: argu_url('/follow/follow_id'),
-          followable: motion,
-          organization: {display_name: organization_name}
+          followable: motion
         }
       }
     end
@@ -141,8 +139,7 @@ describe 'Create activity notification emails', type: :request do
         '1': {
           notifications: [create_pro_notification, create_pro_notification],
           follow_id: argu_url('/follow/follow_id'),
-          followable: motion,
-          organization: {display_name: organization_name}
+          followable: motion
         }
       }
     end
@@ -156,8 +153,7 @@ describe 'Create activity notification emails', type: :request do
         '1': {
           notifications: [create_pro_notification, create_con_notification],
           follow_id: argu_url('/follow/follow_id'),
-          followable: motion,
-          organization: {display_name: organization_name}
+          followable: motion
         }
       }
     end
@@ -171,41 +167,17 @@ describe 'Create activity notification emails', type: :request do
         '1': {
           notifications: [create_pro_notification],
           follow_id: argu_url('/follow/follow_id'),
-          followable: motion,
-          organization: {display_name: organization_name}
+          followable: motion
         },
         '2': {
           notifications: [create_pro_notification],
           follow_id: argu_url('/follow/follow_id'),
-          followable: motion,
-          organization: {display_name: organization_name}
+          followable: motion
         }
       }
     end
 
-    it_behaves_like 'notification mailer', "New notifications in 'Organization'", 'A new pro is posted in'
-  end
-
-  context 'when two organizations' do
-    let(:follows) do
-      {
-        '1': {
-          notifications: [create_pro_notification],
-          follow_id: argu_url('/follow/follow_id'),
-          followable: motion,
-          organization: {display_name: organization_name}
-        },
-        '2': {
-          notifications: [create_pro_notification],
-          follow_id: argu_url('/follow/follow_id'),
-          followable: motion,
-          organization: {display_name: organization2_name}
-        }
-      }
-    end
-    let(:expected_from) { 'Argu <noreply@argu.co>' }
-
-    it_behaves_like 'notification mailer', 'New notifications', 'A new pro is posted in'
+    it_behaves_like 'notification mailer', "New notifications in 'Page name'", 'A new pro is posted in'
   end
 
   context 'when decision forwarded' do
@@ -214,8 +186,7 @@ describe 'Create activity notification emails', type: :request do
         '1': {
           notifications: [forward_decision_notification],
           follow_id: argu_url('/follow/follow_id'),
-          followable: motion,
-          organization: {display_name: organization_name}
+          followable: motion
         }
       }
     end
@@ -229,8 +200,7 @@ describe 'Create activity notification emails', type: :request do
         '1': {
           notifications: [create_decision_notification],
           follow_id: argu_url('/follow/follow_id'),
-          followable: motion,
-          organization: {display_name: organization_name}
+          followable: motion
         }
       }
     end
@@ -244,8 +214,7 @@ describe 'Create activity notification emails', type: :request do
         '1': {
           notifications: [create_decision_notification, create_pro_notification],
           follow_id: argu_url('/follow/follow_id'),
-          followable: motion,
-          organization: {display_name: organization_name}
+          followable: motion
         }
       }
     end
@@ -259,8 +228,7 @@ describe 'Create activity notification emails', type: :request do
         '1': {
           notifications: [trash_motion_notification],
           follow_id: argu_url('/follow/follow_id'),
-          followable: motion,
-          organization: {display_name: organization_name}
+          followable: motion
         }
       }
     end

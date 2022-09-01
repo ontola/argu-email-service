@@ -16,17 +16,10 @@ module ActivityNotificationHelper
     }
   end
 
-  def activity_notification_multi_follow_opts(recipient)
+  def activity_notification_multi_follow_opts
     {
       subject_key: 'templates.activity_notifications.subject.recipient',
-      subject_opts: {type: t('models.new_plural.notification'), recipient: recipient[:display_name]}
-    }
-  end
-
-  def activity_notification_multi_organization_opts
-    {
-      subject_key: 'templates.activity_notifications.subject.argu',
-      from: ApplicationMailer.default_params[:from]
+      subject_opts: {type: t('models.new_plural.notification'), recipient: ActsAsTenant.current_tenant.display_name}
     }
   end
 

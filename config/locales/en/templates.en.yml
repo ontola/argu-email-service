@@ -57,7 +57,6 @@ en:
       body_html: "We're letting you know that the password for your account has been updated. If this is unauthorized, please send an e-mail to info@argu.co."
     activity_notifications:
       subject:
-        argu: "New notifications"
         recipient: "%{type} in '%{recipient}'"
       unsubscribe: "Turn off notifications for this"
       go_to: "Go to discussion"

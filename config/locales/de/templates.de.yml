@@ -82,7 +82,6 @@ de:
         E-Mail an info@argu.co.
     activity_notifications:
       subject:
-        argu: Neue Benachrichtigungen
         recipient: "%{type} in '%{recipient}'"
       unsubscribe: Schalten Sie die Benachrichtigungen hierfür aus
       go_to: Weiter zur Diskussion
