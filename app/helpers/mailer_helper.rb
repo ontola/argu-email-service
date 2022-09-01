@@ -20,7 +20,7 @@ module MailerHelper
   end
 
   def greet_recipient
-    I18n.t('greeting', name: recipient.try(:display_name) || '')
+    I18n.t('greeting', name: recipient.display_name)
   end
 
   def markdown_to_html(markdown)
